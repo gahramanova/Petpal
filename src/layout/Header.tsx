@@ -73,8 +73,9 @@ const Header = () => {
                   ...
                 </div>
               </div>
-
+              <Link to="/contact">
               <button className='btn appointment'><LuCalendar1 style={{ marginRight: "5px" }} />Appointment</button>
+              </Link>
             </div>
           </div>
         </div>
