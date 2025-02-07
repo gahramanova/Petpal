@@ -12,6 +12,8 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Cart from './pages/Cart'
 import Wishlist from './pages/Wishlist'
+import Blog from './pages/Blog'
+import Gallery from './pages/Gallery'
 
 const App = () => {
   return (
@@ -27,8 +29,11 @@ const App = () => {
         <Route path='/allpets' element={<AllPets/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/register' element={<Register/>}></Route>
+        <Route path='/blog' element={<Blog/>}></Route>
         <Route path='/cart' element={<Cart/>}></Route>
         <Route path='/wishlist' element={<Wishlist/>}></Route>
+        <Route path='/gallery' element={<Gallery/>}></Route>
+
       </Routes>
       <Footer/>
       </BrowserRouter>

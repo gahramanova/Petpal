@@ -1,0 +1,17 @@
+header {
+    background-color: #002169;
+}
+.nav-link {
+    color: #002169;
+    font-weight: 600;
+    :hover {
+        color:#894B8D !important;
+    }
+}
+.appointment {
+    padding: 13px 30px;
+    border-radius: 25px;
+    font-weight: 500;
+    background: linear-gradient(to right, #813A7F, #9D57A2);
+    color: white;
+}
