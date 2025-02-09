@@ -47,7 +47,7 @@ const Header = () => {
 
       <div className='px-2'>
         <div className="container-fluid">
-          <div className="d-flex align-items-center justify-content-lg-between py-3 mb-4">
+          <div className="d-flex align-items-center justify-content-lg-between py-3 mb-3">
             <div className="col-12 col-sm-6 col-md-3 mb-2 mb-md-0">
               <img src={petpalLogo} style={{ width: "170px", height: "50px", objectFit: "contain" }} />
             </div>

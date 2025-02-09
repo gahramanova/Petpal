@@ -1,0 +1,19 @@
+* {
+    font-family: "Montserrat", serif;
+}
+
+.home-section-one {
+    background-image: url("../img/homeSectionOneBackground.jpg");
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+
+    .titleImg {
+        margin-top: -50px;
+    }
+    .titleColor {
+        color: #002168;
+    }
+}
+
+  
