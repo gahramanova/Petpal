@@ -11,9 +11,36 @@
     .titleImg {
         margin-top: -50px;
     }
-    .titleColor {
-        color: #002168;
+    .read-more {
+        background-color: #894B8D;
+        color: white;
+        font-weight: 500;
+        padding: 13px 25px;
+        border-radius: 30px;
     }
 }
 
+.titleColor {
+    color: #002168;
+}
+.home-section-two {
+    .experience {
+        position: relative;
+        background-color: #894B8D;
+        padding: 17px;
+        border-radius: 35px;
+    }
+    .vertical-one {
+        border-left: 5px solid #894B8D;
+        border-radius: 5px;
+        height: 100px;
+    }
+    .vertical-two {
+        border-left: 5px solid #C2C2C2;
+        border-radius: 5px;
+        height: 40px;
+    }
+
+    
+}
   
