@@ -3,14 +3,15 @@
 }
 
 .home-section-one {
-    background-image: url("../img/homeSectionOneBackground.jpg");
+    background-image: url("../img/sectionOneBackground.svg");
     width: 100%;
-    height: auto;
-    object-fit: cover;
-
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     .titleImg {
         margin-top: -50px;
     }
+
     .read-more {
         background-color: #894B8D;
         color: white;
@@ -23,24 +24,139 @@
 .titleColor {
     color: #002168;
 }
+
 .home-section-two {
+    background-image: url("../img/sectionTwoBackground.svg");
+    background-position: center;
+    background-size: cover;
     .experience {
         position: relative;
         background-color: #894B8D;
         padding: 17px;
         border-radius: 35px;
     }
+
     .vertical-one {
         border-left: 5px solid #894B8D;
         border-radius: 5px;
         height: 100px;
     }
+
     .vertical-two {
         border-left: 5px solid #C2C2C2;
         border-radius: 5px;
         height: 40px;
     }
 
-    
+
 }
-  
+
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: #002168;
+    padding: 30px;
+    position: relative;
+    display: flex;
+}
+
+.marquee-text {
+    display: flex;
+    gap: 50px; // Space between duplicate texts
+    width: max-content;
+    animation: marquee 60s linear infinite;
+    color: #ffff;
+    font-size: large;
+    font-weight: 500;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.home-section-three {
+    background-image: url("../img/sectionThreeBackground.svg");
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    .title {
+        p {
+            color: #894B8D;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: #002168;
+            font-weight: 700;
+        }
+    }
+
+    .all-services {
+        border: 1px solid #894B8D;
+        border-radius: 30px;
+        padding: 15px 30px;
+        color: #435273;
+        font-weight: 500;
+        transition: 0.7s;
+        &:hover {
+            background-color: #894B8D;
+            color: white;
+        }
+    }
+
+    .card { 
+
+        border-radius: 30px;
+        .card-title {
+            font-weight: 700;
+            color: #002168;
+        }
+        
+        .details {
+            border: 1px solid #894B8D;
+            border-radius: 25px;
+            padding: 10px 20px;
+            color: #435273;
+            font-weight: 600;
+            transition: 0.5s;
+
+            &:hover {
+                background-color: #894B8D;
+                color: white;
+            }
+        }
+    }
+}
+
+.home-section-five {
+    background-image: url("../img/sectionFiveBackground.svg");
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    h2 {
+        line-height: 40px;
+    }
+
+    .read-more {
+        border: 1px solid #fff;
+        padding: 15px 25px;
+        color: white;
+        border-radius: 30px;
+        transition: 0.5s;
+        font-weight: 600;
+        &:hover {
+            background-color: #fff;
+            color: #002168;
+        }
+    }
+}

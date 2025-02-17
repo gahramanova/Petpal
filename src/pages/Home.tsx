@@ -7,6 +7,13 @@ import homeAboutImg from "../assets/img/homeAboutImg.png"
 import signature from "../assets/img/signature.png"
 import review from "../assets/img/review.png"
 import { FaStar } from "react-icons/fa";
+import star from "../assets/img/star.svg"
+import vaccin from "../assets/img/vaccin.svg"
+import grooming from "../assets/img/grooming.svg"
+import veterinary from "../assets/img/veterinary.svg"
+import surgery from "../assets/img/surgery.svg"
+import sectionFourImg from "../assets/img/sectionFourImg.svg"
+import icon from "../assets/img/icon.svg"
 
 
 const Home = () => {
@@ -78,6 +85,145 @@ const Home = () => {
           </div>
         </div>
 
+      </section>
+
+      <div className="marquee-container">
+        <div className="marquee-text">
+          <img src={star} />
+          <span>BOOK FOR ONLINE APPOINTMENT </span>
+          <img src={star} />
+          <span>BOOK FOR ONLINE APPOINTMENT</span>
+          <img src={star} />
+          <span>BOOK FOR ONLINE APPOINTMENT </span>
+          <img src={star} />
+          <span>BOOK FOR ONLINE APPOINTMENT</span>
+          <img src={star} />
+          <span>BOOK FOR ONLINE APPOINTMENT </span>
+          <img src={star} />
+          <span>BOOK FOR ONLINE APPOINTMENT</span>
+          <img src={star} />
+          <span>BOOK FOR ONLINE APPOINTMENT </span>
+          <img src={star} />
+          <span>BOOK FOR ONLINE APPOINTMENT</span>
+          <img src={star} />
+          <span>BOOK FOR ONLINE APPOINTMENT </span>
+          <img src={star} />
+          <span>BOOK FOR ONLINE APPOINTMENT</span>
+          <img src={star} />
+        </div>
+      </div>
+
+
+      <section className='home-section-three py-5'>
+        <div className='container py-5'>
+          <div className='d-flex justify-content-between align-items-center py-5'>
+            <div className='title'>
+              <p>DELIVERING WORLD CLASS HOME CARE <i style={{ color: "#C2A8C2" }} className="fa-solid fa-paw mx-2"></i></p>
+              <h2>Providing Our Best Pet Care & <br />Veterinary Services</h2>
+            </div>
+            <div>
+              <button className='btn all-services'>See All Services <FaArrowRightLong className='mx-2' /></button>
+            </div>
+          </div>
+
+          <div className='row'>
+            <div className='col-12 col-sm-6 col-sm-3 col-md-3'>
+              <div className="card py-4">
+                <img src={vaccin} className="card-img-top" width={80} height={80} />
+                <div className="card-body d-flex align-items-center flex-column">
+                  <h5 className="card-title">Pet Vaccination</h5>
+                  <p className="card-text">We will work with you to develop individu alised care plans including</p>
+                  <button className='btn details'>See Details <FaArrowRightLong className='mx-2' /></button>
+                </div>
+              </div>
+
+            </div>
+            <div className='col-12 col-sm-6 col-sm-3 col-md-3'>
+              <div className="card py-4">
+                <img src={grooming} className="card-img-top" width={80} height={80} />
+                <div className="card-body d-flex align-items-center flex-column">
+                  <h5 className="card-title">Pet Grooming</h5>
+                  <p className="card-text">We will work with you to develop individu alised care plans including</p>
+                  <button className='btn details'>See Details <FaArrowRightLong className='mx-2' /></button>
+                </div>
+              </div>
+
+            </div>
+            <div className='col-12 col-sm-6 col-sm-3 col-md-3'>
+              <div className="card py-4">
+                <img src={veterinary} className="card-img-top" width={80} height={80} />
+                <div className="card-body d-flex align-items-center flex-column">
+                  <h5 className="card-title">Pet Veterinary</h5>
+                  <p className="card-text">We will work with you to develop individu alised care plans including</p>
+                  <button className='btn details'>See Details <FaArrowRightLong className='mx-2' /></button>
+                </div>
+              </div>
+
+            </div>
+            <div className='col-12 col-sm-6 col-sm-3 col-md-3'>
+              <div className="card py-4">
+                <img src={surgery} className="card-img-top" width={80} height={80} />
+                <div className="card-body d-flex align-items-center flex-column">
+                  <h5 className="card-title">Pet Surgery</h5>
+                  <p className="card-text">We will work with you to develop individu alised care plans including</p>
+                  <button className='btn details'>See Details <FaArrowRightLong className='mx-2' /></button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <section className='home-section-four'>
+
+        <div className="container px-4 py-5">
+          <div className="row flex-lg align-items-center g-5 py-5">
+            <div className="col-12 col-sm-6 col-md-6 col-lg-6">
+              <img src={sectionFourImg} className="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes"  loading="lazy" width={700} height={700}/>
+            </div>
+            <div className="col-12 col-sm-6 col-md-6 col-lg-6">
+            <div className='d-flex'> <p className='fw-bold m-0' style={{ color: "#894B8D" }}>WHY WE ARE THE BEST</p><span><i style={{ color: "#C2A8C2" }} className="fa-solid fa-paw mx-2"></i></span></div>
+              <h1 className="display-5 fw-bold lh-1 mb-3" style={{color:"#002168"}}>Pet Emergencies <br/>What You Need To Know.</h1>
+              <p style={{color:"#414F6F"}}>Duis aute irure dolor in reprehenderit in voluptate velit esse We understand that your furry friend is a treasured member of your family and deserves pets are the best care and attention possible.</p>
+             <div className='row'>
+              <div className='col-12 col-sm-6 col-sm-6 col-md-6'>
+               <div className='d-flex'> <img src={icon}/><h5 className='fw-bold mx-2' style={{color:"#002168"}}>More Experience</h5></div>
+                <p style={{color:"#414F6F"}}>Be confident in the treatment plan and your doctor’s abilities.</p>
+              </div>
+              <div className='col-12 col-sm-6 col-sm-6 col-md-6'>
+              <div className='d-flex'><img src={icon}/><h5 className='fw-bold mx-2' style={{color:"#002168"}}>Affordable Pricing</h5></div>
+                <p style={{color:"#414F6F"}}>Be confident in the treatment plan and your doctor’s abilities.</p>
+              </div>
+              <div className='col-12 col-sm-6 col-sm-6 col-md-6'>
+              <div className='d-flex'><img src={icon}/><h5 className='fw-bold mx-2' style={{color:"#002168"}}>Modern Pet Training</h5></div>
+                <p style={{color:"#414F6F"}}>Be confident in the treatment plan and your doctor’s abilities.</p>
+              </div>
+              <div className='col-12 col-sm-6 col-sm-6 col-md-6'>
+             <div className='d-flex'> <img src={icon}/><h5 className='fw-bold mx-2' style={{color:"#002168"}}>Maintain a daily routine</h5></div>
+                <p style={{color:"#414F6F"}}>Be confident in the treatment plan and your doctor’s abilities.</p>
+              </div>
+             </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <section className='home-section-five py-5'>
+        <div className='container py-5'>
+          <div className='row'>
+            <div className='col-12 col-sm-4 col-md-4 col-lg-4'>
+            <div className='d-flex'> <p className='fw-bold m-0' style={{ color: "#8FA5D6" }}>Your Trust Our Priority</p><span><i style={{ color: "#37528E" }} className="fa-solid fa-paw mx-2"></i></span></div>
+              <h1 className='fw-bold text-light'>Professional Vest Care And Guaranteed Quality</h1>
+              <p style={{color:"#8FA5D6"}}>Duis aute irure dolor in repreerit in voluptate velit esse We understand that your furry friend treas ured member of your pets are.</p>
+              <button className='btn read-more'>Read More  <FaArrowRightLong className='mx-2' /></button>
+            </div>
+
+            <div className='col-12 col-sm-5 col-'></div>
+          </div>
+        </div>
       </section>
     </>
   )
