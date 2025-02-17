@@ -1,4 +1,4 @@
-import React from 'react'
+
 import homeSectionRightImg from "../assets/img/homeSectionOneRight.png"
 import sectionOneTitle from "../assets/img/sectionOneTitle.png"
 import sectionOneTitleTwo from "../assets/img/homeSectionTitleTwo.png"

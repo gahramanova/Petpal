@@ -1,4 +1,3 @@
-import React from 'react'
 import { IoLocationOutline } from "react-icons/io5";
 import { FaFacebookF, FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";

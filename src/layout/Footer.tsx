@@ -1,4 +1,3 @@
-import React from 'react'
 import petpalLogo from "../assets/img/petpalLogo-footer.png"
 import { FaFacebookF, FaInstagram, FaTwitter, FaWhatsapp } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
