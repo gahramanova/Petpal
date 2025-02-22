@@ -1,0 +1,27 @@
+.carousel-main {
+    padding: 100px 0;
+    overflow: hidden;
+
+    .slider-container {
+        width: 100%;
+
+        .slider-item {
+            width: 180px !important;
+            height: 180px !important;
+            border-radius: 40px;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+
+            img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    
+        .slick-slide {
+            width: 250px !important;
+        }
+    }
+
+}
