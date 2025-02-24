@@ -24,6 +24,9 @@ import cardIcon from "../assets/img/cardIcon.svg"
 import { Link } from "react-router-dom";
 import sectionEight from "../assets/img/sectionEight.svg"
 import { TfiQuoteLeft } from "react-icons/tfi";
+import blogOne from "../assets/img/blogOne.jpg"
+import blogTwo from "../assets/img/blogTwo.jpg"
+import blogThree from "../assets/img/blogThree.jpg"
 
 
 
@@ -295,7 +298,7 @@ const Home = () => {
                 <div className="d-flex justify-content-end align-items-end">
                   <img src={cardIcon} />
                 </div>
-                <div className="card" style={{ width: '18rem' }}>
+                <div className="card">
                   <img src={teamOne} className="card-img-top" />
                   <div className="card-body">
                     <h5 className="card-title text-center">Lizay Ariania</h5>
@@ -308,7 +311,7 @@ const Home = () => {
                 <div className="d-flex justify-content-end align-items-end">
                   <img src={cardIcon} />
                 </div>
-                <div className="card" style={{ width: '18rem' }}>
+                <div className="card">
                   <img src={teamTwo} className="card-img-top" />
                   <div className="card-body">
                     <h5 className="card-title text-center">Kenroly Gajon</h5>
@@ -321,7 +324,7 @@ const Home = () => {
                 <div className="d-flex justify-content-end align-items-end">
                   <img src={cardIcon} />
                 </div>
-                <div className="card" style={{ width: '18rem' }}>
+                <div className="card">
                   <img src={teamThree} className="card-img-top" />
                   <div className="card-body">
                     <h5 className="card-title text-center">Michael Brian</h5>
@@ -334,7 +337,7 @@ const Home = () => {
                 <div className="d-flex justify-content-end align-items-end">
                   <img src={cardIcon} />
                 </div>
-                <div className="card" style={{ width: '18rem' }}>
+                <div className="card">
                   <img src={teamTwo} className="card-img-top" />
                   <div className="card-body">
                     <h5 className="card-title text-center">Kenroly Gajon</h5>
@@ -360,14 +363,48 @@ const Home = () => {
               <img src={sectionEight} className="" alt="Bootstrap Themes" width={700} height={500} loading="lazy" />
             </div>
             <div className="col-12 col-sm-6 col-md-6 col-lg-6 d-flex justify-content-center align-items-center flex-column">
-            <TfiQuoteLeft style={{width:"80px", height:"80px", color:"#894B8D"}}/>
+              <TfiQuoteLeft style={{ width: "80px", height: "80px", color: "#894B8D" }} />
 
-              <h4 className="fw-bold lh-1 mb-3 text-center mt-3" style={{color:"#002168", fontWeight:"600"}}>Pet health important</h4>
-              <p className="lead" style={{color:"#435273"}}><i>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eleifend ornare pharetra. Cras faucibus felis in felis congue, sed posuere dui eleifend. Duis sagittis vulputate purus et placerat. </i></p>
+              <h4 className="fw-bold lh-1 mb-3 text-center mt-3" style={{ color: "#002168", fontWeight: "600" }}>Pet health important</h4>
+              <p className="lead" style={{ color: "#435273" }}><i>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eleifend ornare pharetra. Cras faucibus felis in felis congue, sed posuere dui eleifend. Duis sagittis vulputate purus et placerat. </i></p>
             </div>
           </div>
         </div>
 
+      </section>
+
+      <section className="home-section-nine">
+        <div className="container">
+          <div className="row">
+            <div className="col-12 col-sm-6 col-md-4 col-lg-4">
+              <div className="card">
+                <img src={blogOne} className="card-img-top" alt="..." />
+                <div className="card-body">
+                  <h5 className="card-title">Clean indoor air as important in controlling asthma</h5>
+                  <a href="#" className="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            <div className="col-12 col-sm-6 col-md-4 col-lg-4">
+              <div className="card">
+                <img src={blogTwo}className="card-img-top" alt="..." />
+                <div className="card-body">
+                  <h5 className="card-title">Clean indoor air as important in controlling asthma</h5>
+                  <a href="#" className="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            <div className="col-12 col-sm-6 col-md-4 col-lg-4">
+              <div className="card">
+                <img src={blogThree} className="card-img-top" alt="..." />
+                <div className="card-body">
+                  <h5 className="card-title">Clean indoor air as important in controlling asthma</h5>
+                  <a href="#" className="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </>
   )
