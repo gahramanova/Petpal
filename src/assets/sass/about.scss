@@ -1,0 +1,75 @@
+.about-section-one {
+    width: 100%;
+    height: auto;
+    background-color: #F6F5F7;
+    background-image: url("../img/animation.png") ;
+    background-position: cover;
+    background-repeat: no-repeat;
+
+    h1 {
+        color: #002169;
+    }
+
+}
+
+.about-section-two {
+    .container {
+        padding: 1rem 0;
+      }
+    
+      .row {
+        display: flex;
+        align-items: center;
+      }
+    
+      .about-image {
+        position: relative; 
+        display: inline-block;
+       
+    
+        .about-image-one {
+          width: 100%;
+          display: block;
+          border-radius: 15px;
+         
+        }
+    
+        .about-image-two {
+          position: absolute;
+          top: 50%;
+          right: -40%;
+          transform: translateY(-50%);
+          border: 7px solid #fff;
+          border-radius: 15px; 
+          box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); 
+        }
+      }
+
+    
+      .vertical-two {
+        border-left: 5px solid #C2C2C2;
+        border-radius: 5px;
+        height: 100px;
+    }
+
+      .experience {
+        background-color: #002169;
+        padding: 17px;
+        border-radius: 35px;
+      }
+
+      .right-content ul li {
+        list-style: none;
+        svg {
+            color: #894B8D !important;
+        }
+        h5 {
+            color: #002169;
+        }
+      }
+}
+
+.about-section-three {
+    background-color:#F7F4F7;
+    height: 100vh;
+}
