@@ -82,8 +82,8 @@ const About = () => {
       </section>
 
       <section className="about-section-three">
-        <div className="container py-5">
-          <div className="px-4 text-center">
+        <div className="container px-4 py-5">
+          <div className=" text-center">
             <div className='d-flex align-items-center justify-content-center'> <p className='fw-bold m-0' style={{ color: "#894B8D" }}>WHY WE ARE THE BEST</p><span><i style={{ color: "#C2A8C2" }} className="fa-solid fa-paw mx-2"></i></span></div>
             <h1 className="fw-bold">See How Petpal can Help</h1>
             <div className="col-lg-6 mx-auto">
