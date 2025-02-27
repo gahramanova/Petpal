@@ -6,7 +6,7 @@ import aboutImgTwo from "../assets/img/aboutImgTwo.jpg"
 import { FaCircleCheck } from "react-icons/fa6";
 import { useEffect } from "react";
 import abouthelpimg from "../assets/img/aboutHelp.png"
-import abouthelpimgTwo from "../assets/img/abouthelpOne.png"
+import abouthelpimgTwo from "../assets/img/aboutHelpOne.png"
 import abouthelpimgThree from "../assets/img/abouthelpTwo.png"
 import Aos from "aos";
 import "aos/dist/aos.css";
