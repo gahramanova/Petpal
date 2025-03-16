@@ -1,0 +1,44 @@
+.team-section-one {
+    width: 100%;
+    height: auto;
+    background-color: #F6F5F7;
+    background-image: url("../img/animation.png") ;
+    background-position: cover;
+    background-repeat: no-repeat;
+
+    h1 {
+        color: #002169;
+    }
+}
+
+.team-section-two {
+    .team {
+        .card {
+            border: none;
+            background-color: none;
+            img {
+                object-fit: cover;
+                border-radius: 50%;
+                width: 100%;
+            }
+            .card-body {
+                h5 {
+                    color: #002168;
+                    font-weight: 700;
+                }
+                p {
+                    color: #445374;
+                }
+            }
+
+        }
+        .see-all-doctors {
+            background-color: #F6F3F6;
+            border-radius: 30px;
+            padding: 10px 25px;
+            color: #894B8D;
+            font-weight: 600;
+        }
+    }
+}
+
