@@ -1,0 +1,49 @@
+.contact-section-one {
+    width: 100%;
+    height: auto;
+    background-color: #F6F5F7;
+    background-image: url("../img/animation.png") ;
+    background-position: cover;
+    background-repeat: no-repeat;
+
+    h1 {
+        color: #002169;
+    }
+}
+.contact-section-two {
+    .information {
+        .icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex: 0 0 auto;
+            padding: 10px;
+            background: #894B8D;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .social-media {
+            color: #002169;
+            width: 23px;
+            height: 23px;
+            margin-right: 5px;
+        }
+        
+    }
+
+    .content {
+        background-color: #F6F5F7;
+        padding: 35px;
+        border-radius: 15px;
+
+        form {
+            input, textarea {
+                padding: 10px 15px;
+                border-radius: 25px;
+            }
+        }
+    }
+}
