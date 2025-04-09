@@ -2,7 +2,7 @@
     width: 100%;
     height: auto;
     background-color: #F6F5F7;
-    background-image: url("../img/animation.png") ;
+    background-image: url("../img/animation.png");
     background-position: cover;
     background-repeat: no-repeat;
 
@@ -15,9 +15,86 @@
     .products {
         .card {
             border: none;
+
             img {
                 border-radius: 15px;
             }
         }
     }
+
+    .product-card {
+        position: relative;
+        overflow: hidden;
+        border: none;
+        transition: transform 0.3s ease;
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                display: block;
+                transition: transform 0.3s ease;
+            }
+
+            .add-to-cart-btn,
+            .wishlist-btn {
+                position: absolute;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.4s ease;
+            }
+
+            .add-to-cart-btn {
+                width: 70%;
+                left: 50%;
+                bottom: -40px;
+                transform: translateX(-50%);
+                background-color: #894b8d;
+                color: #fff;
+                border: none;
+                padding: 10px 25px;
+                border-radius: 10px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            .wishlist-btn {
+                right: -40px;
+                top: 10px;
+                background-color: #fff;
+                color: #894b8d;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            }
+        }
+
+        &:hover {
+            .image-container {
+                img {
+                    transform: scale(1.05);
+                }
+
+                .add-to-cart-btn {
+                    bottom: 15px;
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                .wishlist-btn {
+                    right: 15px;
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+
 }

@@ -6,6 +6,10 @@ import productTwo from "../assets/img/productTwo.jpg"
 import productThree from "../assets/img/productThree.jpg"
 import productFour from "../assets/img/productFour.jpg"
 import Rating from "../assets/components/Rating";
+import { CiShoppingBasket } from "react-icons/ci";
+import { GoHeart } from "react-icons/go";
+
+
 
 const Shop = () => {
   return (
@@ -32,56 +36,92 @@ const Shop = () => {
         <div className="container products">
           <div className="row">
             <div className="col-12 col-sm-6 col-md-3 col-lg-3">
-              <div className="card">
-                <img src={productOne} className="card-img-top" alt="..." />
-                <div className="card-body px-0">
-                  <Rating />
-                  <h5 className="card-title mt-3">Meow Mix Seafood Medley Dry Cat Food, 3.15-Pound</h5>
-                  <div className="d-flex  align-items-center">
-                    <h4 className="fw-bold m-0" style={{ color: "#894B8D" }}>$12.00</h4>
-                    <s className="fw-bold mx-2" style={{ color: "#B9BDC8", fontSize: "23px" }}>$25.00</s>
-                  </div>
+              <div className="product-card card">
+                <div className="image-container">
+                  <img src={productOne} className="card-img-top" alt="..." />
+                  <button className="add-to-cart-btn d-flex justify-content-center align-items-center mx-2">
+                    <CiShoppingBasket style={{ width: "30px", height: "30px", fontWeight: "800" }} />
+                    Add to Cart</button>
+                  <button className="wishlist-btn"><GoHeart style={{width:"20px", height:"20px" }} /></button>
                 </div>
-              </div>
-            </div>
-            <div className="col-12 col-sm-6 col-md-3 col-lg-3">
-              <div className="card">
-                <img src={productTwo} className="card-img-top" alt="..." />
                 <div className="card-body">
                   <Rating />
-                  <h5 className="card-title mt-3">Meow Mix Seafood Medley Dry Cat Food, 3.15-Pound</h5>
-                  <div className="d-flex  align-items-center">
-                    <h4 className="fw-bold m-0" style={{ color: "#894B8D" }}>$20.00</h4>
-                    <s className="fw-bold mx-2" style={{ color: "#B9BDC8", fontSize: "23px" }}>$30.00</s>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 col-sm-6 col-md-3 col-lg-3">
-              <div className="card">
-                <img src={productThree} className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <Rating />
-                  <h5 style={{color:"#445374"}} className="card-title mt-3">Meow Mix Seafood Medley Dry Cat Food, 3.15-Pound</h5>
-                  <div className="d-flex  align-items-center">
-                    <h4 className="fw-bold m-0" style={{ color: "#894B8D" }}>$18.00</h4>
-                    <s className="fw-bold mx-2" style={{ color: "#B9BDC8", fontSize: "23px" }}>$33.00</s>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 col-sm-6 col-md-3 col-lg-3">
-              <div className="card">
-                <img src={productFour} className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <Rating />
-                  <h5 style={{color:"#445374"}} className="card-title mt-3">Meow Mix Seafood Medley Dry Cat Food, 3.15-Pound</h5>
-                  <div className="d-flex  align-items-center">
+                  <h5 className="card-title mt-3" style={{ color: "#445374" }}>
+                    Meow Mix Seafood Medley Dry Cat Food, 3.15-Pound
+                  </h5>
+                  <div className="d-flex align-items-center">
                     <h4 className="fw-bold m-0" style={{ color: "#894B8D" }}>$36.00</h4>
                     <s className="fw-bold mx-2" style={{ color: "#B9BDC8", fontSize: "23px" }}>$56.00</s>
                   </div>
                 </div>
               </div>
+            </div>
+            <div className="col-12 col-sm-6 col-md-3 col-lg-3">
+              <div className="product-card card">
+                <div className="image-container">
+                  <img src={productTwo} className="card-img-top" alt="..." />
+                  <button className="add-to-cart-btn d-flex justify-content-center align-items-center mx-2">
+                    <CiShoppingBasket style={{ width: "30px", height: "30px", fontWeight: "800" }} />
+                    Add to Cart</button>
+                  <button className="wishlist-btn"><GoHeart style={{width:"20px", height:"20px" }} />
+                  </button>
+                </div>
+                <div className="card-body">
+                  <Rating />
+                  <h5 className="card-title mt-3" style={{ color: "#445374" }}>
+                    Meow Mix Seafood Medley Dry Cat Food, 3.15-Pound
+                  </h5>
+                  <div className="d-flex align-items-center">
+                    <h4 className="fw-bold m-0" style={{ color: "#894B8D" }}>$36.00</h4>
+                    <s className="fw-bold mx-2" style={{ color: "#B9BDC8", fontSize: "23px" }}>$56.00</s>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-12 col-sm-6 col-md-3 col-lg-3">
+              <div className="product-card card">
+                <div className="image-container">
+                  <img src={productThree} className="card-img-top" alt="..." />
+                  <button className="add-to-cart-btn d-flex justify-content-center align-items-center mx-2">
+                    <CiShoppingBasket style={{ width: "30px", height: "30px", fontWeight: "800" }} />
+                    Add to Cart</button>
+                  <button className="wishlist-btn"><GoHeart style={{width:"20px", height:"20px"}}/>
+                  </button>
+                </div>
+                <div className="card-body">
+                  <Rating />
+                  <h5 className="card-title mt-3" style={{ color: "#445374" }}>
+                    Meow Mix Seafood Medley Dry Cat Food, 3.15-Pound
+                  </h5>
+                  <div className="d-flex align-items-center">
+                    <h4 className="fw-bold m-0" style={{ color: "#894B8D" }}>$36.00</h4>
+                    <s className="fw-bold mx-2" style={{ color: "#B9BDC8", fontSize: "23px" }}>$56.00</s>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-12 col-sm-6 col-md-3 col-lg-3">
+              <div className="product-card card">
+                <div className="image-container">
+                  <img src={productFour} className="card-img-top" alt="..." />
+                  <button className="add-to-cart-btn d-flex justify-content-center align-items-center mx-2">
+                    <CiShoppingBasket style={{ width: "30px", height: "30px", fontWeight: "800" }} />
+                    Add to Cart</button>
+                  <button className="wishlist-btn"><GoHeart style={{width:"20px", height:"20px"}}/>
+                  </button>
+                </div>
+                <div className="card-body">
+                  <Rating />
+                  <h5 className="card-title mt-3" style={{ color: "#445374" }}>
+                    Meow Mix Seafood Medley Dry Cat Food, 3.15-Pound
+                  </h5>
+                  <div className="d-flex align-items-center">
+                    <h4 className="fw-bold m-0" style={{ color: "#894B8D" }}>$36.00</h4>
+                    <s className="fw-bold mx-2" style={{ color: "#B9BDC8", fontSize: "23px" }}>$56.00</s>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

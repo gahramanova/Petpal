@@ -4,7 +4,7 @@ import { FaStarHalfAlt } from "react-icons/fa";
 const Rating = () => {
   return (
     <>
-    <div className="rating">
+    <div className="rating d-flex">
     <FaStar style={{color:"#FFBE17"}}/>
     <FaStar style={{color:"#FFBE17"}}/>
     <FaStar style={{color:"#FFBE17"}}/>
