@@ -6,7 +6,6 @@ import About from './pages/About'
 import Shop from './pages/Shop'
 import Contact from './pages/Contact'
 import OurTeams from './pages/OurTeams'
-import AllPets from './pages/AllPets'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Cart from './pages/Cart'
@@ -19,7 +18,6 @@ const App = () => {
 
   const routerWithSecondHeader = [
     "/about",
-    "/allpets",
     "/blog",
     "/cart",
     "/ourteams",
@@ -41,7 +39,6 @@ const App = () => {
         <Route path='/shop' element={<Shop />}></Route>
         <Route path='/contact' element={<Contact />}></Route>
         <Route path='/ourteams' element={<OurTeams />}></Route>
-        <Route path='/allpets' element={<AllPets />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/register' element={<Register />}></Route>
         <Route path='/blog' element={<Blog />}></Route>

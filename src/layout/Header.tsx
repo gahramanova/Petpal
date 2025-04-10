@@ -54,7 +54,6 @@ const Header = () => {
               <li><Link to="/" className="nav-link px-2">Home</Link></li>
               <li><Link to="/about" className="nav-link px-2">About</Link></li>
               <li><Link to="/shop" className="nav-link px-2">Shop</Link></li>
-              <li><Link to="/allpets" className="nav-link px-2">All Pets</Link></li>
               <li><Link to="/ourteams" className="nav-link px-2">Our teams</Link></li>
               <li><Link to="/contact" className="nav-link px-2">Contact</Link></li>
             </ul>
