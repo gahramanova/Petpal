@@ -1,0 +1,17 @@
+.login {
+    background-color: #1B3B80;
+    border-radius: 13px;
+    color: white;
+    font-weight: 600;
+
+    &:hover {
+        background-color: none;
+        border: 1px solid #1B3B80;
+    }
+}
+
+.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
+    color: white;
+    background-color: #1B3B80;
+    border-color: #1B3B80;
+}

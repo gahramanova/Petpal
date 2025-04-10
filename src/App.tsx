@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import Header from "./layout/Header"
 import Footer from './layout/Footer'
 import Home from './pages/Home'
@@ -12,28 +12,46 @@ import Register from './pages/Register'
 import Cart from './pages/Cart'
 import Wishlist from './pages/Wishlist'
 import Blog from './pages/Blog'
+import HeaderSecond from './layout/HeaderSecond'
 
 const App = () => {
+  const location = useLocation();
+
+  const routerWithSecondHeader = [
+    "/about",
+    "/allpets",
+    "/blog",
+    "/cart",
+    "/ourteams",
+    "/contact",
+    "/login",
+    "/register",
+    "/shop",
+    "/wishlist"
+  ];
+
+  const showOnlySecondHeader = routerWithSecondHeader.includes(location.pathname)
   return (
     <div>
-      <BrowserRouter>
-      <Header/>
+
+      {showOnlySecondHeader ? <HeaderSecond /> : <Header />}
       <Routes>
-        <Route path='/' element={<Home/>}></Route>
-        <Route path='/about' element={<About/>}></Route>
-        <Route path='/shop' element={<Shop/>}></Route>
-        <Route path='/contact' element={<Contact/>}></Route>
-        <Route path='/ourteams' element={<OurTeams/>}></Route>
-        <Route path='/allpets' element={<AllPets/>}></Route>
-        <Route path='/login' element={<Login/>}></Route>
-        <Route path='/register' element={<Register/>}></Route>
-        <Route path='/blog' element={<Blog/>}></Route>
-        <Route path='/cart' element={<Cart/>}></Route>
-        <Route path='/wishlist' element={<Wishlist/>}></Route>
+        <Route path='/' element={<Home />}></Route>
+        <Route path='/about' element={<About />}></Route>
+        <Route path='/shop' element={<Shop />}></Route>
+        <Route path='/contact' element={<Contact />}></Route>
+        <Route path='/ourteams' element={<OurTeams />}></Route>
+        <Route path='/allpets' element={<AllPets />}></Route>
+        <Route path='/login' element={<Login />}></Route>
+        <Route path='/register' element={<Register />}></Route>
+        <Route path='/blog' element={<Blog />}></Route>
+        <Route path='/cart' element={<Cart />}></Route>
+        <Route path='/wishlist' element={<Wishlist />}></Route>
 
       </Routes>
-      <Footer/>
-      </BrowserRouter>
+      {showOnlySecondHeader && (
+        <Footer />
+      )}
     </div>
   )
 }
