@@ -50,8 +50,7 @@ const Login = () => {
         onSubmit={handleSubmit}
         sx={{ display: 'flex', flexDirection: 'column', gap: 2, width: 500, mx: 'auto', mt: 4 }}
       >
-        <h2 className="fw-bold m-0" style={{color:"#002169"}}>Welcome Back!</h2>
-        <span style={{color:"#445374"}} className="m-0">Nice to see you again :D</span>
+        <h2 className="fw-bold m-0 text-center" style={{color:"#002169"}}>Welcome Back!</h2>
         <TextField
           label="Email"
           name="email"
@@ -83,6 +82,7 @@ const Login = () => {
         <Button type="submit" variant="contained" sx={{backgroundColor:"#002169", borderRadius:"33px", padding:"10px"}}>
           Login
         </Button>
+        <p className="text-center">Don't have an account yet? <Link to={"/register"}>Create Account</Link></p>
       </Box>
      </section>
     </>
