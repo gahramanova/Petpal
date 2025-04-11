@@ -1,3 +1,6 @@
+header {
+    min-width: 100%;
+}
 .login {
     background-color: #1B3B80;
     border-radius: 13px;
@@ -10,8 +13,40 @@
     }
 }
 
-.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
+.btn-check:checked+.btn,
+.btn.active,
+.btn.show,
+.btn:first-child:active,
+:not(.btn-check)+.btn:active {
     color: white;
     background-color: #1B3B80;
     border-color: #1B3B80;
+}
+
+.badge-on-icon {
+    background-color: #6a2c70;
+    top: 18px;
+    right: 196px;
+    transform: none;
+    font-size: 12px;
+    padding: 4px 6px;
+}
+
+.version-two {
+    .navbar-toggler:focus {
+        text-decoration: none;
+        outline: 0;
+        box-shadow: 0 0 0;
+    }
+}
+
+@media (max-width: 995px) {
+    .header-version-one {
+        display: none !important;
+    }
+}
+@media (min-width: 992px) {
+    .header-version-two {
+        display: none !important;
+    }
 }
