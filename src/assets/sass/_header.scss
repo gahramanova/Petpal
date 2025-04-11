@@ -1,4 +1,4 @@
-header {
+.header-top {
     background-color: #002169;
 }
 .nav-link {
@@ -21,4 +21,20 @@ header {
 }
 .btn:hover {
     color: white;
+}
+.navbar-toggler:focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: 0 0 0 !important; 
+}
+
+@media (max-width: 995px) {
+    .header-version-one, .header-top, .offcanvas {
+        display: none !important;
+    }
+}
+@media (min-width: 992px) {
+    .header-version-two {
+        display: none !important;
+    }
 }
