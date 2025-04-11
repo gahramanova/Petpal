@@ -27,6 +27,7 @@ import { TfiQuoteLeft } from "react-icons/tfi";
 import blogOne from "../assets/img/blogOne.jpg"
 import blogTwo from "../assets/img/blogTwo.jpg"
 import blogThree from "../assets/img/blogThree.jpg"
+import MotionCounter from "../assets/components/MotionCounter";
 
 
 
@@ -46,12 +47,18 @@ const Home = () => {
               </div>
               <h1 className='display-3 fw-bold titleColor lh-1'>care & Veterinary </h1>
 
-              <div className="d-flex">
-              <h1 className='display-3 fw-bold titleColor lh-1'>Center <img src={sectionOneTitleTwo} />Point</h1>
-              </div>
+              <h1 className="display-3 fw-bold titleColor lh-1 d-flex align-items-center">
+                Center
+                <img
+                  src={sectionOneTitleTwo}
+                  alt="icon"
+                  style={{ width: "40px", height: "40px", margin: "0 10px" }}
+                />
+                Point
+              </h1>
               <p style={{ color: "#445374", fontWeight: "500" }}>Template Kit uses demo images from Envato Elements <br />Follower will need to license these images from Envato.</p>
               <div className="d-grid gap-2 d-md-flex justify-content-md-start">
-                <button type="button" className="btn me-md-2 read-more d-flex align-items-center">Read More <FaArrowRightLong className="mx-2"/>
+                <button type="button" className="btn me-md-2 read-more d-flex align-items-center">Read More <FaArrowRightLong className="mx-2" />
                 </button>
 
               </div>
@@ -148,7 +155,7 @@ const Home = () => {
                 <div className="card-body d-flex align-items-center flex-column">
                   <h5 className="card-title">Pet Vaccination</h5>
                   <p className="card-text">We will work with you to develop individu alised care plans including</p>
-                  <button className='btn details'>See Details <FaArrowRightLong className='mx-2' /></button>
+                  <button className='btn details d-flex align-items-center'>See Details <FaArrowRightLong className='mx-2' /></button>
                 </div>
               </div>
 
@@ -159,7 +166,7 @@ const Home = () => {
                 <div className="card-body d-flex align-items-center flex-column">
                   <h5 className="card-title">Pet Grooming</h5>
                   <p className="card-text">We will work with you to develop individu alised care plans including</p>
-                  <button className='btn details'>See Details <FaArrowRightLong className='mx-2' /></button>
+                  <button className='btn details d-flex align-items-center'>See Details <FaArrowRightLong className='mx-2' /></button>
                 </div>
               </div>
 
@@ -170,7 +177,7 @@ const Home = () => {
                 <div className="card-body d-flex align-items-center flex-column">
                   <h5 className="card-title">Pet Veterinary</h5>
                   <p className="card-text">We will work with you to develop individu alised care plans including</p>
-                  <button className='btn details'>See Details <FaArrowRightLong className='mx-2' /></button>
+                  <button className='btn details d-flex align-items-center'>See Details <FaArrowRightLong className='mx-2' /></button>
                 </div>
               </div>
 
@@ -181,7 +188,7 @@ const Home = () => {
                 <div className="card-body d-flex align-items-center flex-column">
                   <h5 className="card-title">Pet Surgery</h5>
                   <p className="card-text">We will work with you to develop individu alised care plans including</p>
-                  <button className='btn details'>See Details <FaArrowRightLong className='mx-2' /></button>
+                  <button className='btn details d-flex align-items-center'>See Details <FaArrowRightLong className='mx-2' /></button>
                 </div>
               </div>
 
@@ -233,7 +240,7 @@ const Home = () => {
               <div className='d-flex'> <p className='fw-bold m-0' style={{ color: "#8FA5D6" }}>Your Trust Our Priority</p><span><i style={{ color: "#37528E" }} className="fa-solid fa-paw mx-2"></i></span></div>
               <h1 className='fw-bold text-light'>Professional Vest Care And Guaranteed Quality</h1>
               <p style={{ color: "#8FA5D6" }}>Duis aute irure dolor in repreerit in voluptate velit esse We understand that your furry friend treas ured member of your pets are.</p>
-              <button className='btn read-more'>Read More  <FaArrowRightLong className='mx-2' /></button>
+              <button className='btn read-more  d-flex align-items-center'>Read More  <FaArrowRightLong className='mx-2' /></button>
             </div>
 
             <div className='col-12 col-sm-5 col-md-5 col-lg-5'>
@@ -243,38 +250,20 @@ const Home = () => {
               <div className="row g-4 d-flex flex-column">
                 <div className="col-12 col-sm-12 col-md-12 mb-4">
                   <h3 className="display-4 fw-bold text-light border-bottom">
-                    <CountUp start={0} end={15}>
-                      {({ countUpRef }) => (
-                        <div>
-                          <span ref={countUpRef} />+
-                        </div>
-                      )}
-                    </CountUp>
+                  <MotionCounter end={15} duration={3}/>+
                   </h3>
                   <span style={{ color: "#8FA5D6" }}>27 Years of Experience</span>
                 </div>
                 <div className="col-12 col-sm-12 col-md-12 mb-4">
                   <h3 className="display-4 fw-bold text-light border-bottom">
-                    <CountUp start={0} end={23}>
-                      {({ countUpRef }) => (
-                        <div>
-                          <span ref={countUpRef} />K
-                        </div>
-                      )}
-                    </CountUp>
+                  <MotionCounter end={25} duration={3}/>K
                   </h3>
                   <span style={{ color: "#8FA5D6" }}>Our beloved clients</span>
                 </div>
                 <div className="col-12 col-sm-12 col-md-12">
-                  <h3 className="display-4 fw-bold text-light border-bottom">
-                    <CountUp start={0} end={15}>
-                      {({ countUpRef }) => (
-                        <div>
-                          <span ref={countUpRef} />K+
-                        </div>
-                      )}
-                    </CountUp>
-                  </h3>
+                  <h6 className="display-4 fw-bold text-light border-bottom">
+                    <MotionCounter end={15} duration={3}/>K+
+                  </h6>
                   <span style={{ color: "#8FA5D6" }}>Real Customer Reviews</span>
                 </div>
               </div>
@@ -350,7 +339,7 @@ const Home = () => {
             </div>
             <div className="d-flex justify-content-center align-items-center my-5">
               <p style={{ color: "#4D6496" }} className="m-0"><u>Our Valuable Expert Doctors Team</u></p>
-              <Link to="/ourteams" ><button className="btn see-all-doctors mx-3">See all doctors <FaArrowRightLong />
+              <Link to="/ourteams" style={{textDecoration:"none"}}><button className="btn see-all-doctors mx-3 d-flex align-items-center">See all doctors <FaArrowRightLong className="mx-2"/>
               </button></Link>
             </div>
           </div>
@@ -388,7 +377,7 @@ const Home = () => {
             </div>
             <div className="col-12 col-sm-6 col-md-4 col-lg-4">
               <div className="card">
-                <img src={blogTwo}className="card-img-top" alt="..." />
+                <img src={blogTwo} className="card-img-top" alt="..." />
                 <div className="card-body">
                   <h5 className="card-title">Clean indoor air as important in controlling asthma</h5>
                   <a href="#" className="btn btn-primary">Go somewhere</a>

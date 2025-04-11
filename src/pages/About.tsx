@@ -17,13 +17,15 @@ import teamOne from "../assets/img/teamOne.jpg"
 import teamTwo from "../assets/img/teamTwo.jpg"
 import teamThree from "../assets/img/teamThree.jpg"
 import { FaArrowRightLong } from "react-icons/fa6";
-
+import MotionCounter from "../assets/components/MotionCounter";
 
 
 const About = () => {
   useEffect(() => {
     Aos.init();
   }, []);
+
+
   return (
     <>
       <section className="about-section-one">
@@ -66,11 +68,11 @@ const About = () => {
                 <div className='vertical-two mx-4'></div>
                 <div className="right-content">
                   <ul className="p-0">
-                    <li><h5><FaCircleCheck className="mx-2" />
+                    <li><h5 className="d-flex align-items-center"><FaCircleCheck className="mx-2" />
                       Over 10 years of experience</h5></li>
-                    <li><h5><FaCircleCheck className="mx-2" />
+                    <li><h5 className="d-flex align-items-center"><FaCircleCheck className="mx-2" />
                       20 talented vets ready to help you</h5></li>
-                    <li><h5><FaCircleCheck className="mx-2" />
+                    <li><h5 className="d-flex align-items-center"><FaCircleCheck className="mx-2" />
                       High-quality products only</h5></li>
                   </ul>
                 </div>
@@ -132,14 +134,7 @@ const About = () => {
               <div className="content">
                 <div className="counter-image"><img src={aboutImg} /></div>
                 <div className="d-flex justify-content-center align-items-center flex-column counter">
-                  <CountUp start={0} end={5985}>
-                    {({ countUpRef }) => (
-                      <div>
-                        <span ref={countUpRef} style={{ fontSize: "40px", color: "white", fontWeight: "600" }} />
-                      </div>
-                    )}
-                  </CountUp>
-
+                 <MotionCounter end={1658} duration={5}/>
                   <h5 className="text-light">Happy Family</h5>
                 </div>
               </div>
@@ -148,13 +143,7 @@ const About = () => {
               <div className="content">
                 <div className="counter-image"><img src={aboutImg} /></div>
                 <div className="d-flex justify-content-center align-items-center flex-column counter">
-                  <CountUp start={0} end={1322}>
-                    {({ countUpRef }) => (
-                      <div>
-                        <span ref={countUpRef} style={{ fontSize: "40px", color: "white", fontWeight: "600" }} />
-                      </div>
-                    )}
-                  </CountUp>
+                <MotionCounter end={1323} duration={5}/>
 
                   <h5 className="text-light">Listed States</h5>
                 </div>
@@ -164,13 +153,7 @@ const About = () => {
               <div className="content">
                 <div className="counter-image"><img src={aboutImg} /></div>
                 <div className="d-flex justify-content-center align-items-center flex-column counter">
-                  <CountUp start={0} end={3102}>
-                    {({ countUpRef }) => (
-                      <div>
-                        <span ref={countUpRef} style={{ fontSize: "40px", color: "white", fontWeight: "600" }} />
-                      </div>
-                    )}
-                  </CountUp>
+                <MotionCounter end={3102} duration={5}/>
 
                   <h5 className="text-light">Core Breeding</h5>
                 </div>
@@ -180,14 +163,7 @@ const About = () => {
               <div className="content">
                 <div className="counter-image"><img src={aboutImg} /></div>
                 <div className="d-flex justify-content-center align-items-center flex-column counter">
-                  <CountUp start={0} end={1125}>
-                    {({ countUpRef }) => (
-                      <div>
-
-                        <span ref={countUpRef} style={{ fontSize: "40px", color: "white", fontWeight: "600" }} />
-                      </div>
-                    )}
-                  </CountUp>
+                <MotionCounter end={1126} duration={5}/>
 
                   <h5 className="text-light">Annual Awards</h5>
                 </div></div>
@@ -199,8 +175,8 @@ const About = () => {
         <div className="container mt-5">
           <div className='d-flex align-items-center justify-content-center'> <p className='fw-bold m-0' style={{ color: "#894B8D" }}>WE CHANGE YOUR LIFE & WORLD
           </p><span><i style={{ color: "#C2A8C2" }} className="fa-solid fa-paw mx-2"></i></span></div>
-          <h1 className="text-center fw-bold" style={{ color: "#002168" }}>We’re Dedicated To Excellent<br/>
-          Service And Care</h1>
+          <h1 className="text-center fw-bold" style={{ color: "#002168" }}>We’re Dedicated To Excellent<br />
+            Service And Care</h1>
 
           <div className="team mt-5">
             <div className="row g-4">
