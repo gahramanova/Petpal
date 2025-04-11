@@ -10,7 +10,6 @@ import abouthelpimgTwo from "../assets/img/aboutHelpOne.png"
 import abouthelpimgThree from "../assets/img/abouthelpTwo.png"
 import Aos from "aos";
 import "aos/dist/aos.css";
-import CountUp from 'react-countup';
 import aboutImg from "../assets/img/AboutBg.svg"
 import cardIcon from "../assets/img/cardIcon.svg"
 import teamOne from "../assets/img/teamOne.jpg"
