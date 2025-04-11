@@ -82,7 +82,8 @@ const Login = () => {
         <Button type="submit" variant="contained" sx={{backgroundColor:"#002169", borderRadius:"33px", padding:"10px"}}>
           Login
         </Button>
-        <p className="text-center">Don't have an account yet? <Link to={"/register"}>Create Account</Link></p>
+        <p className="text-center m-0">Don't have an account yet? <Link to={"/register"}>Create Account</Link></p>
+        <Link to="/forgotpassword"><p className="text-center">Forgot password?</p></Link>
       </Box>
      </section>
     </>
