@@ -46,11 +46,12 @@ const Home = () => {
               </div>
               <h1 className='display-3 fw-bold titleColor lh-1'>care & Veterinary </h1>
 
-              <h1 className='display-3 fw-bold titleColor lh-1'>Center<img src={sectionOneTitleTwo} />Point
-              </h1>
+              <div className="d-flex">
+              <h1 className='display-3 fw-bold titleColor lh-1'>Center <img src={sectionOneTitleTwo} />Point</h1>
+              </div>
               <p style={{ color: "#445374", fontWeight: "500" }}>Template Kit uses demo images from Envato Elements <br />Follower will need to license these images from Envato.</p>
               <div className="d-grid gap-2 d-md-flex justify-content-md-start">
-                <button type="button" className="btn me-md-2 read-more">Read More <FaArrowRightLong />
+                <button type="button" className="btn me-md-2 read-more d-flex align-items-center">Read More <FaArrowRightLong className="mx-2"/>
                 </button>
 
               </div>

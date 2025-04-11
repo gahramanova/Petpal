@@ -46,9 +46,7 @@ const App = () => {
         <Route path='/wishlist' element={<Wishlist />}></Route>
 
       </Routes>
-      {showOnlySecondHeader && (
-        <Footer />
-      )}
+    <Footer/>
     </div>
   )
 }
