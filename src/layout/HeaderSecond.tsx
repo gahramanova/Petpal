@@ -6,6 +6,7 @@ import { IoIosSearch } from "react-icons/io";
 import { Drawer, List, ListItem, ListItemText } from "@mui/material";
 import { TbMenuDeep } from "react-icons/tb";
 import { useState } from "react";
+import { GoHeart } from "react-icons/go";
 
 
 const HeaderSecond = () => {
@@ -38,25 +39,26 @@ const HeaderSecond = () => {
                         </div>
 
                         <div className="d-flex col-12 col-md-4 justify-content-end text-end">
-                            <div className="d-flex">
+                            <div className="d-flex align-items-center justify-content-between">
                                 <IoIosSearch style={{ width: "36px", height: "36px", color: "#BFCDEB" }} className="mx-2" />
+                               <NavLink to={"/wishlist"}>
+                               <button className="btn"><GoHeart style={{ width: "30px", height: "30px", color: "#BFCDEB" }}/></button>
+                               </NavLink>
 
                                 <NavLink to={"/cart"}>
                                 <button type="button" className="btn position-relative">
-                                    <CiShoppingBasket style={{ width: "36px", height: "36px", color: "#BFCDEB" }} className="mx-2" />
-                                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    <CiShoppingBasket style={{ width: "36px", height: "36px", color: "#BFCDEB" }} />
+                                    {/* <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                         0
 
-                                    </span>
+                                    </span> */}
                                 </button>
                                 </NavLink>
 
-
-                            </div>
-                            <NavLink to="/login" style={{ textDecoration: "none" }}>
+                                <NavLink to="/login" style={{ textDecoration: "none" }}>
                                 <button
                                     type="button"
-                                    className="btn me-2 login d-flex justify-content-center align-items-center mx-4"
+                                    className="btn me-2 login d-flex justify-content-center align-items-center"
                                 >
                                     <IoLockClosedOutline
                                         style={{ width: "20px", height: "20px", marginRight: "5px" }}
@@ -64,6 +66,7 @@ const HeaderSecond = () => {
                                     Login
                                 </button>
                             </NavLink>
+                            </div>
                         </div>
 
                     </div>
