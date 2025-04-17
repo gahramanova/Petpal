@@ -41,6 +41,7 @@ const HeaderSecond = () => {
                             <div className="d-flex">
                                 <IoIosSearch style={{ width: "36px", height: "36px", color: "#BFCDEB" }} className="mx-2" />
 
+                                <NavLink to={"/cart"}>
                                 <button type="button" className="btn position-relative">
                                     <CiShoppingBasket style={{ width: "36px", height: "36px", color: "#BFCDEB" }} className="mx-2" />
                                     <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -48,6 +49,7 @@ const HeaderSecond = () => {
 
                                     </span>
                                 </button>
+                                </NavLink>
 
 
                             </div>

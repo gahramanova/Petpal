@@ -48,7 +48,14 @@ const Login = () => {
      <Box
         component="form"
         onSubmit={handleSubmit}
-        sx={{ display: 'flex', flexDirection: 'column', gap: 2, width: 500, mx: 'auto', mt: 4 }}
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 2,
+          width: { xs: '90%', sm: '70%', md: '50%', lg: '500px' },
+          mx: 'auto',
+          mt: 4,
+          px: 2}}
       >
         <h2 className="fw-bold m-0 text-center" style={{color:"#002169"}}>Welcome Back!</h2>
         <TextField
