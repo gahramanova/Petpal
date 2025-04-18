@@ -7,73 +7,71 @@ import { Drawer, List, ListItem, ListItemText } from "@mui/material";
 import { TbMenuDeep } from "react-icons/tb";
 import { useState } from "react";
 import { GoHeart } from "react-icons/go";
+import { useCart } from "react-use-cart";
 
 
 const HeaderSecond = () => {
-    const [open, setOpen] = useState(false); // Drawer'ın açık/kapalı durumunu kontrol etmek için
+  const [open, setOpen] = useState(false); // Drawer'ın açık/kapalı durumunu kontrol etmek için
 
-
+  const {totalItems} = useCart()
   const toggleDrawer = () => {
     setOpen(!open); // Drawer'ın durumunu değiştir
   };
-    return (
-        <>
-            <header className="header-version-one">
-                <div className="container p-0">
-                    <div className="d-flex align-items-center justify-content-between py-3">
+  return (
+    <>
+      <header className="header-version-one">
+        <div className="container p-0">
+          <div className="d-flex align-items-center justify-content-between py-3">
 
-                        {/* Sol Nav Links */}
-                        <div className="d-flex col-12 col-md-4 justify-content-start justify-content-md-start mb-2 mb-md-0">
-                            <ul className="nav">
-                                <li><Link to="/" className="nav-link px-2 text-light">Home</Link></li>
-                                <li><Link to="/about" className="nav-link px-2 text-light">About</Link></li>
-                                <li><Link to="/shop" className="nav-link px-2 text-light">Shop</Link></li>
-                                <li><Link to="/ourteams" className="nav-link px-2 text-light">Our teams</Link></li>
-                                <li><Link to="/contact" className="nav-link px-2 text-light">Contact</Link></li>
-                            </ul>
-                        </div>
+            {/* Sol Nav Links */}
+            <div className="d-flex col-12 col-md-4 justify-content-start justify-content-md-start mb-2 mb-md-0">
+              <ul className="nav">
+                <li><Link to="/" className="nav-link px-2 text-light">Home</Link></li>
+                <li><Link to="/about" className="nav-link px-2 text-light">About</Link></li>
+                <li><Link to="/shop" className="nav-link px-2 text-light">Shop</Link></li>
+                <li><Link to="/ourteams" className="nav-link px-2 text-light">Our teams</Link></li>
+                <li><Link to="/contact" className="nav-link px-2 text-light">Contact</Link></li>
+              </ul>
+            </div>
 
-                        {/* Ortada Logo */}
-                        <div className="d-flex col-12 col-md-4 justify-content-center mb-2 mb-md-0">
-                            <img src={darkLogo} width={170} height={40} />
-                        </div>
+            {/* Ortada Logo */}
+            <div className="d-flex col-12 col-md-4 justify-content-center mb-2 mb-md-0">
+              <img src={darkLogo} width={170} height={40} />
+            </div>
 
-                        <div className="d-flex col-12 col-md-4 justify-content-end text-end">
-                            <div className="d-flex align-items-center justify-content-between">
-                                <IoIosSearch style={{ width: "36px", height: "36px", color: "#BFCDEB" }} className="mx-2" />
-                               <NavLink to={"/wishlist"}>
-                               <button className="btn"><GoHeart style={{ width: "30px", height: "30px", color: "#BFCDEB" }}/></button>
-                               </NavLink>
+            <div className="d-flex col-12 col-md-4 justify-content-end text-end">
+              <div className="d-flex align-items-center justify-content-between">
+                <IoIosSearch style={{ width: "36px", height: "36px", color: "#BFCDEB" }} className="mx-2" />
+                <NavLink to={"/wishlist"}>
+                  <button className="btn"><GoHeart style={{ width: "30px", height: "30px", color: "#BFCDEB" }} /></button>
+                </NavLink>
 
-                                <NavLink to={"/cart"}>
-                                <button type="button" className="btn position-relative">
-                                    <CiShoppingBasket style={{ width: "36px", height: "36px", color: "#BFCDEB" }} />
-                                    {/* <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                        0
+                <NavLink to="/cart" className="position-relative">
+                  <CiShoppingBasket style={{ width: "35px", height: "35px", color: "#BFCDEB" }} />
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill" style={{ backgroundColor: "#894B8D" }}>
+                    {totalItems}
+                  </span>
+                </NavLink>
 
-                                    </span> */}
-                                </button>
-                                </NavLink>
+                <NavLink to="/login" style={{ textDecoration: "none" }}>
+                  <button
+                    type="button"
+                    className="btn me-2 login d-flex justify-content-center align-items-center mx-3"
+                  >
+                    <IoLockClosedOutline
+                      style={{ width: "20px", height: "20px", marginRight: "5px" }}
+                    />
+                    Login
+                  </button>
+                </NavLink>
+              </div>
+            </div>
 
-                                <NavLink to="/login" style={{ textDecoration: "none" }}>
-                                <button
-                                    type="button"
-                                    className="btn me-2 login d-flex justify-content-center align-items-center"
-                                >
-                                    <IoLockClosedOutline
-                                        style={{ width: "20px", height: "20px", marginRight: "5px" }}
-                                    />
-                                    Login
-                                </button>
-                            </NavLink>
-                            </div>
-                        </div>
+          </div>
+        </div>
+      </header>
 
-                    </div>
-                </div>
-            </header>
-
-            <header className="header-version-two">
+      <header className="header-version-two">
         <nav className="navbar navbar-expand-lg">
           <div className="container-fluid">
             <NavLink to="/">
@@ -86,8 +84,8 @@ const HeaderSecond = () => {
               aria-expanded={open ? "true" : "false"}
               aria-label="Toggle navigation"
             >
-              <TbMenuDeep  className="navbar-icon" />
-             
+              <TbMenuDeep className="navbar-icon" />
+
             </button>
 
             <Drawer
@@ -103,11 +101,11 @@ const HeaderSecond = () => {
               >
                 <div className="offcanvas-header d-flex justify-content-between align-items-center">
                   <div> <h5 className="offcanvas-title p-2">Menu</h5></div>
-                 <div> <button type="button" className="btn-close mx-5" data-bs-dismiss="offcanvas" aria-label="Close"></button></div>
+                  <div> <button type="button" className="btn-close mx-5" data-bs-dismiss="offcanvas" aria-label="Close"></button></div>
                 </div>
                 <List>
                   <ListItem
-                  
+
                     component={NavLink}
                     to="/"
                     className="nav-link border-bottom"
@@ -132,7 +130,7 @@ const HeaderSecond = () => {
                     <ListItemText primary="Shop" />
                   </ListItem>
                   <ListItem
-                    
+
                     component={NavLink}
                     to="/ourteams"
                     className="nav-link border-bottom"
@@ -141,7 +139,7 @@ const HeaderSecond = () => {
                     <ListItemText primary="Our teams" />
                   </ListItem>
                   <ListItem
-                    
+
                     component={NavLink}
                     to="/contact"
                     className="nav-link border-bottom"
@@ -154,33 +152,33 @@ const HeaderSecond = () => {
                 <div className="d-flex justify-content-start align-items-center">
                   <NavLink to={"/login"}>
                     <button className="btn mx-2"
-                    style={{
-                      color:"#002169",
-                      border:"1px solid #002169"
+                      style={{
+                        color: "#002169",
+                        border: "1px solid #002169"
                       }}>
-                     Login
+                      Login
                     </button>
                   </NavLink>
                   <NavLink to={"/register/email"}>
                     <button className="btn"
-                    style={{
-                      backgroundColor:"#002169",
-                      color:"white"
-                    }}
-                    
+                      style={{
+                        backgroundColor: "#002169",
+                        color: "white"
+                      }}
+
                     >
                       Register
                     </button>
                   </NavLink>
                 </div>
-               
+
               </div>
             </Drawer>
           </div>
         </nav>
       </header>
-        </>
-    )
+    </>
+  )
 }
 
 export default HeaderSecond

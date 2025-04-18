@@ -11,10 +11,13 @@ import { LuCalendar1 } from "react-icons/lu";
 import { Drawer, List, ListItem, ListItemText } from "@mui/material";
 import { TbMenuDeep } from "react-icons/tb";
 import { useState } from "react";
+import { useCart } from "react-use-cart";
 
 
 
 const Header = () => {
+
+  const {totalItems} = useCart()
 
   const [open, setOpen] = useState(false); // Drawer'ın açık/kapalı durumunu kontrol etmek için
 
@@ -69,8 +72,12 @@ const Header = () => {
             </ul>
             <div className="col-12 col-sm-6 col-md-4 d-flex justify-content-end align-items-center gap-2">
               <button className='btn'><IoIosSearch style={{ width: "35px", height: "35px", color: "#686677" }} /></button>
-              <button className='btn'><CiShoppingBasket style={{ width: "35px", height: "35px", color: "#686677" }} /></button>
-
+              <NavLink to="/cart" className="position-relative">
+                <CiShoppingBasket style={{ width: "35px", height: "35px", color: "#686677" }} />
+                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill" style={{ backgroundColor:"#894B8D"}}>
+                 {totalItems}
+                </span>
+              </NavLink>
               {/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
 
 
@@ -92,10 +99,10 @@ const Header = () => {
                     <h6 className="fw-bold" style={{ color: "#002169" }}>Phone Number</h6>
                     <p className="m-0" style={{ color: "#445374" }}>+91 345 445 332</p>
                     <p style={{ color: "#445374" }}>+91 345 445 332</p>
-                    <hr/>
+                    <hr />
                     <h6 className="fw-bold" style={{ color: "#002169" }}>Email address</h6>
                     <p className="m-0" style={{ color: "#445374" }}>info@example.com</p>
-                    <p style={{ color: "#445374" }}>example@info.com</p>                    
+                    <p style={{ color: "#445374" }}>example@info.com</p>
                   </div>
                 </div>
               </div>

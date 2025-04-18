@@ -1,12 +1,16 @@
 import { IoIosArrowForward, IoIosCloseCircleOutline } from "react-icons/io"
-import { NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import animals from "../assets/img/animals.png"
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa";
-import productOne from "../assets/img/productOne.jpg"
-import productTwo from "../assets/img/productTwo.jpg"
-import productThree from "../assets/img/productThree.jpg"
+
+import { useCart } from "react-use-cart";
 const Cart = () => {
+
+  const {items, 
+    updateItemQuantity, 
+    cartTotal, 
+    removeItem} = useCart()
   return (
     <>
       <section className="section-cart-one">
@@ -31,7 +35,7 @@ const Cart = () => {
           <div className="row g-3">
             <div className="col-12 col-sm-8 col-md-8 col-lg-8">
 
-              <table className="table table-version-fisrt">
+              <table className="table table-version-first">
                 <thead>
                   <tr>
                     <th scope="col">Product</th>
@@ -43,26 +47,34 @@ const Cart = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row"><img src={productOne} style={{ width: "250px", height: "200px" }} /></th>
-                    <td>Dog Harness-Neoprene Comfort Liner-Orange and...</td>
-                    <td>$12.00</td>
+
+                  {items.map(item =>(
+                    <tr>
+                    <th scope="row"><Link to={"/shop"}><img src={`http://localhost:3025/${item.coverImg?.replace(/\\/g, "/")}`} style={{ width: "250px", height: "200px" }} /></Link></th>
+                    <td>{item.name}</td>
+                    <td>{item.price}$</td>
                     <td>  <div className="quantity-controls">
-                      <button className="dec mx-2 fw-bold">
+                      <button onClick={() => updateItemQuantity(item.id, (item.quantity ?? 0) - 1)} className="dec mx-2 fw-bold">
                         <FaMinus />
                       </button>
-                      <span>0</span>
-                      <button className="inc mx-2 fw-bold">
+                      <span>{item.quantity}</span>
+                      <button onClick={() => updateItemQuantity(item.id, (item.quantity ?? 0) + 1)} className="inc mx-2 fw-bold">
                         <FaPlus />
                       </button>
                     </div></td>
-                    <td>$12.00</td>
+                    <td>{(item.price) * (item.quantity??1)}$</td>
                     <td>
-                      <button className="btn remove">
+                      <button onClick={() => removeItem(item.id)} className="btn remove">
                         <IoIosCloseCircleOutline className="mx-3" style={{ width: "23px", height: "23px", color: "#cccccc" }} />
                       </button></td>
                   </tr>
-                  <tr>
+                  ))}
+
+
+
+
+
+                  {/* <tr>
                     <th scope="row"><img src={productTwo} style={{ width: "250px", height: "200px" }} /></th>
                     <td>Arm & Hammer Super Deodori zing Dog Shampoo, Pet Wash</td>
                     <td>$20.00</td>
@@ -99,49 +111,51 @@ const Cart = () => {
                       <button className="btn remove">
                         <IoIosCloseCircleOutline className="mx-3" style={{ width: "23px", height: "23px", color: "#cccccc" }} />
                       </button></td>
-                  </tr>
+                  </tr> */}
                 </tbody>
               </table>
 
               {/* /////////////////////////////////////////////////////////////////// */}
 
               <div className="table-version-second">
-                <div className="row">
-                  <div className="col-12 col-sm-6 col-md-6 col-lg-6">
+                <div className="row g-5">
+                {items.map(item => (
+                    <div className="col-12 col-sm-6 col-md-6 col-lg-6">
                     <div className="d-flex justify-content-center align-items-center flex-column">
-                      <img src={productOne} style={{ width: "100%", height: "280px" }} alt="..." />
+                      <img src={`http://localhost:3025/${item.coverImg?.replace(/\\/g, "/")}`} style={{ width: "100%", height: "280px" }} alt="..." />
                     </div>
-                    <h5 className="card-title my-3" style={{ color: "#002169" }}>Product Name</h5>
+                    <h5 className="card-title my-3" style={{ color: "#002169" }}>{item.name}</h5>
                     <div className="card">
                       <div className="card-body">
                         <div className="d-flex justify-content-between border-bottom">
                           <p style={{ color: "#808080" }} className="card-text">Price</p>
-                          <p style={{ color: "#002169", fontWeight: "500" }} className="card-text">$84.00</p>
+                          <p style={{ color: "#002169", fontWeight: "500" }} className="card-text">{item.price}$</p>
                         </div>
                         <div className="d-flex justify-content-between border-bottom my-3">
                           <p style={{ color: "#808080" }} className="card-text">Quantity</p>
                           <p style={{ color: "#002169", fontWeight: "500" }} className="card-text">  <div className="quantity-controls mb-2">
-                            <button className="dec mx-2 fw-bold">
-                              <FaMinus />
-                            </button>
-                            <span>0</span>
-                            <button className="inc mx-2 fw-bold">
-                              <FaPlus />
-                            </button>
+                          <button onClick={() => updateItemQuantity(item.id, (item.quantity ?? 0) - 1)} className="dec mx-2 fw-bold">
+                        <FaMinus />
+                      </button>
+                      <span>{item.quantity}</span>
+                      <button onClick={() => updateItemQuantity(item.id, (item.quantity ?? 0) + 1)} className="inc mx-2 fw-bold">
+                        <FaPlus />
+                      </button>
                           </div></p>
                         </div>
                         <div className="d-flex justify-content-between border-bottom">
                           <p style={{ color: "#808080" }} className="card-text">Subtotal</p>
-                          <p style={{ color: "#002169", fontWeight: "500" }} className="card-text">$84.00</p>
+                          <p style={{ color: "#002169", fontWeight: "500" }} className="card-text">{(item.price) * (item.quantity??1)}$</p>
                         </div>
 
                         <div className="d-flex justify-content-between align-items-center mt-3">
-                        <button className="btn return-to-shop">Return to shop</button>
-                        <button className="btn-close"></button>
+                          <Link to="/shop"><button className="btn return-to-shop">Return to shop</button></Link>
+                          <button onClick={() => removeItem(item.id)} className="btn-close"></button>
                         </div>
                       </div>
                     </div>
                   </div>
+                ))}
                 </div>
               </div>
 
@@ -152,7 +166,7 @@ const Cart = () => {
                 <h5 className="mb-4">Cart Total</h5>
                 <div className="d-flex justify-content-between border-bottom">
                   <p style={{ color: "#979797" }}>Subtotal:</p>
-                  <p style={{ color: "#002169", fontWeight: "500" }}>$84.00</p>
+                  <p style={{ color: "#002169", fontWeight: "500" }}>{cartTotal} $</p>
                 </div>
                 <div className="d-flex justify-content-between border-bottom mt-3">
                   <p style={{ color: "#979797" }}>Shipping:</p>
@@ -160,7 +174,7 @@ const Cart = () => {
                 </div>
                 <div className="d-flex justify-content-between mt-3">
                   <p style={{ color: "#979797" }}>Total:</p>
-                  <p style={{ color: "#002169", fontWeight: "500" }}>$84.00</p>
+                  <p style={{ color: "#002169", fontWeight: "500" }}>{cartTotal} $</p>
                 </div>
                 <button className="btn button-checkout d-flex align-items justify-content-center mt-3">Proceed to checkout</button>
               </div>
