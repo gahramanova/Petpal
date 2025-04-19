@@ -2,11 +2,20 @@
     width: 100%;
     height: auto;
     background-color: #F6F5F7;
-    background-image: url("../img/animation.png") ;
+    background-image: url("../img/animation.png");
     background-position: cover;
     background-repeat: no-repeat;
 
     h1 {
         color: #002169;
     }
+}
+
+.add-to-cart-btn {
+    background-color: #894b8d;
+    color: #fff;
+    border: none;
+    padding: 7px 13px;
+    border-radius: 10px;
+    cursor: pointer;
 }

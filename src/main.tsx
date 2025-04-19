@@ -7,15 +7,18 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./assets/css/style.css"
 import { BrowserRouter } from 'react-router-dom';
-import {CartProvider} from "react-use-cart"
+import { CartProvider } from "react-use-cart"
+import {WishlistProvider} from "react-use-wishlist"
 
 createRoot(document.getElementById('root')!).render(
- 
+
     <BrowserRouter>
-    <CartProvider>
-    <App/>
-    </CartProvider>
-   
+        <CartProvider>
+            <WishlistProvider>
+                <App />
+            </WishlistProvider>
+        </CartProvider>
+
     </BrowserRouter>
 
 )
