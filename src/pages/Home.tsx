@@ -15,7 +15,6 @@ import surgery from "../assets/img/surgery.svg"
 import sectionFourImg from "../assets/img/sectionFourImg.svg"
 import icon from "../assets/img/icon.svg"
 import sectionFiveImg from "../assets/img/sectionFiveImg.svg"
-import CountUp from 'react-countup';
 import Partners from "../assets/components/Partners";
 import teamOne from "../assets/img/teamOne.jpg"
 import teamTwo from "../assets/img/teamTwo.jpg"
