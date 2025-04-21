@@ -16,9 +16,6 @@ import sectionFourImg from "../assets/img/sectionFourImg.svg"
 import icon from "../assets/img/icon.svg"
 import sectionFiveImg from "../assets/img/sectionFiveImg.svg"
 import Partners from "../assets/components/Partners";
-import teamOne from "../assets/img/teamOne.jpg"
-import teamTwo from "../assets/img/teamTwo.jpg"
-import teamThree from "../assets/img/teamThree.jpg"
 import cardIcon from "../assets/img/cardIcon.svg"
 import { Link } from "react-router-dom";
 import sectionEight from "../assets/img/sectionEight.svg"
@@ -27,10 +24,26 @@ import blogOne from "../assets/img/blogOne.jpg"
 import blogTwo from "../assets/img/blogTwo.jpg"
 import blogThree from "../assets/img/blogThree.jpg"
 import MotionCounter from "../assets/components/MotionCounter";
+import { useEffect, useState } from "react";
 
 
 
 const Home = () => {
+
+  
+      const [team, setTeam] = useState([])
+    
+      useEffect(() => {
+        fetch("http://localhost:3025/ad/team")
+          .then(res => res.json())
+          .then(data => {
+            console.log("Team Members:", data)
+            setTeam(data)
+          })
+    
+          .catch(error => console.log(error))
+    
+      }, [])
   return (
     <>
       <section className='home-section-one'>
@@ -283,58 +296,22 @@ const Home = () => {
 
           <div className="team mt-5">
             <div className="row g-4">
-              <div className="col-12 col-sm-6 col-md-3 col-lg-3">
+              {team.slice(0,4).map((item:any)=>(
+                <div className="col-12 col-sm-6 col-md-3 col-lg-3">
                 <div className="d-flex justify-content-end align-items-end">
                   <img src={cardIcon} />
                 </div>
                 <div className="card">
-                  <img src={teamOne} className="card-img-top" />
+                  <img src={`http://localhost:3025/${item.coverImage.replace("\\", "/")}`} className="card-img-top" />
                   <div className="card-body">
-                    <h5 className="card-title text-center">Lizay Ariania</h5>
-                    <p className="card-text text-center">Veterinary Technician</p>
+                    <h5 className="card-title text-center">{item.fullname}</h5>
+                    <p className="card-text text-center">{item.jobposition}</p>
 
                   </div>
                 </div>
               </div>
-              <div className="col-12 col-sm-6 col-md-3 col-lg-3">
-                <div className="d-flex justify-content-end align-items-end">
-                  <img src={cardIcon} />
-                </div>
-                <div className="card">
-                  <img src={teamTwo} className="card-img-top" />
-                  <div className="card-body">
-                    <h5 className="card-title text-center">Kenroly Gajon</h5>
-                    <p className="card-text text-center">Food Technician</p>
-
-                  </div>
-                </div>
-              </div>
-              <div className="col-12 col-sm-6 col-md-3 col-lg-3">
-                <div className="d-flex justify-content-end align-items-end">
-                  <img src={cardIcon} />
-                </div>
-                <div className="card">
-                  <img src={teamThree} className="card-img-top" />
-                  <div className="card-body">
-                    <h5 className="card-title text-center">Michael Brian</h5>
-                    <p className="card-text text-center">Medicine Specialist</p>
-
-                  </div>
-                </div>
-              </div>
-              <div className="col-12 col-sm-6 col-md-3 col-lg-3">
-                <div className="d-flex justify-content-end align-items-end">
-                  <img src={cardIcon} />
-                </div>
-                <div className="card">
-                  <img src={teamTwo} className="card-img-top" />
-                  <div className="card-body">
-                    <h5 className="card-title text-center">Kenroly Gajon</h5>
-                    <p className="card-text text-center">Food Technician</p>
-
-                  </div>
-                </div>
-              </div>
+              ))}
+              
             </div>
             <div className="d-flex justify-content-center align-items-center my-5">
               <p style={{ color: "#4D6496" }} className="m-0"><u>Our Valuable Expert Doctors Team</u></p>

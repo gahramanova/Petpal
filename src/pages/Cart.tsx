@@ -126,7 +126,6 @@ const Cart = () => {
                   </div>
                 </div>
 
-                {/* ///////////////////////////////////////////////////////////////////// */}
               </div>
               <div className="col-12 col-sm-4 col-md-4 col-lg-4">
                 <div className="content">
