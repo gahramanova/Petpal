@@ -12,7 +12,6 @@ const Footer = () => {
     fetch("http://localhost:3025/ad/generalInfo")
       .then(res => res.json())
       .then(data => {
-        console.log("GeneralInfo:", data)
         setGeneralInfo(data)
       })
 

@@ -22,7 +22,6 @@ const About = () => {
     fetch("http://localhost:3025/ad/team")
       .then(res => res.json())
       .then(data => {
-        console.log("Team Members:", data)
         setTeam(data)
       })
 

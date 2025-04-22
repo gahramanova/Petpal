@@ -19,7 +19,6 @@ const Shop = () => {
     fetch("http://localhost:3025/ad/product")
       .then(res => res.json())
       .then(data => {
-        console.log("Products:", data)
         setProduct(data)
       })
 

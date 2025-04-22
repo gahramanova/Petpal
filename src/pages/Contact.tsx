@@ -7,7 +7,6 @@ import { GoMail } from "react-icons/go";
 import { FaShareAlt } from "react-icons/fa";
 import { TiSocialFacebook } from "react-icons/ti";
 import { FaTwitter } from "react-icons/fa";
-import { FaWhatsapp } from "react-icons/fa6";
 import { IoLogoInstagram } from "react-icons/io";
 import { FaYoutube } from "react-icons/fa";
 import { useEffect, useState } from "react";
@@ -19,7 +18,6 @@ const Contact = () => {
       fetch("http://localhost:3025/ad/generalInfo")
         .then(res => res.json())
         .then(data => {
-          console.log("GeneralInfo:", data)
           setGeneralInfo(data)
         })
   
