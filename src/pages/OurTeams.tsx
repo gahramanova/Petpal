@@ -4,6 +4,7 @@ import animals from "../assets/img/animals.png"
 import cardIcon from "../assets/img/cardIcon.svg"
 import { FaArrowRightLong } from "react-icons/fa6"
 import { useEffect, useState } from "react"
+import slug from "react-slugify"
 
 
 const OurTeams = () => {
@@ -49,14 +50,15 @@ const OurTeams = () => {
                 <div className="d-flex justify-content-end align-items-end">
                   <img src={cardIcon} />
                 </div>
-                <div className="card">
+              <Link to={`/ourteams/${slug(item.fullname)}`}>
+              <div className="card">
                   <img src={`http://localhost:3025/${item.coverImage.replace("\\", "/")}`} className="card-img-top" />
                   <div className="card-body">
                     <h5 className="card-title text-center">{item.fullname}</h5>
                     <p className="card-text text-center">{item.jobposition}</p>
 
                   </div>
-                </div>
+                </div></Link>
               </div>
               ))}
               

@@ -13,6 +13,7 @@ import Wishlist from './pages/Wishlist'
 import Blog from './pages/Blog'
 import HeaderSecond from './layout/HeaderSecond'
 import ForgotPassword from './pages/ForgotPassword'
+import TeamDetails from './pages/TeamDetails'
 
 const App = () => {
   const location = useLocation();
@@ -22,6 +23,7 @@ const App = () => {
     "/blog",
     "/cart",
     "/ourteams",
+    "/teamdetails",
     "/contact",
     "/login",
     "/register",
@@ -41,6 +43,7 @@ const App = () => {
         <Route path='/shop' element={<Shop />}></Route>
         <Route path='/contact' element={<Contact />}></Route>
         <Route path='/ourteams' element={<OurTeams />}></Route>
+        <Route path='/ourteams/:url' element={<TeamDetails/>}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/register' element={<Register />}></Route>
         <Route path='/blog' element={<Blog />}></Route>
