@@ -15,7 +15,17 @@ import { FaArrowRightLong } from "react-icons/fa6"
 
 
 const TeamDetails = () => {
-    const [team, setTeam] = useState([])
+
+    interface TeamMember {
+        fullname: string;
+        coverImage: string;
+        jobposition: string;
+        experience: string
+        experienceDesc: string;
+
+      }
+      
+      const [team, setTeam] = useState<TeamMember[]>([]);
     const [generalInfo, setGeneralInfo] = useState([])
 
 
