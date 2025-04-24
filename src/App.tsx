@@ -15,6 +15,7 @@ import HeaderSecond from './layout/HeaderSecond'
 import ForgotPassword from './pages/ForgotPassword'
 import TeamDetails from './pages/TeamDetails'
 import ProductDetails from './pages/ProductDetails'
+import NotFound from './pages/NotFound'
 
 const App = () => {
   const location = useLocation();
@@ -30,7 +31,7 @@ const App = () => {
     "/register",
     "/shop",
     "/wishlist",
-    "/forgotpassword"
+    "/forgotpassword",
   ];
 
   const showOnlySecondHeader = routerWithSecondHeader.includes(location.pathname)
@@ -52,6 +53,7 @@ const App = () => {
         <Route path='/cart' element={<Cart />}></Route>
         <Route path='/wishlist' element={<Wishlist />}></Route>
         <Route path='/forgotpassword' element={<ForgotPassword />}></Route>
+        <Route path='*' element={<NotFound/>}></Route>
 
       </Routes>
     <Footer/>
