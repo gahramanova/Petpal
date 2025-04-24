@@ -14,6 +14,7 @@ import Blog from './pages/Blog'
 import HeaderSecond from './layout/HeaderSecond'
 import ForgotPassword from './pages/ForgotPassword'
 import TeamDetails from './pages/TeamDetails'
+import ProductDetails from './pages/ProductDetails'
 
 const App = () => {
   const location = useLocation();
@@ -41,6 +42,7 @@ const App = () => {
         <Route path='/' element={<Home />}></Route>
         <Route path='/about' element={<About />}></Route>
         <Route path='/shop' element={<Shop />}></Route>
+        <Route path='/shop/:url' element={<ProductDetails />}></Route>
         <Route path='/contact' element={<Contact />}></Route>
         <Route path='/ourteams' element={<OurTeams />}></Route>
         <Route path='/ourteams/:url' element={<TeamDetails/>}></Route>

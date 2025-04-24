@@ -1,5 +1,5 @@
 import animals from "../assets/img/animals.png"
-import { NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import { IoIosArrowForward } from "react-icons/io";
 import Rating from "../assets/components/Rating";
 import { CiShoppingBasket } from "react-icons/ci";
@@ -8,6 +8,7 @@ import { useCart } from "react-use-cart";
 import { useEffect, useState } from "react";
 import swal from "sweetalert"
 import { useWishlist } from "react-use-wishlist";
+import slug from "react-slugify";
 
 
 
@@ -76,7 +77,8 @@ const Shop = () => {
             {product.length > 0 ? (
               product.map((item: any) => (
                 <div className="col-12 col-sm-6 col-md-3 col-lg-3">
-                  <div className="product-card card">
+                <Link to={`/shop/${slug(item.name)}`}>
+                <div className="product-card card">
                     <div className="image-container">
                       <img src={`http://localhost:3025/${item.coverImg.replace("\\", "/")}`} className="card-img-top" alt="..." />
                       <button onClick={() => {
@@ -106,7 +108,7 @@ const Shop = () => {
                         <s className="fw-bold mx-2" style={{ color: "#B9BDC8", fontSize: "23px" }}>{item.discount}$</s>
                       </div>
                     </div>
-                  </div>
+                  </div></Link>
                 </div>
               ))
             ) : (<div>Loading...</div>)}

@@ -1,0 +1,139 @@
+.productdetails-section-one {
+    width: 100%;
+    height: auto;
+    background-color: #F6F5F7;
+    background-image: url("../img/animation.png");
+    background-position: cover;
+    background-repeat: no-repeat;
+
+    h1 {
+        color: #002169;
+    }
+
+}
+
+.productdetails-section-two {
+    .image-gallery-demo {
+        display: flex;
+        align-items: center;
+
+        .image-gallery-right-nav,
+        .image-gallery-left-nav .image-gallery-svg {
+            display: none !important;
+        }
+
+        .image-gallery-play-button {
+            display: none !important;
+        }
+
+        .image-gallery-slide .image-gallery-image {
+            width: 100%;
+            object-fit: contain;
+            border-radius: 20px !important;
+        }
+    }
+
+    .add-to-cart {
+        background-color: #894b8d;
+        color: white;
+        font-weight: 500;
+        border-radius: 30px;
+        width: 70%;
+    }
+
+    .add-to-wishlist {
+        width: 50px;
+      height: 50px;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        width: 100px;
+        height: 100px;
+        color: #894b8d;
+      }
+    }
+
+}
+
+.productdetails-section-three {
+    .product-card {
+        position: relative;
+        overflow: hidden;
+        border: none;
+        transition: transform 0.3s ease;
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                display: block;
+                transition: transform 0.3s ease;
+            }
+
+            .add-to-cart-btn,
+            .wishlist-btn {
+                position: absolute;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.4s ease;
+            }
+
+            .add-to-cart-btn {
+                width: 70%;
+                left: 50%;
+                bottom: -40px;
+                transform: translateX(-50%);
+                background-color: #894b8d;
+                color: #fff;
+                border: none;
+                padding: 10px 25px;
+                border-radius: 10px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            .wishlist-btn {
+                right: -40px;
+                top: 10px;
+                background-color: #fff;
+                color: #894b8d;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            }
+        }
+
+        &:hover {
+            .image-container {
+                img {
+                    transform: scale(1.05);
+                }
+
+                .add-to-cart-btn {
+                    bottom: 15px;
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                .wishlist-btn {
+                    right: 15px;
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+}

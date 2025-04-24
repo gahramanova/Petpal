@@ -5,6 +5,7 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle.js"
 import "./assets/sass/style.scss"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "react-image-gallery/styles/css/image-gallery.css";
 import "./assets/css/style.css"
 import { BrowserRouter } from 'react-router-dom';
 import { CartProvider } from "react-use-cart"

@@ -10,7 +10,6 @@ import { GoMail } from "react-icons/go"
 import { FaShareAlt, FaTwitter, FaYoutube } from "react-icons/fa"
 import { TiSocialFacebook } from "react-icons/ti"
 import { IoLogoInstagram } from "react-icons/io5"
-import { FaArrowRightLong } from "react-icons/fa6"
 
 
 
