@@ -77,26 +77,27 @@ const Shop = () => {
             {product.length > 0 ? (
               product.map((item: any) => (
                 <div className="col-12 col-sm-6 col-md-3 col-lg-3">
-                <Link to={`/shop/${slug(item.name)}`}>
-                <div className="product-card card">
+                  <div className="product-card card">
                     <div className="image-container">
-                      <img src={`http://localhost:3025/${item.coverImg.replace("\\", "/")}`} className="card-img-top" alt="..." />
-                      <button onClick={() => {
-                        addToCart(item);
-                        swal({
-                          title: "Added to cart",
-                          icon: "success",
-                        });
-                      }} className="add-to-cart-btn d-flex justify-content-center align-items-center mx-2">
-                        <CiShoppingBasket style={{ width: "30px", height: "30px", fontWeight: "800" }} />
-                        Add to Cart</button>
-                      <button onClick={() => {
-                        addToWishlist(item)
-                        swal({
-                          title: "Added to wishlist",
-                          icon: "success",
-                        })
-                      }} className="wishlist-btn"><GoHeart style={{ width: "20px", height: "20px" }} /></button>
+                      <Link to={`/shop/${slug(item.name)}`}>
+                        <img src={`http://localhost:3025/${item.coverImg.replace("\\", "/")}`} className="card-img-top" alt="..." />
+                        </Link>
+                        <button onClick={() => {
+                          addToCart(item);
+                          swal({
+                            title: "Added to cart",
+                            icon: "success",
+                          });
+                        }} className="add-to-cart-btn d-flex justify-content-center align-items-center mx-2">
+                          <CiShoppingBasket style={{ width: "30px", height: "30px", fontWeight: "800" }} />
+                          Add to Cart</button>
+                        <button onClick={() => {
+                          addToWishlist(item)
+                          swal({
+                            title: "Added to wishlist",
+                            icon: "success",
+                          })
+                        }} className="wishlist-btn"><GoHeart style={{ width: "20px", height: "20px" }} /></button>
                     </div>
                     <div className="card-body">
                       <Rating />
@@ -108,13 +109,13 @@ const Shop = () => {
                         <s className="fw-bold mx-2" style={{ color: "#B9BDC8", fontSize: "23px" }}>{item.discount}$</s>
                       </div>
                     </div>
-                  </div></Link>
+                  </div>
                 </div>
-              ))
-            ) : (<div>Loading...</div>)}
-          </div>
+          ))
+          ) : (<div>Loading...</div>)}
         </div>
-      </section>
+      </div>
+    </section >
 
     </>
   )
