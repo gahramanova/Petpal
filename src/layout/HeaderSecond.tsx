@@ -51,7 +51,9 @@ const HeaderSecond = () => {
 
               {/* Ortada Logo */}
               <div className="d-flex col-12 col-md-4 justify-content-center mb-2 mb-md-0">
-                <img src={`http://localhost:3025/${item.logoLight.replace("\\", "/")}`} width={170} height={40} />
+                <Link to={"/"}>
+                  <img src={`http://localhost:3025/${item.logoLight.replace("\\", "/")}`} width={170} height={40} />
+                </Link>
               </div>
 
               <div className="d-flex col-12 col-md-4 justify-content-end text-end">
@@ -87,115 +89,115 @@ const HeaderSecond = () => {
         ))}
 
       </header>
-{generalInfo.map((item:any) =>(
-  
-  <header className="header-version-two">
-  <nav className="navbar navbar-expand-lg">
-    <div className="container-fluid">
-      <NavLink to="/">
-        <img src={`http://localhost:3025/${item.logoLight.replace("\\", "/")}`} width={170} height={40} />
-      </NavLink>
-      <button
-        className="navbar-toggler"
-        type="button"
-        onClick={toggleDrawer}
-        aria-expanded={open ? "true" : "false"}
-        aria-label="Toggle navigation"
-      >
-        <TbMenuDeep className="navbar-icon" />
+      {generalInfo.map((item: any) => (
 
-      </button>
-
-      <Drawer
-        anchor="left"
-        open={open}
-        onClose={toggleDrawer}
-      >
-        <div
-          role="presentation"
-          onClick={toggleDrawer} // İçeriğe tıklanırsa menüyü kapat
-          onKeyDown={toggleDrawer}
-          style={{ width: 400 }}
-        >
-          <div className="offcanvas-header d-flex justify-content-between align-items-center">
-            <div> <h5 className="offcanvas-title p-2">Menu</h5></div>
-            <div> <button type="button" className="btn-close mx-5" data-bs-dismiss="offcanvas" aria-label="Close"></button></div>
-          </div>
-          <List>
-            <ListItem
-
-              component={NavLink}
-              to="/"
-              className="nav-link border-bottom"
-              style={{ color: "#002169" }}
-            >
-              <ListItemText primary="Home Page" />
-            </ListItem>
-            <ListItem
-              component={NavLink}
-              to="/about"
-              className="nav-link border-bottom"
-              style={{ color: "#002169" }}
-            >
-              <ListItemText primary="About" />
-            </ListItem>
-            <ListItem
-              component={NavLink}
-              to="/shop"
-              className="nav-link border-bottom"
-              style={{ color: "#002169" }}
-            >
-              <ListItemText primary="Shop" />
-            </ListItem>
-            <ListItem
-
-              component={NavLink}
-              to="/ourteams"
-              className="nav-link border-bottom"
-              style={{ color: "#002169" }}
-            >
-              <ListItemText primary="Our teams" />
-            </ListItem>
-            <ListItem
-
-              component={NavLink}
-              to="/contact"
-              className="nav-link border-bottom"
-              style={{ color: "#002169" }}
-            >
-              <ListItemText primary="Contact" />
-            </ListItem>
-          </List>
-
-          <div className="d-flex justify-content-start align-items-center">
-            <NavLink to={"/login"}>
-              <button className="btn mx-2"
-                style={{
-                  color: "#002169",
-                  border: "1px solid #002169"
-                }}>
-                Login
-              </button>
-            </NavLink>
-            <NavLink to={"/register/email"}>
-              <button className="btn"
-                style={{
-                  backgroundColor: "#002169",
-                  color: "white"
-                }}
-
+        <header className="header-version-two">
+          <nav className="navbar navbar-expand-lg">
+            <div className="container-fluid">
+              <NavLink to="/">
+                <img src={`http://localhost:3025/${item.logoLight.replace("\\", "/")}`} width={170} height={40} />
+              </NavLink>
+              <button
+                className="navbar-toggler"
+                type="button"
+                onClick={toggleDrawer}
+                aria-expanded={open ? "true" : "false"}
+                aria-label="Toggle navigation"
               >
-                Register
-              </button>
-            </NavLink>
-          </div>
+                <TbMenuDeep className="navbar-icon" />
 
-        </div>
-      </Drawer>
-    </div>
-  </nav>
-</header>
-))}
+              </button>
+
+              <Drawer
+                anchor="left"
+                open={open}
+                onClose={toggleDrawer}
+              >
+                <div
+                  role="presentation"
+                  onClick={toggleDrawer} // İçeriğe tıklanırsa menüyü kapat
+                  onKeyDown={toggleDrawer}
+                  style={{ width: 400 }}
+                >
+                  <div className="offcanvas-header d-flex justify-content-between align-items-center">
+                    <div> <h5 className="offcanvas-title p-2">Menu</h5></div>
+                    <div> <button type="button" className="btn-close mx-5" data-bs-dismiss="offcanvas" aria-label="Close"></button></div>
+                  </div>
+                  <List>
+                    <ListItem
+
+                      component={NavLink}
+                      to="/"
+                      className="nav-link border-bottom"
+                      style={{ color: "#002169" }}
+                    >
+                      <ListItemText primary="Home Page" />
+                    </ListItem>
+                    <ListItem
+                      component={NavLink}
+                      to="/about"
+                      className="nav-link border-bottom"
+                      style={{ color: "#002169" }}
+                    >
+                      <ListItemText primary="About" />
+                    </ListItem>
+                    <ListItem
+                      component={NavLink}
+                      to="/shop"
+                      className="nav-link border-bottom"
+                      style={{ color: "#002169" }}
+                    >
+                      <ListItemText primary="Shop" />
+                    </ListItem>
+                    <ListItem
+
+                      component={NavLink}
+                      to="/ourteams"
+                      className="nav-link border-bottom"
+                      style={{ color: "#002169" }}
+                    >
+                      <ListItemText primary="Our teams" />
+                    </ListItem>
+                    <ListItem
+
+                      component={NavLink}
+                      to="/contact"
+                      className="nav-link border-bottom"
+                      style={{ color: "#002169" }}
+                    >
+                      <ListItemText primary="Contact" />
+                    </ListItem>
+                  </List>
+
+                  <div className="d-flex justify-content-start align-items-center">
+                    <NavLink to={"/login"}>
+                      <button className="btn mx-2"
+                        style={{
+                          color: "#002169",
+                          border: "1px solid #002169"
+                        }}>
+                        Login
+                      </button>
+                    </NavLink>
+                    <NavLink to={"/register/email"}>
+                      <button className="btn"
+                        style={{
+                          backgroundColor: "#002169",
+                          color: "white"
+                        }}
+
+                      >
+                        Register
+                      </button>
+                    </NavLink>
+                  </div>
+
+                </div>
+              </Drawer>
+            </div>
+          </nav>
+        </header>
+      ))}
     </>
   )
 }

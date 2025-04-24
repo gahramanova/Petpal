@@ -10,7 +10,6 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Cart from './pages/Cart'
 import Wishlist from './pages/Wishlist'
-import Blog from './pages/Blog'
 import HeaderSecond from './layout/HeaderSecond'
 import ForgotPassword from './pages/ForgotPassword'
 import TeamDetails from './pages/TeamDetails'
@@ -22,7 +21,6 @@ const App = () => {
 
   const routerWithSecondHeader = [
     "/about",
-    "/blog",
     "/cart",
     "/ourteams",
     "/teamdetails",
@@ -49,7 +47,6 @@ const App = () => {
         <Route path='/ourteams/:url' element={<TeamDetails/>}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/register' element={<Register />}></Route>
-        <Route path='/blog' element={<Blog />}></Route>
         <Route path='/cart' element={<Cart />}></Route>
         <Route path='/wishlist' element={<Wishlist />}></Route>
         <Route path='/forgotpassword' element={<ForgotPassword />}></Route>

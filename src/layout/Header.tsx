@@ -78,7 +78,9 @@ const Header = () => {
             <div className="container-fluid">
               <div className="d-flex align-items-center justify-content-lg-between py-3">
                 <div className="col-12 col-sm-6 col-md-3 mb-2 mb-md-0">
-                  <img src={`http://localhost:3025/${item.logoDark.replace("\\", "/")}`} style={{ width: "170px", height: "50px", objectFit: "contain" }} />
+                 <Link to={"/"}>
+                 <img src={`http://localhost:3025/${item.logoDark.replace("\\", "/")}`} style={{ width: "170px", height: "50px", objectFit: "contain" }} />
+                 </Link>
                 </div>
                 <ul className="nav col-12 col-sm-6 col-md-5 mb-2 justify-content-center mb-md-0">
                   <li><Link to="/" className="nav-link px-2">Home</Link></li>
