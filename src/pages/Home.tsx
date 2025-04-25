@@ -337,40 +337,6 @@ const Home = () => {
         </div>
 
       </section>
-
-      <section className="home-section-nine">
-        <div className="container">
-          <div className="row">
-            <div className="col-12 col-sm-6 col-md-4 col-lg-4">
-              <div className="card">
-                <img src={blogOne} className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Clean indoor air as important in controlling asthma</h5>
-                  <a href="#" className="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 col-sm-6 col-md-4 col-lg-4">
-              <div className="card">
-                <img src={blogTwo} className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Clean indoor air as important in controlling asthma</h5>
-                  <a href="#" className="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 col-sm-6 col-md-4 col-lg-4">
-              <div className="card">
-                <img src={blogThree} className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Clean indoor air as important in controlling asthma</h5>
-                  <a href="#" className="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   )
 }
