@@ -1,0 +1,32 @@
+.section-checkout-one {
+    width: 100%;
+    height: auto;
+    background-color: #F6F5F7;
+    background-image: url("../img/animation.png") ;
+    background-position: cover;
+    background-repeat: no-repeat;
+
+    h1 {
+        color: #002169;
+    }
+}
+
+.section-checkout-two {
+    input {
+        border-color: #eeee;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        margin-top: 40px;
+    }
+    .order-summary {
+        border: 1px solid #e3e3e3;
+        width: 100%;
+        border-radius: 15px;
+        padding: 20px;
+    }
+    .summary-order {
+        background-color: #002169;
+        color: white;
+    }
+}

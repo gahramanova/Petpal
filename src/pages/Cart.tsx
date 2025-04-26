@@ -142,7 +142,8 @@ const Cart = () => {
                     <p style={{ color: "#979797" }}>Total:</p>
                     <p style={{ color: "#002169", fontWeight: "500" }}>{cartTotal} $</p>
                   </div>
-                  <button className="btn button-checkout d-flex align-items justify-content-center mt-3">Proceed to checkout</button>
+                  <Link style={{textDecoration:"none"}} to={"/checkout"}>
+                  <button className="btn button-checkout d-flex align-items justify-content-center mt-3">Proceed to checkout</button></Link>
                 </div>
               </div>
             </div>
