@@ -22,7 +22,7 @@ const HeaderSecond = () => {
   const [generalInfo, setGeneralInfo] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:3025/ad/generalInfo")
+    fetch("http://localhost:3000/ad/generalInfo")
       .then(res => res.json())
       .then(data => {
         setGeneralInfo(data)
@@ -52,7 +52,7 @@ const HeaderSecond = () => {
               {/* Ortada Logo */}
               <div className="d-flex col-12 col-md-4 justify-content-center mb-2 mb-md-0">
                 <Link to={"/"}>
-                  <img src={`http://localhost:3025/${item.logoLight.replace("\\", "/")}`} width={170} height={40} />
+                  <img src={`http://localhost:3000/${item.logoLight.replace("\\", "/")}`} width={170} height={40} />
                 </Link>
               </div>
 
@@ -95,7 +95,7 @@ const HeaderSecond = () => {
           <nav className="navbar navbar-expand-lg">
             <div className="container-fluid">
               <NavLink to="/">
-                <img src={`http://localhost:3025/${item.logoLight.replace("\\", "/")}`} width={170} height={40} />
+                <img src={`http://localhost:3000/${item.logoLight.replace("\\", "/")}`} width={170} height={40} />
               </NavLink>
               <button
                 className="navbar-toggler"

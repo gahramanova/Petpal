@@ -19,7 +19,7 @@ const About = () => {
   const [team, setTeam] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:3025/ad/team")
+    fetch("http://localhost:3000/ad/team")
       .then(res => res.json())
       .then(data => {
         setTeam(data)
@@ -36,7 +36,7 @@ const About = () => {
   const [howWeCanHelp, setHowWeCanHelp] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:3025/ad/about")
+    fetch("http://localhost:3000/ad/about")
       .then(res => res.json())
       .then(data => {
         setAbout(data)
@@ -44,7 +44,7 @@ const About = () => {
 
       .catch(error => console.log(error))
     ////////////////////////////////////////////////
-    fetch("http://localhost:3025/ad/about/howWeCanHelp")
+    fetch("http://localhost:3000/ad/about/howWeCanHelp")
       .then(res => res.json())
       .then(data => {
         console.log("howwecanhelp:", data)
@@ -86,8 +86,8 @@ const About = () => {
               <>
                 <div className="col-12 col-sm-6 col-lg-6">
                   <div className="about-image">
-                    <img src={`http://localhost:3025/${item.images[0].replace("\\", "/")}`} className="about-image-one" data-aos="fade-right" />
-                    <img src={`http://localhost:3025/${item.images[1].replace("\\", "/")}`} className="about-image-two" />
+                    <img src={`http://localhost:3000/${item.images[0].replace("\\", "/")}`} className="about-image-one" data-aos="fade-right" />
+                    <img src={`http://localhost:3000/${item.images[1].replace("\\", "/")}`} className="about-image-two" />
                   </div>
                 </div>
                 <div className="col-12 col-sm-6 col-lg-6">
@@ -138,7 +138,7 @@ const About = () => {
             {howWeCanHelp.map((item: any) => (
               <div className="col-12 col-sm-6 col-md-4 col-lg-4">
                 <div className="card d-flex justify-content-center align-items-center flex-column py-4">
-                  <img src={`http://localhost:3025/${item.images}`} className="card-img" style={{ width: "150px", height: "150px" }} />
+                  <img src={`http://localhost:3000/${item.images}`} className="card-img" style={{ width: "150px", height: "150px" }} />
                   <div className="card-body d-flex justify-content-center align-items-center flex-column">
                     <h5 className="card-title">{item.title}</h5>
                     <p className="card-text">{item.desc}</p>
@@ -211,7 +211,7 @@ const About = () => {
                     <img src={cardIcon} />
                   </div>
                   <div className="card">
-                    <img src={`http://localhost:3025/${item.coverImage.replace("\\", "/")}`} className="card-img-top" />
+                    <img src={`http://localhost:3000/${item.coverImage.replace("\\", "/")}`} className="card-img-top" />
                     <div className="card-body">
                       <h5 className="card-title text-center">{item.fullname}</h5>
                       <p className="card-text text-center">{item.jobposition}</p>

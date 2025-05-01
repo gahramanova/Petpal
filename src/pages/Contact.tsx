@@ -15,7 +15,7 @@ const Contact = () => {
    const [generalInfo, setGeneralInfo] = useState([])
   
     useEffect(() => {
-      fetch("http://localhost:3025/ad/generalInfo")
+      fetch("http://localhost:3000/ad/generalInfo")
         .then(res => res.json())
         .then(data => {
           setGeneralInfo(data)

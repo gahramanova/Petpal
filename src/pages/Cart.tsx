@@ -59,7 +59,7 @@ const Cart = () => {
 
                     {items.map(item => (
                       <tr>
-                        <th scope="row"><Link to={"/shop"}><img src={`http://localhost:3025/${item.coverImg?.replace(/\\/g, "/")}`} style={{ width: "250px", height: "200px" }} /></Link></th>
+                        <th scope="row"><Link to={"/shop"}><img src={`http://localhost:3000/${item.coverImg?.replace(/\\/g, "/")}`} style={{ width: "250px", height: "200px" }} /></Link></th>
                         <td>{item.name}</td>
                         <td>{item.price}$</td>
                         <td>  <div className="quantity-controls">
@@ -89,7 +89,7 @@ const Cart = () => {
                     {items.map(item => (
                       <div className="col-12 col-sm-6 col-md-6 col-lg-6">
                         <div className="d-flex justify-content-center align-items-center flex-column">
-                          <img src={`http://localhost:3025/${item.coverImg?.replace(/\\/g, "/")}`} style={{ width: "100%", height: "280px" }} alt="..." />
+                          <img src={`http://localhost:3000/${item.coverImg?.replace(/\\/g, "/")}`} style={{ width: "100%", height: "280px" }} alt="..." />
                         </div>
                         <h5 className="card-title my-3" style={{ color: "#002169" }}>{item.name}</h5>
                         <div className="card">

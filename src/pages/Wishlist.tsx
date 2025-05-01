@@ -50,7 +50,7 @@ const Wishlist = () => {
              
              {items.map(item=>(
                <tr>
-               <td><img src={`http://localhost:3025/${item.coverImg?.replace(/\\/g, "/")}`} style={{ width: "120px", height: "120px" }} /></td>
+               <td><img src={`http://localhost:3000/${item.coverImg?.replace(/\\/g, "/")}`} style={{ width: "120px", height: "120px" }} /></td>
                <td>{item.name}</td>
                <td>{item.price}$</td>
                <td>

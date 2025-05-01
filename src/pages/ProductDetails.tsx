@@ -26,7 +26,7 @@ const ProductDetails = () => {
     const [product, setProduct] = useState<Product[]>([])
 
     useEffect(() => {
-        fetch("http://localhost:3025/ad/product")
+        fetch("http://localhost:3000/ad/product")
             .then(res => res.json())
             .then(data => {
                 setProduct(data)
@@ -68,8 +68,8 @@ const ProductDetails = () => {
 
     const images = productDetails?.coverImg 
     ? [productDetails.coverImg].map((coverImg: string) => ({
-        original: `http://localhost:3025/${coverImg}`,
-        thumbnail: `http://localhost:3025/${coverImg}`,
+        original: `http://localhost:3000/${coverImg}`,
+        thumbnail: `http://localhost:3000/${coverImg}`,
     }))
     : [];
    
@@ -149,7 +149,7 @@ const ProductDetails = () => {
                                 <div className="product-card card">
                                     <div className="image-container">
                                 <Link style={{textDecoration:"none"}} to={`/shop/${slug(item.name)}`} onClick={TopToBtn}>
-                                      <img src={`http://localhost:3025/${item.coverImg.replace("\\", "/")}`} className="card-img-top" alt="..." />
+                                      <img src={`http://localhost:3000/${item.coverImg.replace("\\", "/")}`} className="card-img-top" alt="..." />
                                       </Link>
                                       <button onClick={() => {
                                         addToCart(item);

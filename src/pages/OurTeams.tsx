@@ -12,7 +12,7 @@ const OurTeams = () => {
     const [team, setTeam] = useState([])
   
     useEffect(() => {
-      fetch("http://localhost:3025/ad/team")
+      fetch("http://localhost:3000/ad/team")
         .then(res => res.json())
         .then(data => {
           setTeam(data)
@@ -52,7 +52,7 @@ const OurTeams = () => {
                 </div>
               <Link to={`/ourteams/${slug(item.fullname)}`}>
               <div className="card">
-                  <img src={`http://localhost:3025/${item.coverImage.replace("\\", "/")}`} className="card-img-top" />
+                  <img src={`http://localhost:3000/${item.coverImage.replace("\\", "/")}`} className="card-img-top" />
                   <div className="card-body">
                     <h5 className="card-title text-center">{item.fullname}</h5>
                     <p className="card-text text-center">{item.jobposition}</p>

@@ -10,16 +10,18 @@ import "./assets/css/style.css"
 import { BrowserRouter } from 'react-router-dom';
 import { CartProvider } from "react-use-cart"
 import {WishlistProvider} from "react-use-wishlist"
+import { CookiesProvider } from 'react-cookie'
 
 createRoot(document.getElementById('root')!).render(
 
-    <BrowserRouter>
+    <CookiesProvider defaultSetOptions={{ path: "/" }}>
+        <BrowserRouter>
         <CartProvider>
             <WishlistProvider>
                 <App />
             </WishlistProvider>
         </CartProvider>
-
     </BrowserRouter>
+    </CookiesProvider>
 
 )

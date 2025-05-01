@@ -16,6 +16,7 @@ import TeamDetails from './pages/TeamDetails'
 import ProductDetails from './pages/ProductDetails'
 import NotFound from './pages/NotFound'
 import Checkout from './pages/Checkout'
+import MyAccount from './pages/MyAccount'
 
 const App = () => {
   const location = useLocation();
@@ -31,7 +32,8 @@ const App = () => {
     "/shop",
     "/wishlist",
     "/forgotpassword",
-    "/checkout"
+    "/checkout",
+    "/myaccount"
   ];
 
   const showOnlySecondHeader = routerWithSecondHeader.includes(location.pathname)
@@ -53,6 +55,7 @@ const App = () => {
         <Route path='/wishlist' element={<Wishlist />}></Route>
         <Route path='/forgotpassword' element={<ForgotPassword />}></Route>
         <Route path='/checkout' element={<Checkout />}></Route>
+        <Route path='/myaccount' element={<MyAccount />}></Route>
         <Route path='*' element={<NotFound/>}></Route>
 
       </Routes>

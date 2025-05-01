@@ -85,7 +85,7 @@ const Checkout = () => {
                                     <>
                                         <div className="d-flex justify-content-between align-items-center">
                                             <div className="d-flex align-items-center">
-                                                <img src={`http://localhost:3025/${item.coverImg?.replace(/\\/g, "/")}`} style={{ width: "70px", height: "70px", borderRadius: "15px" }} />
+                                                <img src={`http://localhost:3000/${item.coverImg?.replace(/\\/g, "/")}`} style={{ width: "70px", height: "70px", borderRadius: "15px" }} />
                                                 <p style={{ color: "#002169", fontWeight: "500" }} className="mx-3">Product Name</p>
                                             </div>
                                             <div>

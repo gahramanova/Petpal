@@ -29,7 +29,7 @@ const Header = () => {
   const [generalInfo, setGeneralInfo] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:3025/ad/generalInfo")
+    fetch("http://localhost:3000/ad/generalInfo")
       .then(res => res.json())
       .then(data => {
         setGeneralInfo(data)
@@ -79,7 +79,7 @@ const Header = () => {
               <div className="d-flex align-items-center justify-content-lg-between py-3">
                 <div className="col-12 col-sm-6 col-md-3 mb-2 mb-md-0">
                  <Link to={"/"}>
-                 <img src={`http://localhost:3025/${item.logoDark.replace("\\", "/")}`} style={{ width: "170px", height: "50px", objectFit: "contain" }} />
+                 <img src={`http://localhost:3000/${item.logoDark.replace("\\", "/")}`} style={{ width: "170px", height: "50px", objectFit: "contain" }} />
                  </Link>
                 </div>
                 <ul className="nav col-12 col-sm-6 col-md-5 mb-2 justify-content-center mb-md-0">
@@ -106,7 +106,7 @@ const Header = () => {
 
                   <div className="offcanvas offcanvas-end" tabIndex={-1} id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
                     <div className="offcanvas-header border-bottom">
-                      <img src={`http://localhost:3025/${item.logoDark.replace("\\", "/")}`} className='mx-3 my-2 ' style={{ width: "170px", height: "50px", objectFit: "contain" }} />
+                      <img src={`http://localhost:3000/${item.logoDark.replace("\\", "/")}`} className='mx-3 my-2 ' style={{ width: "170px", height: "50px", objectFit: "contain" }} />
                       <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" />
                     </div>
                     <div className="offcanvas-body">
@@ -145,7 +145,7 @@ const Header = () => {
             <nav className="navbar navbar-expand-lg">
               <div className="container-fluid">
                 <NavLink to="/">
-                  <img src={`http://localhost:3025/${item.logoDark.replace("\\", "/")}`} width={170} height={40} />
+                  <img src={`http://localhost:3000/${item.logoDark.replace("\\", "/")}`} width={170} height={40} />
                 </NavLink>
                 <button
                   className="navbar-toggler"

@@ -20,9 +20,6 @@ import cardIcon from "../assets/img/cardIcon.svg"
 import { Link } from "react-router-dom";
 import sectionEight from "../assets/img/sectionEight.svg"
 import { TfiQuoteLeft } from "react-icons/tfi";
-import blogOne from "../assets/img/blogOne.jpg"
-import blogTwo from "../assets/img/blogTwo.jpg"
-import blogThree from "../assets/img/blogThree.jpg"
 import MotionCounter from "../assets/components/MotionCounter";
 import { useEffect, useState } from "react";
 
@@ -34,7 +31,7 @@ const Home = () => {
       const [team, setTeam] = useState([])
     
       useEffect(() => {
-        fetch("http://localhost:3025/ad/team")
+        fetch("http://localhost:3000/ad/team")
           .then(res => res.json())
           .then(data => {
             setTeam(data)
@@ -301,7 +298,7 @@ const Home = () => {
                   <img src={cardIcon} />
                 </div>
                 <div className="card">
-                  <img src={`http://localhost:3025/${item.coverImage.replace("\\", "/")}`} className="card-img-top" />
+                  <img src={`http://localhost:3000/${item.coverImage.replace("\\", "/")}`} className="card-img-top" />
                   <div className="card-body">
                     <h5 className="card-title text-center">{item.fullname}</h5>
                     <p className="card-text text-center">{item.jobposition}</p>

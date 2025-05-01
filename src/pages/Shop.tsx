@@ -17,7 +17,7 @@ const Shop = () => {
   const [product, setProduct] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:3025/ad/product")
+    fetch("http://localhost:3000/ad/product")
       .then(res => res.json())
       .then(data => {
         setProduct(data)
@@ -80,7 +80,7 @@ const Shop = () => {
                   <div className="product-card card">
                     <div className="image-container">
                       <Link to={`/shop/${slug(item.name)}`}>
-                        <img src={`http://localhost:3025/${item.coverImg.replace("\\", "/")}`} className="card-img-top" alt="..." />
+                        <img src={`http://localhost:3000/${item.coverImg.replace("\\", "/")}`} className="card-img-top" alt="..." />
                         </Link>
                         <button onClick={() => {
                           addToCart(item);

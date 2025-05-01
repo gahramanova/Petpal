@@ -29,7 +29,7 @@ const TeamDetails = () => {
 
 
     useEffect(() => {
-        fetch("http://localhost:3025/ad/team")
+        fetch("http://localhost:3000/ad/team")
             .then(res => res.json())
             .then(data => {
                 setTeam(data)
@@ -40,7 +40,7 @@ const TeamDetails = () => {
 
 
     useEffect(() => {
-        fetch("http://localhost:3025/ad/generalInfo")
+        fetch("http://localhost:3000/ad/generalInfo")
             .then(res => res.json())
             .then(data => {
                 setGeneralInfo(data)
@@ -79,7 +79,7 @@ const TeamDetails = () => {
                         <div className="container px-4 py-5">
                             <div className="row align-items-center g-5 py-5">
                                 <div className="col-12 col-sm-8 col-md-5 col-lg-5">
-                                    <img src={`http://localhost:3025/${teamDetails.coverImage.replace("\\", "/")}`} className="d-block mx-lg-auto team-photo img-fluid" alt="Bootstrap Themes" width={700} height={500} loading="lazy" />
+                                    <img src={`http://localhost:3000/${teamDetails.coverImage.replace("\\", "/")}`} className="d-block mx-lg-auto team-photo img-fluid" alt="Bootstrap Themes" width={700} height={500} loading="lazy" />
                                 </div>
                                 <div className="col-12 col-sm-4 col-md-7 col-lg-7">
                                     <h1 style={{ color: "#002169" }} className="display-5 fw-bold lh-3">{teamDetails.fullname}</h1>
