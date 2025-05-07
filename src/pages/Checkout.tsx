@@ -16,9 +16,6 @@ const Checkout = () => {
     const orderSubmit = (e: React.FormEvent) => {
         e.preventDefault(); }
 
-
-
-
     const { items, cartTotal } = useCart()
 
     return (
@@ -81,20 +78,20 @@ const Checkout = () => {
                         <div className="col-12 col-sm-6 col-md-4 col-lg-4">
                             <div className="order-summary">
                                 <h4 style={{ color: "#002169", fontWeight: "600" }}>Order Summary</h4>
-                                {items.map((item: any) => (
-                                    <>
-                                        <div className="d-flex justify-content-between align-items-center">
+                                {items.map((item: any) => (                
+                                <div className="d-flex justify-content-between align-items-center mt-3">
                                             <div className="d-flex align-items-center">
-                                                <img src={`http://localhost:3000/${item.coverImg?.replace(/\\/g, "/")}`} style={{ width: "70px", height: "70px", borderRadius: "15px" }} />
-                                                <p style={{ color: "#002169", fontWeight: "500" }} className="mx-3">Product Name</p>
+                                                <img src={`https://petpal-backend-en2xs.kinsta.app/${item.coverImg?.replace(/\\/g, "/")}`} style={{ width: "70px", height: "70px", borderRadius: "15px" }} />
+                                                <p style={{ color: "#002169", fontWeight: "500" }} className="mx-3">{item.name.slice(0,30)}...</p>
                                             </div>
                                             <div>
                                                 <p style={{ color: "#002169", fontWeight: "500" }}>{item.price}.00$</p>
                                             </div>
                                         </div>
+                                        ))}
                                         <div className="mt-5 d-flex justify-content-between border-bottom">
                                             <p style={{ color: "#979797" }}>Subtotal: </p>
-                                            <p style={{ color: "#002169", fontWeight: "500" }}>{(item.price) * (item.quantity ?? 1)}.00$</p>
+                                            <p style={{ color: "#002169", fontWeight: "500" }}>{cartTotal}.00$</p>
                                         </div>
                                         <div className="mt-3 d-flex justify-content-between border-bottom">
                                             <p style={{ color: "#979797" }}>Delivery: </p>
@@ -103,8 +100,8 @@ const Checkout = () => {
                                         <div className="mt-3 d-flex justify-content-between">
                                             <p style={{ color: "#979797" }}>Total: </p>
                                             <p style={{ color: "#002169", fontWeight: "500" }}>{cartTotal}.00$</p>
-                                        </div></>
-                                ))}
+                                        </div>
+                                
 
 
                                 <h6 style={{ color: "#002169", fontWeight: "500" }}>Payment Methods:</h6>

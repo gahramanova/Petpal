@@ -3,14 +3,18 @@ import { Link, NavLink } from "react-router-dom"
 import animals from "../assets/img/animals.png"
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa";
-
+import swal from "sweetalert"
 import { useCart } from "react-use-cart";
+import { useCookies } from "react-cookie";
 const Cart = () => {
 
   const { items,
     updateItemQuantity,
     cartTotal,
     removeItem } = useCart()
+
+      const [cookies] = useCookies(["petpal"])
+    
   return (
     <>
       <section className="section-cart-one">
@@ -142,8 +146,16 @@ const Cart = () => {
                     <p style={{ color: "#979797" }}>Total:</p>
                     <p style={{ color: "#002169", fontWeight: "500" }}>{cartTotal} $</p>
                   </div>
-                  <Link style={{textDecoration:"none"}} to={"/checkout"}>
-                  <button className="btn button-checkout d-flex align-items justify-content-center mt-3">Proceed to checkout</button></Link>
+                  {cookies.petpal ? <Link style={{textDecoration:"none"}} to={"/checkout"}>
+                  <button className="btn button-checkout d-flex align-items justify-content-center mt-3">Proceed to checkout</button></Link> : <Link style={{textDecoration:"none"}} to={"/login"}>
+                  <button className="btn button-checkout d-flex align-items justify-content-center mt-3"
+                  onClick={()=> {
+                    swal({
+                      title: "Need to sign in",
+                      icon: "error",
+                    })
+                  }}
+                  >Proceed to checkout</button></Link>}
                 </div>
               </div>
             </div>
