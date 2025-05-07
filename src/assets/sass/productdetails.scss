@@ -16,6 +16,8 @@
     .image-gallery-demo {
         display: flex;
         align-items: center;
+        max-width: 900px;
+        height: auto;
 
         .image-gallery-right-nav,
         .image-gallery-left-nav .image-gallery-svg {

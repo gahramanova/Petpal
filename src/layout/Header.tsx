@@ -9,8 +9,10 @@ import { CgMenuCheese } from "react-icons/cg";
 import { LuCalendar1 } from "react-icons/lu";
 import { Drawer, List, ListItem, ListItemText } from "@mui/material";
 import { TbMenuDeep } from "react-icons/tb";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useCart } from "react-use-cart";
+import axios from "axios";
+import { ApiEndPointContext } from "../context/ApiEndPointContext";
 
 
 
@@ -27,15 +29,16 @@ const Header = () => {
 
 
   const [generalInfo, setGeneralInfo] = useState([])
+  const { apiEndPoint, passValue } = useContext(ApiEndPointContext)
 
   useEffect(() => {
-    fetch("http://localhost:3000/ad/generalInfo")
-      .then(res => res.json())
-      .then(data => {
-        setGeneralInfo(data)
+    axios.get(`${apiEndPoint}/ad/generalInfo`, {
+      headers: passValue
+    })
+      .then(res => {
+        setGeneralInfo(res.data)
+        console.log(res.data)
       })
-
-      .catch(error => console.log(error))
 
   }, [])
   return (
@@ -79,7 +82,7 @@ const Header = () => {
               <div className="d-flex align-items-center justify-content-lg-between py-3">
                 <div className="col-12 col-sm-6 col-md-3 mb-2 mb-md-0">
                  <Link to={"/"}>
-                 <img src={`http://localhost:3000/${item.logoDark.replace("\\", "/")}`} style={{ width: "170px", height: "50px", objectFit: "contain" }} />
+                 <img src={`https://petpal-backend-en2xs.kinsta.app/${item.logoDark.replace("\\", "/")}`} style={{ width: "170px", height: "50px", objectFit: "contain" }} />
                  </Link>
                 </div>
                 <ul className="nav col-12 col-sm-6 col-md-5 mb-2 justify-content-center mb-md-0">

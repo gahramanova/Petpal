@@ -5,58 +5,53 @@ import { useState } from "react";
 import { TextField, Button, Box } from '@mui/material';
 import { useCookies } from 'react-cookie';
 import swal from 'sweetalert';
+import axios from "axios";
 
 
 const Login = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  });
 
-  const [cookies, setCookie, removeCookie] = useCookies(['token']);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [cookies, setCookie] = useCookies(["petpal"]);
   const navigate = useNavigate();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  // try {
+  //   const response = await fetch('http://localhost:3000/ad/login/login', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({
+  //       email: formData.email,
+  //       password: formData.password,
+  //     }),
+  //   });
+  const loginSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form Data:', formData);
-  
-    try {
-      const response = await fetch('http://localhost:3000/ad/login/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+    axios
+      .post(
+        "https://petpal-backend-en2xs.kinsta.app/ad/login/login",
+        {
+          email: email,
+          password: password,
         },
-        body: JSON.stringify({
-          email: formData.email,
-          password: formData.password,
-        }),
-      });
-  
-      // Cavabı mətn formatında oxuyuruq
-      const responseText = await response.text(); // Cavabı mətn formatında alırıq
-  
-      if (response.ok) {
-        // Cavabın mətn olduğunu nəzərə alırıq
-        if (responseText) {
-          // Burada artıq cavabın token olduğunu bilirik
-          setCookie('token', responseText, { path: '/' });
-  
-          // Home səhifəsinə yönləndiririk
+        {
+          headers: {
+            "petpal-token":"f20e26bb783ea89ef58823b877337a2e",
+          },
+        },
+      )
+      .then((res) => {
+        if (res.status === 200 || res.status === 204) {
+          setCookie("petpal", res.data);
           navigate("/myaccount");
         } else {
-          swal("Email və ya şifrə yanlışdır", "", "error");
+          swal("Email or password is wrong", "", "error");
         }
-      } else {
-        swal(`Xəta: ${responseText || 'Gözlənilməz xəta baş verdi.'}`, "", "error");
-      }
-    } catch (error) {
-      swal(`Xəta: ${error.message || 'Bir şey səhv getdi!'}`, "", "error");
-    }
+      }).catch(err=>{
+        swal("Email or password is wrong", "", "error");
+      });
   };
   
 
@@ -83,7 +78,7 @@ const Login = () => {
       <section className="my-5">
         <Box
           component="form"
-          onSubmit={handleSubmit}
+          onSubmit={loginSubmit}
           sx={{
             display: 'flex',
             flexDirection: 'column',
@@ -101,8 +96,8 @@ const Login = () => {
             name="email"  
             type="email"
             placeholder="Email ünvanınızı daxil edin"
-            value={formData.email}
-            onChange={handleChange}
+            value={email}
+            onChange={(e)=> {setEmail(e.target.value)}}
             required
             sx={{
               '& .MuiOutlinedInput-root': {
@@ -116,8 +111,8 @@ const Login = () => {
             name="password"  
             type="password"
             placeholder="Şifrənizi daxil edin"
-            value={formData.password}
-            onChange={handleChange}
+            value={password}
+            onChange={(e)=> {setPassword(e.target.value)}}
             required
             sx={{
               '& .MuiOutlinedInput-root': {

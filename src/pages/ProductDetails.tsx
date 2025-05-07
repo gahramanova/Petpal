@@ -4,13 +4,15 @@ import animals from "../assets/img/animals.png"
 import ImageGallery from "react-image-gallery";
 import Rating from '../assets/components/Rating';
 import { useCart } from 'react-use-cart';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import slug from 'react-slugify';
 import Preloader from '../assets/components/Preloader';
 import { useWishlist } from 'react-use-wishlist';
 import { GoHeart } from 'react-icons/go';
 import { CiShoppingBasket } from 'react-icons/ci';
 import TopToBtn from "../utils/TopToBtn"
+import axios from 'axios';
+import { ApiEndPointContext } from '../context/ApiEndPointContext';
 
 
 const ProductDetails = () => {
@@ -24,17 +26,19 @@ const ProductDetails = () => {
     }
 
     const [product, setProduct] = useState<Product[]>([])
+      const {apiEndPoint, passValue} = useContext(ApiEndPointContext)
 
+ 
     useEffect(() => {
-        fetch("http://localhost:3000/ad/product")
-            .then(res => res.json())
-            .then(data => {
-                setProduct(data)
-            })
+        axios.get(`${apiEndPoint}/ad/product`, {
+          headers: passValue
+        })
+        .then(res => {
+          setProduct(res.data)
+        })
+        .catch(error => console.log(error))
+      }, []);
 
-            .catch(error => console.log(error))
-
-    }, [])
 
     const { addItem } = useCart()
 
@@ -68,8 +72,8 @@ const ProductDetails = () => {
 
     const images = productDetails?.coverImg 
     ? [productDetails.coverImg].map((coverImg: string) => ({
-        original: `http://localhost:3000/${coverImg}`,
-        thumbnail: `http://localhost:3000/${coverImg}`,
+        original: `https://petpal-backend-en2xs.kinsta.app/${coverImg}`,
+        thumbnail: `https://petpal-backend-en2xs.kinsta.app/${coverImg}`,
     }))
     : [];
    
@@ -102,7 +106,7 @@ const ProductDetails = () => {
                                 <div className="col-12 col-sm-6 col-md-6 col-lg-6">
                                     <div className="image-gallery-demo">
                                         <div className="image-gallery-demo__thumbnails">
-                                            <ImageGallery items={images} />
+                                            <ImageGallery items={images}/>
                                         </div>
                                     </div>
 
@@ -149,7 +153,7 @@ const ProductDetails = () => {
                                 <div className="product-card card">
                                     <div className="image-container">
                                 <Link style={{textDecoration:"none"}} to={`/shop/${slug(item.name)}`} onClick={TopToBtn}>
-                                      <img src={`http://localhost:3000/${item.coverImg.replace("\\", "/")}`} className="card-img-top" alt="..." />
+                                      <img src={`https://petpal-backend-en2xs.kinsta.app/${item.coverImg.replace("\\", "/")}`} className="card-img-top" alt="..." />
                                       </Link>
                                       <button onClick={() => {
                                         addToCart(item);

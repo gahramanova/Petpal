@@ -3,24 +3,26 @@ import { Link, NavLink } from "react-router-dom"
 import animals from "../assets/img/animals.png"
 import cardIcon from "../assets/img/cardIcon.svg"
 import { FaArrowRightLong } from "react-icons/fa6"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import slug from "react-slugify"
+import axios from "axios"
+import { ApiEndPointContext } from "../context/ApiEndPointContext"
 
 
 const OurTeams = () => {
 
     const [team, setTeam] = useState([])
+    const {apiEndPoint, passValue} = useContext(ApiEndPointContext)
+    
   
     useEffect(() => {
-      fetch("http://localhost:3000/ad/team")
-        .then(res => res.json())
-        .then(data => {
-          setTeam(data)
-        })
-  
-        .catch(error => console.log(error))
-  
-    }, [])
+      axios.get(`${apiEndPoint}/ad/team`, {
+        headers: passValue
+      })
+      .then(res => {
+        setTeam(res.data)
+      })
+    }, []);
   return (
     <>
      <section className="team-section-one">
@@ -52,7 +54,7 @@ const OurTeams = () => {
                 </div>
               <Link to={`/ourteams/${slug(item.fullname)}`}>
               <div className="card">
-                  <img src={`http://localhost:3000/${item.coverImage.replace("\\", "/")}`} className="card-img-top" />
+                  <img src={`https://petpal-backend-en2xs.kinsta.app/${item.coverImage.replace(/\\/g, "/")}`} className="card-img-top" />
                   <div className="card-body">
                     <h5 className="card-title text-center">{item.fullname}</h5>
                     <p className="card-text text-center">{item.jobposition}</p>

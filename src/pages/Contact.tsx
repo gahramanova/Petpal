@@ -9,21 +9,23 @@ import { TiSocialFacebook } from "react-icons/ti";
 import { FaTwitter } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io";
 import { FaYoutube } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import axios from "axios";
+import { ApiEndPointContext } from "../context/ApiEndPointContext";
 
 const Contact = () => {
    const [generalInfo, setGeneralInfo] = useState([])
+   const {apiEndPoint, passValue} = useContext(ApiEndPointContext)
+    
   
-    useEffect(() => {
-      fetch("http://localhost:3000/ad/generalInfo")
-        .then(res => res.json())
-        .then(data => {
-          setGeneralInfo(data)
-        })
-  
-        .catch(error => console.log(error))
-  
-    }, [])
+   useEffect(() => {
+     axios.get(`${apiEndPoint}/ad/generalInfo`, {
+       headers: passValue
+     })
+     .then(res => {
+       setGeneralInfo(res.data)
+     })
+   }, []);
   return (
     <>
       <section className="contact-section-one">

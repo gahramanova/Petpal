@@ -1,7 +1,7 @@
 import { IoIosArrowForward } from "react-icons/io"
 import { Link, NavLink, useParams } from "react-router-dom"
 import animals from "../assets/img/animals.png"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import slug from "react-slugify"
 import Preloader from "../assets/components/Preloader"
 import { MdOutlineLocalPhone } from "react-icons/md"
@@ -10,6 +10,8 @@ import { GoMail } from "react-icons/go"
 import { FaShareAlt, FaTwitter, FaYoutube } from "react-icons/fa"
 import { TiSocialFacebook } from "react-icons/ti"
 import { IoLogoInstagram } from "react-icons/io5"
+import axios from "axios"
+import { ApiEndPointContext } from "../context/ApiEndPointContext"
 
 
 
@@ -26,27 +28,26 @@ const TeamDetails = () => {
       
       const [team, setTeam] = useState<TeamMember[]>([]);
     const [generalInfo, setGeneralInfo] = useState([])
+  const {apiEndPoint, passValue} = useContext(ApiEndPointContext)
+     
+   
+     useEffect(() => {
+       axios.get(`${apiEndPoint}/ad/team`, {
+         headers: passValue
+       })
+       .then(res => {
+         setTeam(res.data)
+       })
+     }, []);
 
 
     useEffect(() => {
-        fetch("http://localhost:3000/ad/team")
-            .then(res => res.json())
-            .then(data => {
-                setTeam(data)
-            })
-
-            .catch(error => console.log(error))
-    }, [])
-
-
-    useEffect(() => {
-        fetch("http://localhost:3000/ad/generalInfo")
-            .then(res => res.json())
-            .then(data => {
-                setGeneralInfo(data)
-            })
-
-            .catch(error => console.log(error))
+        axios.get(`${apiEndPoint}/ad/generalInfo`, {
+            headers: passValue
+          })
+          .then(res => {
+            setGeneralInfo(res.data)
+          })
 
     }, [])
 
@@ -79,7 +80,7 @@ const TeamDetails = () => {
                         <div className="container px-4 py-5">
                             <div className="row align-items-center g-5 py-5">
                                 <div className="col-12 col-sm-8 col-md-5 col-lg-5">
-                                    <img src={`http://localhost:3000/${teamDetails.coverImage.replace("\\", "/")}`} className="d-block mx-lg-auto team-photo img-fluid" alt="Bootstrap Themes" width={700} height={500} loading="lazy" />
+                                    <img src={`https://petpal-backend-en2xs.kinsta.app/${teamDetails.coverImage.replace("\\", "/")}`} className="d-block mx-lg-auto team-photo img-fluid" alt="Bootstrap Themes" width={700} height={500} loading="lazy" />
                                 </div>
                                 <div className="col-12 col-sm-4 col-md-7 col-lg-7">
                                     <h1 style={{ color: "#002169" }} className="display-5 fw-bold lh-3">{teamDetails.fullname}</h1>

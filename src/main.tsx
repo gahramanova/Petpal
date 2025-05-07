@@ -9,19 +9,22 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import "./assets/css/style.css"
 import { BrowserRouter } from 'react-router-dom';
 import { CartProvider } from "react-use-cart"
-import {WishlistProvider} from "react-use-wishlist"
+import { WishlistProvider } from "react-use-wishlist"
 import { CookiesProvider } from 'react-cookie'
+import { ApiEndPointProvider } from './context/ApiEndPointContext.tsx'
 
 createRoot(document.getElementById('root')!).render(
 
     <CookiesProvider defaultSetOptions={{ path: "/" }}>
-        <BrowserRouter>
-        <CartProvider>
-            <WishlistProvider>
-                <App />
-            </WishlistProvider>
-        </CartProvider>
-    </BrowserRouter>
+        <ApiEndPointProvider>
+            <BrowserRouter>
+                <CartProvider>
+                    <WishlistProvider>
+                        <App />
+                    </WishlistProvider>
+                </CartProvider>
+            </BrowserRouter>
+        </ApiEndPointProvider>
     </CookiesProvider>
 
 )

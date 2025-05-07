@@ -5,27 +5,30 @@ import Rating from "../assets/components/Rating";
 import { CiShoppingBasket } from "react-icons/ci";
 import { GoHeart } from "react-icons/go";
 import { useCart } from "react-use-cart";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import swal from "sweetalert"
 import { useWishlist } from "react-use-wishlist";
 import slug from "react-slugify";
+import axios from "axios";
+import { ApiEndPointContext } from "../context/ApiEndPointContext";
 
 
 
 const Shop = () => {
 
   const [product, setProduct] = useState([])
+  const {apiEndPoint, passValue} = useContext(ApiEndPointContext)
+  
 
   useEffect(() => {
-    fetch("http://localhost:3000/ad/product")
-      .then(res => res.json())
-      .then(data => {
-        setProduct(data)
-      })
-
-      .catch(error => console.log(error))
-
-  }, [])
+    axios.get(`${apiEndPoint}/ad/product`, {
+      headers: passValue
+    })
+    .then(res => {
+      setProduct(res.data)
+    })
+    .catch(error => console.log(error))
+  }, []);
 
   const { addItem } = useCart();
   const { addWishlistItem } = useWishlist();
@@ -80,7 +83,7 @@ const Shop = () => {
                   <div className="product-card card">
                     <div className="image-container">
                       <Link to={`/shop/${slug(item.name)}`}>
-                        <img src={`http://localhost:3000/${item.coverImg.replace("\\", "/")}`} className="card-img-top" alt="..." />
+                        <img src={`https://petpal-backend-en2xs.kinsta.app/${item.coverImg.replace(/\\/g, "/")}`}  className="card-img-top" alt="..." />
                         </Link>
                         <button onClick={() => {
                           addToCart(item);
