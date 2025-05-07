@@ -10,3 +10,36 @@
         color: #002169;
     }
 }
+.section-account-two {
+    .content {
+        width: 245px;
+        background-color: #002169;
+        border-radius: 10px;
+        padding: 25px;
+    
+        ul li {
+            list-style: none;
+            margin-top: 15px;
+            color: white;
+    
+    
+        }
+    }
+
+    .form-label {
+        color: #B1b5c3;
+        font-weight: 700;
+    }
+    
+    .update {
+        background-color: #002169;
+        color: white;
+        border-radius: 30px;
+        padding: 10px 25px;
+        font-weight: 600;
+    
+        &:hover {
+            border: 1px solid #002169;
+        }
+    }
+}

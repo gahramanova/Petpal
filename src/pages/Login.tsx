@@ -61,11 +61,11 @@ const Login = () => {
         <div className="container">
           <div className="d-flex justify-content-between align-items-center pt-5">
             <div>
-              <h1 className="fw-bold">Giriş</h1>
+              <h1 className="fw-bold">Login</h1>
               <ul className="nav">
-                <li><Link to="/" className="nav-link p-1">Əsas səhifə</Link> </li>
+                <li><Link to="/" className="nav-link p-1">Home</Link> </li>
                 <IoIosArrowForward style={{ alignSelf: "center" }} />
-                <li ><Link to="/login" className="nav-link p-1" style={{ color: "#894B8D" }}>Giriş</Link></li>
+                <li ><Link to="/login" className="nav-link p-1" style={{ color: "#894B8D" }}>Login</Link></li>
               </ul>
             </div>
             <div className="d-flex justify-content-end">
@@ -89,13 +89,13 @@ const Login = () => {
             px: 2
           }}
         >
-          <h2 className="fw-bold m-0 text-center" style={{color:"#002169"}}>Xoş gəlmisiniz!</h2>
+          <h2 className="fw-bold m-0 text-center" style={{color:"#002169"}}>Welcome!</h2>
           
           <TextField
             label="Email"
             name="email"  
             type="email"
-            placeholder="Email ünvanınızı daxil edin"
+            placeholder="Enter your email address"
             value={email}
             onChange={(e)=> {setEmail(e.target.value)}}
             required
@@ -107,10 +107,10 @@ const Login = () => {
           />
           
           <TextField
-            label="Şifrə"
+            label="Password"
             name="password"  
             type="password"
-            placeholder="Şifrənizi daxil edin"
+            placeholder="Enter your password"
             value={password}
             onChange={(e)=> {setPassword(e.target.value)}}
             required
@@ -122,11 +122,11 @@ const Login = () => {
           />
           
           <Button type="submit" variant="contained" sx={{ backgroundColor: "#002169", borderRadius: "33px", padding: "10px" }}>
-            Giriş
+            Login
           </Button>
 
-          <p className="text-center m-0">Hesabınız yoxdursa? <Link to={"/register"}>Hesab yaradın</Link></p>
-          <Link to="/forgotpassword"><p className="text-center">Şifrəni unutmusunuz?</p></Link>
+          <p className="text-center m-0">You don't have an account? <Link to={"/register"}>Create your account</Link></p>
+          <Link to="/forgotpassword"><p className="text-center">Forgot your password?</p></Link>
         </Box>
       </section>
     </>
