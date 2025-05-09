@@ -16,12 +16,6 @@ const MyAccount = () => {
   const navigate = useNavigate()
 
 
-  useEffect(() => {
-    if (!cookies.petpal) {
-      navigate("/login");
-    }
-  }, [cookies.petpal]);
-
   return (
     <>
       {!decodedToken ? (

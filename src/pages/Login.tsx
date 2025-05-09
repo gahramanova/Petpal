@@ -16,17 +16,6 @@ const Login = () => {
   const navigate = useNavigate();
 
 
-  // try {
-  //   const response = await fetch('http://localhost:3000/ad/login/login', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({
-  //       email: formData.email,
-  //       password: formData.password,
-  //     }),
-  //   });
   const loginSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     axios
@@ -37,23 +26,27 @@ const Login = () => {
           password: password,
         },
         {
+          withCredentials: true,  // Cookie-ləri göndərmək üçün
           headers: {
-            "petpal-token":"f20e26bb783ea89ef58823b877337a2e",
+            "petpal-access": "f20e26bb783ea89ef58823b877337a2e", // Tokeni buraya əlavə edin
           },
-        },
+        }
       )
       .then((res) => {
         if (res.status === 200 || res.status === 204) {
-          setCookie("petpal", res.data);
-          navigate("/myaccount");
+          setCookie("petpal", res.data, { path: "/" });  // Cookie təyin olunur
+          navigate("/myaccount");  // Yönləndirmə
         } else {
           swal("Email or password is wrong", "", "error");
         }
-      }).catch(err=>{
+      })
+      .catch((err) => {
+        console.log(err.response);
         swal("Email or password is wrong", "", "error");
       });
   };
   
+
 
   return (
     <>
@@ -89,15 +82,15 @@ const Login = () => {
             px: 2
           }}
         >
-          <h2 className="fw-bold m-0 text-center" style={{color:"#002169"}}>Welcome!</h2>
-          
+          <h2 className="fw-bold m-0 text-center" style={{ color: "#002169" }}>Welcome!</h2>
+
           <TextField
             label="Email"
-            name="email"  
+            name="email"
             type="email"
             placeholder="Enter your email address"
             value={email}
-            onChange={(e)=> {setEmail(e.target.value)}}
+            onChange={(e) => { setEmail(e.target.value) }}
             required
             sx={{
               '& .MuiOutlinedInput-root': {
@@ -105,14 +98,14 @@ const Login = () => {
               },
             }}
           />
-          
+
           <TextField
             label="Password"
-            name="password"  
+            name="password"
             type="password"
             placeholder="Enter your password"
             value={password}
-            onChange={(e)=> {setPassword(e.target.value)}}
+            onChange={(e) => { setPassword(e.target.value) }}
             required
             sx={{
               '& .MuiOutlinedInput-root': {
@@ -120,7 +113,7 @@ const Login = () => {
               },
             }}
           />
-          
+
           <Button type="submit" variant="contained" sx={{ backgroundColor: "#002169", borderRadius: "33px", padding: "10px" }}>
             Login
           </Button>

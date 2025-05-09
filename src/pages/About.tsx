@@ -31,14 +31,14 @@ const About = () => {
 
   useEffect(() => {
     axios.get(`${apiEndPoint}/ad/about`, {
-      headers: passValue
+      withCredentials: true,
     })
     .then(res => {
       setAbout(res.data)
     })
 
     axios.get(`${apiEndPoint}/ad/team`, {
-      headers: passValue
+      withCredentials: true,
     })
     .then(res => {
       setTeam(res.data)
@@ -46,7 +46,7 @@ const About = () => {
 
 
     axios.get(`${apiEndPoint}/ad/about/howWeCanHelp`, {
-      headers: passValue
+      withCredentials: true,
     })
     .then(res => {
       setHowWeCanHelp(res.data)

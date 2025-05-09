@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom"
 import animals from "../assets/img/animals.png"
 import { IoIosArrowForward } from "react-icons/io";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Box, TextField, Button } from '@mui/material';
+import axios from "axios";
+import { password } from "bun";
+import { ApiEndPointContext } from "../context/ApiEndPointContext";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +14,8 @@ const Register = () => {
     email: '',
     password: '',
   });
+    const { passValue} = useContext(ApiEndPointContext)
+  
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -19,7 +24,34 @@ const Register = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form data:', formData);
-    // Burada backend-ə göndərmə və s. edilə bilər
+
+    axios.post("https://petpal-backend-en2xs.kinsta.app/ad/user", {
+      name: formData.name,
+      surname: formData.surname,
+      email: formData.email,
+      password: formData.password
+    }, {
+      headers: {
+        ...passValue
+      },
+      withCredentials: true // bunu əlavə et!
+    })
+      .then((res: any) => {
+        swal({
+          title: "Resgistiration completed succesfully.",
+          icon: "success",
+
+        }).then((result) => {
+          window.location.assign('/login') // Yönləndiriləcək URL
+        });
+
+      }).catch(err => {
+        swal({
+          title: err.response.data,
+          icon: "error"
+        })
+
+      })
   };
 
   return (
@@ -42,80 +74,81 @@ const Register = () => {
         </div>
       </section>
       <section className="my-5">
-      <Box
-        component="form"
-        onSubmit={handleSubmit}
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 2,
-          width: { xs: '90%', sm: '70%', md: '50%', lg: '500px' },
-          mx: 'auto',
-          mt: 4,
-          px: 2}}
-      >
-        <h2 className="fw-bold m-0 text-center" style={{color:"#002169"}}>Create your account</h2>
-        <TextField
-          label="Name"
-          name="name"
-          type="text"
-          placeholder="Enter your name"
-          value={formData.email}
-          onChange={handleChange}
-          required
+        <Box
+          component="form"
+          onSubmit={handleSubmit}
           sx={{
-            '& .MuiOutlinedInput-root': {
-              borderRadius: '33px', // TextField-a border radius veririk
-            },
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 2,
+            width: { xs: '90%', sm: '70%', md: '50%', lg: '500px' },
+            mx: 'auto',
+            mt: 4,
+            px: 2
           }}
-        />
-            <TextField
-          label="Surname"
-          name="surname"
-          type="text"
-          placeholder="Enter your surname"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          sx={{
-            '& .MuiOutlinedInput-root': {
-              borderRadius: '33px', // TextField-a border radius veririk
-            },
-          }}
-        />
-             <TextField
-          label="Email"
-          name="email"
-          type="email"
-          placeholder="Enter your email address"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          sx={{
-            '& .MuiOutlinedInput-root': {
-              borderRadius: '33px', // TextField-a border radius veririk
-            },
-          }}
-        />
-        <TextField
-          label="Password"
-          name="password"
-          type="password"
-          placeholder="Enter your password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-          sx={{
-            '& .MuiOutlinedInput-root': {
-              borderRadius: '33px', // TextField-a border radius veririk
-            },
-          }}
-        />
-        <Button type="submit" variant="contained" sx={{backgroundColor:"#002169", borderRadius:"33px", padding:"10px"}}>
-          Login
-        </Button>
-        <p className="text-center">Already have an account? <Link to={"/login"}>Sign in</Link></p>
-      </Box>
+        >
+          <h2 className="fw-bold m-0 text-center" style={{ color: "#002169" }}>Create your account</h2>
+          <TextField
+            label="Name"
+            name="name"
+            type="text"
+            placeholder="Enter your name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                borderRadius: '33px', // TextField-a border radius veririk
+              },
+            }}
+          />
+          <TextField
+            label="Surname"
+            name="surname"
+            type="text"
+            placeholder="Enter your surname"
+            value={formData.surname}
+            onChange={handleChange}
+            required
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                borderRadius: '33px', // TextField-a border radius veririk
+              },
+            }}
+          />
+          <TextField
+            label="Email"
+            name="email"
+            type="email"
+            placeholder="Enter your email address"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                borderRadius: '33px', // TextField-a border radius veririk
+              },
+            }}
+          />
+          <TextField
+            label="Password"
+            name="password"
+            type="password"
+            placeholder="Enter your password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                borderRadius: '33px', // TextField-a border radius veririk
+              },
+            }}
+          />
+          <Button type="submit" variant="contained" sx={{ backgroundColor: "#002169", borderRadius: "33px", padding: "10px" }}>
+            Login
+          </Button>
+          <p className="text-center">Already have an account? <Link to={"/login"}>Sign in</Link></p>
+        </Box>
       </section>
     </>
   )
