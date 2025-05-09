@@ -1,21 +1,25 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import petpalLogo from "../assets/img/petpalLogo-footer.png"
 import { FaFacebookF, FaInstagram, FaTwitter, FaWhatsapp } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { ApiEndPointContext } from "../context/ApiEndPointContext"
+import axios from "axios"
 
 const Footer = () => {
 
 
+
   const [generalInfo, setGeneralInfo] = useState([])
+  const { apiEndPoint, passValue } = useContext(ApiEndPointContext)
 
   useEffect(() => {
-    fetch("http://localhost:3000/ad/generalInfo")
-      .then(res => res.json())
-      .then(data => {
-        setGeneralInfo(data)
+    axios.get(`${apiEndPoint}/generalInfo`, {
+      headers: passValue
+    })
+      .then(res => {
+        setGeneralInfo(res.data)
+        console.log(res.data)
       })
-
-      .catch(error => console.log(error))
 
   }, [])
   return (
@@ -26,7 +30,7 @@ const Footer = () => {
             <div className='container'>
               <div className="row">
                 <div className="col-12 col-sm-6 col-md-3 mb-3">
-                  <img src={`http://localhost:3000/${item.logoLight.replace("\\", "/")}`} style={{ width: "145px", height: "40px" }} className='mb-3' />
+                  <img src={`https://petpal-backend-en2xs.kinsta.app/${item.logoLight.replace("\\", "/")}`} style={{ width: "145px", height: "40px" }} className='mb-3' />
                   <ul className="nav flex-column">
                     <div className='content'>
                       <p className='footerColor'>{item.desc.slice(0,280)}...</p>

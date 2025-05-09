@@ -21,25 +21,26 @@ import { Link } from "react-router-dom";
 import sectionEight from "../assets/img/sectionEight.svg"
 import { TfiQuoteLeft } from "react-icons/tfi";
 import MotionCounter from "../assets/components/MotionCounter";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ApiEndPointContext } from "../context/ApiEndPointContext";
+import axios from "axios";
 
 
 
 const Home = () => {
 
+    const [team, setTeam] = useState([])
+    const {apiEndPoint, passValue} = useContext(ApiEndPointContext)
+    
   
-      const [team, setTeam] = useState([])
-    
-      useEffect(() => {
-        fetch("http://localhost:3000/ad/team")
-          .then(res => res.json())
-          .then(data => {
-            setTeam(data)
-          })
-    
-          .catch(error => console.log(error))
-    
-      }, [])
+    useEffect(() => {
+      axios.get(`${apiEndPoint}/team`, {
+        headers: passValue
+      })
+      .then(res => {
+        setTeam(res.data)
+      })
+    }, []);
   return (
     <>
       <section className='home-section-one'>
@@ -298,7 +299,7 @@ const Home = () => {
                   <img src={cardIcon} />
                 </div>
                 <div className="card">
-                  <img src={`http://localhost:3000/${item.coverImage.replace("\\", "/")}`} className="card-img-top" />
+                  <img src={`https://petpal-backend-en2xs.kinsta.app/${item.coverImage.replace("\\", "/")}`} className="card-img-top" />
                   <div className="card-body">
                     <h5 className="card-title text-center">{item.fullname}</h5>
                     <p className="card-text text-center">{item.jobposition}</p>

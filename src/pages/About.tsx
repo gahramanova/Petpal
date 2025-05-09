@@ -30,23 +30,24 @@ const About = () => {
   const {apiEndPoint, passValue} = useContext(ApiEndPointContext)
 
   useEffect(() => {
-    axios.get(`${apiEndPoint}/ad/about`, {
-      withCredentials: true,
+    axios.get(`${apiEndPoint}/about`, {
+      headers: passValue ,
     })
     .then(res => {
       setAbout(res.data)
+      console.log(res.data)
     })
 
-    axios.get(`${apiEndPoint}/ad/team`, {
-      withCredentials: true,
+    axios.get(`${apiEndPoint}/team`, {
+      headers: passValue ,
     })
     .then(res => {
       setTeam(res.data)
     })
 
 
-    axios.get(`${apiEndPoint}/ad/about/howWeCanHelp`, {
-      withCredentials: true,
+    axios.get(`${apiEndPoint}/howWeCanHelp`, {
+      headers: passValue ,
     })
     .then(res => {
       setHowWeCanHelp(res.data)

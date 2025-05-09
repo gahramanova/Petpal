@@ -32,7 +32,7 @@ const Header = () => {
   const { apiEndPoint, passValue } = useContext(ApiEndPointContext)
 
   useEffect(() => {
-    axios.get(`${apiEndPoint}/ad/generalInfo`, {
+    axios.get(`${apiEndPoint}/generalInfo`, {
       headers: passValue
     })
       .then(res => {

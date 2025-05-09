@@ -30,7 +30,7 @@ const ProductDetails = () => {
 
  
     useEffect(() => {
-        axios.get(`${apiEndPoint}/ad/product`, {
+        axios.get(`${apiEndPoint}/product`, {
           headers: passValue
         })
         .then(res => {

@@ -12,6 +12,7 @@ const Register = () => {
     name: '',
     surname: '',
     email: '',
+    phone: '',
     password: '',
   });
     const { passValue} = useContext(ApiEndPointContext)
@@ -29,6 +30,7 @@ const Register = () => {
       name: formData.name,
       surname: formData.surname,
       email: formData.email,
+      phone: formData.phone,
       password: formData.password
     }, {
       headers: {
@@ -108,6 +110,20 @@ const Register = () => {
             type="text"
             placeholder="Enter your surname"
             value={formData.surname}
+            onChange={handleChange}
+            required
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                borderRadius: '33px', // TextField-a border radius veririk
+              },
+            }}
+          />
+           <TextField
+            label="Phone number"
+            name="phone"
+            type="number"
+            placeholder="Enter your email address"
+            value={formData.phone}
             onChange={handleChange}
             required
             sx={{

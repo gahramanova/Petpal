@@ -19,7 +19,7 @@ const Contact = () => {
     
   
    useEffect(() => {
-     axios.get(`${apiEndPoint}/ad/generalInfo`, {
+     axios.get(`${apiEndPoint}/generalInfo`, {
        headers: passValue
      })
      .then(res => {

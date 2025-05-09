@@ -16,7 +16,7 @@ const OurTeams = () => {
     
   
     useEffect(() => {
-      axios.get(`${apiEndPoint}/ad/team`, {
+      axios.get(`${apiEndPoint}/team`, {
         headers: passValue
       })
       .then(res => {
