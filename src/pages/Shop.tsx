@@ -17,17 +17,17 @@ import { ApiEndPointContext } from "../context/ApiEndPointContext";
 const Shop = () => {
 
   const [product, setProduct] = useState([])
-  const {apiEndPoint, passValue} = useContext(ApiEndPointContext)
-  
+  const { apiEndPoint, passValue } = useContext(ApiEndPointContext)
+
 
   useEffect(() => {
     axios.get(`${apiEndPoint}/product`, {
       headers: passValue
     })
-    .then(res => {
-      setProduct(res.data)
-    })
-    .catch(error => console.log(error))
+      .then(res => {
+        setProduct(res.data)
+      })
+      .catch(error => console.log(error))
   }, []);
 
   const { addItem } = useCart();
@@ -83,42 +83,45 @@ const Shop = () => {
                   <div className="product-card card">
                     <div className="image-container">
                       <Link to={`/shop/${slug(item.name)}`}>
-                        <img src={`https://petpal-backend-en2xs.kinsta.app/${item.coverImg.replace(/\\/g, "/")}`}  className="card-img-top" alt="..." />
-                        </Link>
-                        <button onClick={() => {
-                          addToCart(item);
-                          swal({
-                            title: "Added to cart",
-                            icon: "success",
-                          });
-                        }} className="add-to-cart-btn d-flex justify-content-center align-items-center mx-2">
-                          <CiShoppingBasket style={{ width: "30px", height: "30px", fontWeight: "800" }} />
-                          Add to Cart</button>
-                        <button onClick={() => {
-                          addToWishlist(item)
-                          swal({
-                            title: "Added to wishlist",
-                            icon: "success",
-                          })
-                        }} className="wishlist-btn"><GoHeart style={{ width: "20px", height: "20px" }} /></button>
+                        <img src={`https://petpal-backend-en2xs.kinsta.app/${item.coverImg.replace(/\\/g, "/")}`} className="card-img-top" alt="..." />
+                      </Link>
+                      <button onClick={() => {
+                        addToCart(item);
+                        swal({
+                          title: "Added to cart",
+                          icon: "success",
+                        });
+                      }} className="add-to-cart-btn d-flex justify-content-center align-items-center mx-2">
+                        <CiShoppingBasket style={{ width: "30px", height: "30px", fontWeight: "800" }} />
+                        Add to Cart</button>
+                      <button onClick={() => {
+                        addToWishlist(item)
+                        swal({
+                          title: "Added to wishlist",
+                          icon: "success",
+                        })
+                      }} className="wishlist-btn"><GoHeart style={{ width: "20px", height: "20px" }} /></button>
                     </div>
                     <div className="card-body">
-                      <Rating />
+                      <div className='d-flex align-items-center'>
+                        <Rating />
+                        <p className='my-0 mx-2'>(7 Reviews)</p>
+                      </div>
                       <h5 className="card-title mt-3" style={{ color: "#445374" }}>
-                        {item.name}
+                        {item.name.slice(0, 30)}...
                       </h5>
                       <div className="d-flex align-items-center">
-                        <h4 className="fw-bold m-0" style={{ color: "#894B8D" }}>{item.price}$</h4>
-                        <s className="fw-bold mx-2" style={{ color: "#B9BDC8", fontSize: "23px" }}>{item.discount}$</s>
+                        <h4 className="fw-bold m-0" style={{ color: "#894B8D" }}>{item.discount}$</h4>
+                        <s className="fw-bold mx-2" style={{ color: "#B9BDC8", fontSize: "23px" }}>{item.price}$</s>
                       </div>
                     </div>
                   </div>
                 </div>
-          ))
-          ) : (<div>Loading...</div>)}
+              ))
+            ) : (<div>Loading...</div>)}
+          </div>
         </div>
-      </div>
-    </section >
+      </section >
 
     </>
   )

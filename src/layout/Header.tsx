@@ -186,7 +186,7 @@ const Header = () => {
 
                   <div className="offcanvas offcanvas-end" tabIndex={-1} id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
                     <div className="offcanvas-header border-bottom">
-                      <img src={`http://localhost:3000/${item.logoDark.replace("\\", "/")}`} className='mx-3 my-2 ' style={{ width: "170px", height: "50px", objectFit: "contain" }} />
+                      <img src={`https://petpal-backend-en2xs.kinsta.app/${item.logoDark.replace("\\", "/")}`} className='mx-3 my-2 ' style={{ width: "170px", height: "50px", objectFit: "contain" }} />
                       <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" />
                     </div>
                     <div className="offcanvas-body">
@@ -225,7 +225,7 @@ const Header = () => {
             <nav className="navbar navbar-expand-lg">
               <div className="container-fluid">
                 <NavLink to="/">
-                  <img src={`http://localhost:3000/${item.logoDark.replace("\\", "/")}`} width={170} height={40} />
+                  <img src={`https://petpal-backend-en2xs.kinsta.app/${item.logoLight.replace("\\", "/")}`} width={170} height={40} />
                 </NavLink>
                 <button
                   className="navbar-toggler"

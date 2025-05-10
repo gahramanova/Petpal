@@ -173,13 +173,17 @@ const ProductDetails = () => {
                                       }} className="wishlist-btn"><GoHeart style={{ width: "20px", height: "20px" }} /></button>
                                     </div>
                                     <div className="card-body">
-                                      <Rating />
+                                    <div className='d-flex align-items-center'>
+                                        <Rating />
+                                      <p className='my-0 mx-2'>(7 Reviews)</p>
+                                    </div>
                                       <h5 className="card-title mt-3" style={{ color: "#445374" }}>
-                                        {item.name}
+                                        {item.name.slice(0,20)}...
                                       </h5>
+                                      
                                       <div className="d-flex align-items-center">
-                                        <h4 className="fw-bold m-0" style={{ color: "#894B8D" }}>{item.price}$</h4>
-                                        <s className="fw-bold mx-2" style={{ color: "#B9BDC8", fontSize: "23px" }}>{item.discount}$</s>
+                                        <h4 className="fw-bold m-0" style={{ color: "#894B8D" }}>{item.discount}$</h4>
+                                        <s className="fw-bold mx-2" style={{ color: "#B9BDC8", fontSize: "23px" }}>{item.price}$</s>
                                       </div>
                                     </div>
                                   </div>

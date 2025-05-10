@@ -69,6 +69,15 @@
       }
 }
 
+@media (max-width: 995px) {
+  *{
+    overflow-x: hidden;
+  }
+  .about-image-two {
+    display: none;
+  }
+}
+
 .about-section-three {
     background-color:#F7F4F7;
 

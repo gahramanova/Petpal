@@ -10,6 +10,7 @@ import cardIcon from "../assets/img/cardIcon.svg"
 import MotionCounter from "../assets/components/MotionCounter";
 import { ApiEndPointContext } from "../context/ApiEndPointContext";
 import axios from "axios"
+import slugify from "react-slugify";
 
 
 const About = () => {
@@ -78,7 +79,7 @@ const About = () => {
       </section>
       <section className="about-section-two">
         <div className="container">
-          <div className="row">
+          <div className="row g-4">
 
             {about.map((item: any) => (
               <>
@@ -131,7 +132,7 @@ const About = () => {
                 amily and deserves ets are the best care.</p>
             </div>
           </div>
-          <div className="row">
+          <div className="row g-4">
 
             {howWeCanHelp.map((item: any) => (
               <div className="col-12 col-sm-6 col-md-4 col-lg-4">
@@ -208,14 +209,15 @@ const About = () => {
                   <div className="d-flex justify-content-end align-items-end">
                     <img src={cardIcon} />
                   </div>
-                  <div className="card">
-                    <img src={`https://petpal-backend-en2xs.kinsta.app/${item.coverImage.replace(/\\/g, "/")}`} className="card-img-top" />
-                    <div className="card-body">
-                      <h5 className="card-title text-center">{item.fullname}</h5>
-                      <p className="card-text text-center">{item.jobposition}</p>
+                   <Link style={{textDecoration:"none"}} to={`/ourteams/${slugify(item.fullname)}`}>
+              <div className="card">
+                  <img src={`https://petpal-backend-en2xs.kinsta.app/${item.coverImage.replace(/\\/g, "/")}`} className="card-img-top" />
+                  <div className="card-body">
+                    <h5 className="card-title text-center">{item.fullname}</h5>
+                    <p className="card-text text-center">{item.jobposition}</p>
 
-                    </div>
                   </div>
+                </div></Link>
                 </div>
               ))}
 

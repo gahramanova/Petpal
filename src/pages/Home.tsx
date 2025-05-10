@@ -25,6 +25,7 @@ import { useContext, useEffect, useState } from "react";
 import { ApiEndPointContext } from "../context/ApiEndPointContext";
 import axios from "axios";
 import TopToBtn from "../utils/TopToBtn"
+import slugify from "react-slugify";
 
 
 
@@ -98,12 +99,12 @@ const Home = () => {
                 </div>
               </div>
               <p style={{ color: "#445374", fontWeight: "500" }} className=" mt-3">We will work with you to develop individualised care plans, including management of chronic diseases. We are committed to being the region’s premier healthcare network providing patient centered care that inspires.</p>
-              <div className='d-flex align-items-center'>
+              <div className='d-flex align-items-center flex-wrap'>
                 <div><img src={signature} /></div>
                 <div className='vertical-two mx-4'></div>
                 <div className='d-flex align-items-center'>
                   <img src={review} width={140} height={50} />
-                  <div className='d-flex flex-column mx-3'>
+                  <div className='d-flex flex-column mx-3 mt-3'>
                     <div className="d-flex"><FaStar style={{ color: "#FFBE17" }} />
                       <FaStar style={{ color: "#FFBE17" }} />
                       <FaStar style={{ color: "#FFBE17" }} />
@@ -296,14 +297,15 @@ const Home = () => {
                 <div className="d-flex justify-content-end align-items-end">
                   <img src={cardIcon} />
                 </div>
-                <div className="card">
-                  <img src={`https://petpal-backend-en2xs.kinsta.app/${item.coverImage.replace("\\", "/")}`} className="card-img-top" />
+                   <Link onClick={TopToBtn} style={{textDecoration:"none"}} to={`/ourteams/${slugify(item.fullname)}`}>
+              <div className="card">
+                  <img src={`https://petpal-backend-en2xs.kinsta.app/${item.coverImage.replace(/\\/g, "/")}`} className="card-img-top" />
                   <div className="card-body">
                     <h5 className="card-title text-center">{item.fullname}</h5>
                     <p className="card-text text-center">{item.jobposition}</p>
 
                   </div>
-                </div>
+                </div></Link>
               </div>
               ))}
               
@@ -321,7 +323,7 @@ const Home = () => {
         <div className="container px-4 py-5">
           <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div className="col-12 col-sm-6 col-md-6 col-lg-6">
-              <img src={sectionEight} className="" alt="Bootstrap Themes" width={700} height={500} loading="lazy" />
+              <img src={sectionEight}  width={700} height={500} loading="lazy" />
             </div>
             <div className="col-12 col-sm-6 col-md-6 col-lg-6 d-flex justify-content-center align-items-center flex-column">
               <TfiQuoteLeft style={{ width: "80px", height: "80px", color: "#894B8D" }} />
