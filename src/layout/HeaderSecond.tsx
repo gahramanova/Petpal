@@ -12,6 +12,7 @@ import { FaUserCircle } from "react-icons/fa";
 import { useCookies } from "react-cookie";
 import { ApiEndPointContext } from "../context/ApiEndPointContext";
 import axios from "axios";
+import slugify from "react-slugify";
 
 
 
@@ -28,6 +29,9 @@ const HeaderSecond = () => {
 
   const [generalInfo, setGeneralInfo] = useState([])
   const { apiEndPoint, passValue } = useContext(ApiEndPointContext)
+   const [product, setProduct] = useState([])
+  const [query, setQuery] = useState("");
+
 
   useEffect(() => {
     axios.get(`${apiEndPoint}/generalInfo`, {
@@ -37,6 +41,14 @@ const HeaderSecond = () => {
         setGeneralInfo(res.data)
         console.log(res.data)
       })
+
+      axios.get(`${apiEndPoint}/product`, {
+        headers: passValue
+      })
+        .then(res => {
+          setProduct(res.data)
+        })
+        .catch(error => console.log(error))
 
   }, [])
   return (
@@ -69,7 +81,69 @@ const HeaderSecond = () => {
 
             <div className="d-flex col-12 col-md-4 justify-content-end text-end">
               <div className="d-flex align-items-center justify-content-between">
-                <IoIosSearch style={{ width: "36px", height: "36px", color: "#BFCDEB" }} className="mx-2" />
+                <button type="button" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><IoIosSearch style={{ width: "35px", height: "35px", color: "#BFCDEB" }} /></button>
+                 
+
+                    <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog">
+                      <div className="modal-content">
+                        <div className="modal-header">
+                          <h1 className="modal-title fs-5" id="exampleModalLabel">Search results</h1>
+                          <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
+                        </div>
+                        <div className="modal-body">
+                          <input
+                            onChange={(e) => setQuery(e.target.value)}
+                            type="text"
+                            className="form-control"
+                            placeholder={"Enter product name"}
+                          />
+
+                          <div>
+                            <ul className="list-group">
+                              {!query
+                                ? ""
+                                : product
+                                  .filter((p:any) => {
+                                    const title = p.name
+                                    return typeof title === "string"
+                                      ? title
+                                        .toLocaleLowerCase()
+                                        .includes(query.toLocaleLowerCase())
+                                      : false;
+                                  })
+                                  .map((item: any, index: number) => (
+                                    <Link 
+                                    style={{textDecoration:"none"}}
+                                      to={`/shop/${slugify(item.name)}`}
+                                      key={index}
+                                      onClick={() => {
+                                        const modal =
+                                          document.getElementById("searchModal");
+                                        const bootstrapModal =
+                                          window.bootstrap.Modal.getInstance(modal!);
+                                        bootstrapModal?.hide();
+                                      }}
+                                    >
+                                      <li className="list-group-item d-flex align-items-center my-2">
+                                        <img
+                                          src={`https://petpal-backend-en2xs.kinsta.app/${item.coverImg.replace(/\\/g, "/")}`} 
+                                          className="me-4"
+                                          style={{ width: "70px", height: "70px" }}
+                                        />
+                                        {item.name.slice(0,30)}...
+                                      </li>
+                                    </Link>
+                                  ))}
+                            </ul>
+                          </div>
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+          
                 <NavLink to={"/wishlist"}>
                   <button className="btn"><GoHeart style={{ width: "30px", height: "30px", color: "#BFCDEB" }} /></button>
                 </NavLink>

@@ -52,7 +52,7 @@ const OurTeams = () => {
                 <div className="d-flex justify-content-end align-items-end">
                   <img src={cardIcon} />
                 </div>
-              <Link to={`/ourteams/${slug(item.fullname)}`}>
+              <Link style={{textDecoration:"none"}} to={`/ourteams/${slug(item.fullname)}`}>
               <div className="card">
                   <img src={`https://petpal-backend-en2xs.kinsta.app/${item.coverImage.replace(/\\/g, "/")}`} className="card-img-top" />
                   <div className="card-body">
@@ -108,8 +108,11 @@ const OurTeams = () => {
             </div>
             <div className="d-flex justify-content-center align-items-center my-5">
               <p style={{ color: "#4D6496" }} className="m-0"><u>Our Valuable Expert Doctors Team</u></p>
-              <Link to="/contact" ><button className="btn see-all-doctors mx-3">Contact Us<FaArrowRightLong className="mx-2"/>
-              </button></Link>
+              
+              <Link style={{textDecoration:"none"}} to="/contact" >
+              <button className="btn see-all-doctors mx-3 d-flex align-items-center">Contact Us<FaArrowRightLong className="mx-2"/>
+              </button>
+              </Link>
             </div>
           </div>
       </div>

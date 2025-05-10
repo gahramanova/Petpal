@@ -24,6 +24,7 @@ import MotionCounter from "../assets/components/MotionCounter";
 import { useContext, useEffect, useState } from "react";
 import { ApiEndPointContext } from "../context/ApiEndPointContext";
 import axios from "axios";
+import TopToBtn from "../utils/TopToBtn"
 
 
 
@@ -65,10 +66,10 @@ const Home = () => {
                 />
                 Point
               </h1>
-              <p style={{ color: "#445374", fontWeight: "500" }}>Template Kit uses demo images from Envato Elements <br />Follower will need to license these images from Envato.</p>
+              <p style={{ color: "#445374", fontWeight: "500" }}>At Trusted Pet Care & Veterinary Center, your pet’s well-being is our top priority.</p>
               <div className="d-grid gap-2 d-md-flex justify-content-md-start">
-                <button type="button" className="btn me-md-2 read-more d-flex align-items-center">Read More <FaArrowRightLong className="mx-2" />
-                </button>
+                <Link style={{textDecoration:"none"}} to="/about"><button type="button" className="btn me-md-2 read-more d-flex align-items-center">Read More <FaArrowRightLong className="mx-2" />
+                </button></Link>
 
               </div>
             </div>
@@ -103,12 +104,12 @@ const Home = () => {
                 <div className='d-flex align-items-center'>
                   <img src={review} width={140} height={50} />
                   <div className='d-flex flex-column mx-3'>
-                    <div><FaStar style={{ color: "#FFBE17" }} />
+                    <div className="d-flex"><FaStar style={{ color: "#FFBE17" }} />
                       <FaStar style={{ color: "#FFBE17" }} />
                       <FaStar style={{ color: "#FFBE17" }} />
                       <FaStar style={{ color: "#FFBE17" }} />
                       <FaStar style={{ color: "#FFBE17" }} /></div>
-                    <div><p>4.7(1.567 Reviews)</p></div>
+                    <div ><p>4.7(1.567 Reviews)</p></div>
                   </div>
                 </div>
               </div>
@@ -151,9 +152,6 @@ const Home = () => {
             <div className='title'>
               <p>DELIVERING WORLD CLASS HOME CARE <i style={{ color: "#C2A8C2" }} className="fa-solid fa-paw mx-2"></i></p>
               <h2>Providing Our Best Pet Care & <br />Veterinary Services</h2>
-            </div>
-            <div>
-              <button className='btn all-services'>See All Services <FaArrowRightLong className='mx-2' /></button>
             </div>
           </div>
 
@@ -249,7 +247,7 @@ const Home = () => {
               <div className='d-flex'> <p className='fw-bold m-0' style={{ color: "#8FA5D6" }}>Your Trust Our Priority</p><span><i style={{ color: "#37528E" }} className="fa-solid fa-paw mx-2"></i></span></div>
               <h1 className='fw-bold text-light'>Professional Vest Care And Guaranteed Quality</h1>
               <p style={{ color: "#8FA5D6" }}>Duis aute irure dolor in repreerit in voluptate velit esse We understand that your furry friend treas ured member of your pets are.</p>
-              <button className='btn read-more  d-flex align-items-center'>Read More  <FaArrowRightLong className='mx-2' /></button>
+             <Link style={{textDecoration:"none"}} to="/ourteams" onClick={TopToBtn}> <button className='btn read-more  d-flex align-items-center'>Read More  <FaArrowRightLong className='mx-2' /></button></Link>
             </div>
 
             <div className='col-12 col-sm-5 col-md-5 col-lg-5'>
@@ -312,7 +310,7 @@ const Home = () => {
             </div>
             <div className="d-flex justify-content-center align-items-center my-5">
               <p style={{ color: "#4D6496" }} className="m-0"><u>Our Valuable Expert Doctors Team</u></p>
-              <Link to="/ourteams" style={{textDecoration:"none"}}><button className="btn see-all-doctors mx-3 d-flex align-items-center">See all doctors <FaArrowRightLong className="mx-2"/>
+              <Link onClick={TopToBtn} to="/ourteams" style={{textDecoration:"none"}}><button className="btn see-all-doctors mx-3 d-flex align-items-center">See all doctors <FaArrowRightLong className="mx-2"/>
               </button></Link>
             </div>
           </div>
@@ -329,7 +327,7 @@ const Home = () => {
               <TfiQuoteLeft style={{ width: "80px", height: "80px", color: "#894B8D" }} />
 
               <h4 className="fw-bold lh-1 mb-3 text-center mt-3" style={{ color: "#002168", fontWeight: "600" }}>Pet health important</h4>
-              <p className="lead" style={{ color: "#435273" }}><i>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eleifend ornare pharetra. Cras faucibus felis in felis congue, sed posuere dui eleifend. Duis sagittis vulputate purus et placerat. </i></p>
+              <p className="lead" style={{ color: "#435273" }}><i>Keeping your pet healthy is essential for their happiness and longevity. Regular check-ups, a balanced diet, exercise, and vaccinations help prevent illness and ensure a better quality of life. A healthy pet is a happy companion! </i></p>
             </div>
           </div>
         </div>
