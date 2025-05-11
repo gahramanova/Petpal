@@ -26,10 +26,15 @@ import { ApiEndPointContext } from "../context/ApiEndPointContext";
 import axios from "axios";
 import TopToBtn from "../utils/TopToBtn"
 import slugify from "react-slugify";
+import Aos from "aos";
 
 
 
 const Home = () => {
+
+    useEffect(() => {
+      Aos.init();
+    }, []);
 
     const [team, setTeam] = useState([])
     const {apiEndPoint, passValue} = useContext(ApiEndPointContext)
@@ -48,10 +53,10 @@ const Home = () => {
       <section className='home-section-one'>
         <div className='container'>
           <div className="row flex-lg-row-reverse align-items-center py-3">
-            <div className="col-10 col-sm-8 col-lg-5">
+            <div className="col-10 col-sm-8 col-lg-5" data-aos="fade-left" data-aos-duration="1500">
               <img src={homeSectionRightImg} className="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width={500} height={400} loading="lazy" />
             </div>
-            <div className="col-12 col-sm-4 col-lg-7">
+            <div className="col-12 col-sm-4 col-lg-7" data-aos="fade-up" data-aos-duration="1500">
               <div className='d-flex align-items-center'>
                 <h1 className="display-3 fw-bold titleColor lh-1">Trusted Pet</h1>
                 <img className='titleImg' src={sectionOneTitle} />
@@ -81,7 +86,7 @@ const Home = () => {
       <section className='home-section-two'>
         <div className="container px-4 py-5">
           <div className="row align-items-center g-5 py-5">
-            <div className="col-12 col-sm-6 col-lg-5">
+            <div className="col-12 col-sm-6 col-lg-5" data-aos="fade-right" data-aos-duration="2000">
               <img src={homeAboutImg} className="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width={700} height={500} loading="lazy" />
             </div>
             <div className="col-12 col-sm-6 col-lg-7">
@@ -210,7 +215,7 @@ const Home = () => {
 
         <div className="container px-4 py-5">
           <div className="row flex-lg align-items-center g-5 py-5">
-            <div className="col-12 col-sm-6 col-md-6 col-lg-6">
+            <div className="col-12 col-sm-6 col-md-6 col-lg-6" data-aos="flip-left" data-aos-duration= "1500">
               <img src={sectionFourImg} className="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" loading="lazy" width={700} height={700} />
             </div>
             <div className="col-12 col-sm-6 col-md-6 col-lg-6">
@@ -322,10 +327,10 @@ const Home = () => {
       <section className="home-section-eight">
         <div className="container px-4 py-5">
           <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
-            <div className="col-12 col-sm-6 col-md-6 col-lg-6">
+            <div className="col-12 col-sm-6 col-md-6 col-lg-6" data-aos="fade-left" data-aos-duration="1500">
               <img src={sectionEight}  width={700} height={500} loading="lazy" />
             </div>
-            <div className="col-12 col-sm-6 col-md-6 col-lg-6 d-flex justify-content-center align-items-center flex-column">
+            <div className="col-12 col-sm-6 col-md-6 col-lg-6 d-flex justify-content-center align-items-center flex-column" data-aos="fade-right" data-aos-duration="1500">
               <TfiQuoteLeft style={{ width: "80px", height: "80px", color: "#894B8D" }} />
 
               <h4 className="fw-bold lh-1 mb-3 text-center mt-3" style={{ color: "#002168", fontWeight: "600" }}>Pet health important</h4>

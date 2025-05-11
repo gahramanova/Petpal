@@ -11,6 +11,9 @@ import { useWishlist } from "react-use-wishlist";
 import slug from "react-slugify";
 import axios from "axios";
 import { ApiEndPointContext } from "../context/ApiEndPointContext";
+import Preloader from "../assets/components/Preloader";
+import TopToBtn from "../utils/TopToBtn"
+
 
 
 
@@ -82,7 +85,7 @@ const Shop = () => {
                 <div className="col-12 col-sm-6 col-md-3 col-lg-3">
                   <div className="product-card card">
                     <div className="image-container">
-                      <Link to={`/shop/${slug(item.name)}`}>
+                      <Link onClick={TopToBtn} to={`/shop/${slug(item.name)}`}>
                         <img src={`https://petpal-backend-en2xs.kinsta.app/${item.coverImg.replace(/\\/g, "/")}`} className="card-img-top" alt="..." />
                       </Link>
                       <button onClick={() => {
@@ -108,7 +111,7 @@ const Shop = () => {
                         <p className='my-0 mx-2'>(7 Reviews)</p>
                       </div>
                       <h5 className="card-title mt-3" style={{ color: "#445374" }}>
-                        {item.name.slice(0, 30)}...
+                        {item.name.slice(0, 40)}...
                       </h5>
                       <div className="d-flex align-items-center">
                         <h4 className="fw-bold m-0" style={{ color: "#894B8D" }}>{item.discount}$</h4>
@@ -118,7 +121,7 @@ const Shop = () => {
                   </div>
                 </div>
               ))
-            ) : (<div>Loading...</div>)}
+            ) : (<div><Preloader/></div>)}
           </div>
         </div>
       </section >

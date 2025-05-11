@@ -8,6 +8,7 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    overflow-x: hidden;
     .titleImg {
         margin-top: -50px;
     }
@@ -29,6 +30,7 @@
     background-image: url("../img/sectionTwoBackground.svg");
     background-position: center;
     background-size: cover;
+    overflow-x: hidden;
     .experience {
         position: relative;
         background-color: #894B8D;
@@ -85,7 +87,7 @@
     background-image: url("../img/sectionThreeBackground.svg");
     background-position: center;
     background-size: cover;
-    height: 100%;
+    overflow-x: hidden;
     .title {
         p {
             color: #894B8D;
@@ -137,6 +139,7 @@
 
 .home-section-five {
     background-color: #002168;
+    overflow-x: hidden;
     h2 {
         line-height: 40px;
     }
@@ -160,6 +163,7 @@
 }
 
 .home-section-seven {
+    overflow-x: hidden;
     .team {
         .card {
             border: none;
@@ -193,10 +197,5 @@
 .home-section-eight {
     background-color: #F7F4F7;
     width: 100%;
-}
-
-.home-section-nine {
-    .card {
-        background-color: #F7F4F7;
-    }
+    overflow-x: hidden;
 }

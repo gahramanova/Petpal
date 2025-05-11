@@ -16,7 +16,7 @@
     .image-gallery-demo {
         display: flex;
         align-items: center;
-        max-width: 900px;
+        max-width: 900px !important;
         height: auto;
 
         .image-gallery-right-nav,
@@ -41,19 +41,15 @@
         font-weight: 500;
         border-radius: 30px;
         width: 70%;
+        &:hover {
+            background-color: #002169;
+        }
     }
 
     .add-to-wishlist {
-        width: 50px;
-      height: 50px;
-      background-color: white;
-      border: 1px solid #ddd;
-      border-radius: 50%;
       cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
+      background-color: #F6F5F7;
+      border-radius: 30px;
       svg {
         width: 100px;
         height: 100px;

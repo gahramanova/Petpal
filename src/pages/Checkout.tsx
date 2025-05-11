@@ -4,6 +4,9 @@ import animals from "../assets/img/animals.png"
 import { FormControl, FormControlLabel, Radio, RadioGroup } from "@mui/material"
 import { useCart } from "react-use-cart"
 import { useRef } from "react"
+import { useCookies } from "react-cookie"
+import { useJwt } from "react-jwt"
+import Preloader from "../assets/components/Preloader"
 
 const Checkout = () => {
 
@@ -18,10 +21,17 @@ const Checkout = () => {
 
     const { items, cartTotal } = useCart()
 
+     const [cookies, removeCookie] = useCookies(["petpal"]);
+      const { decodedToken } = useJwt(cookies.petpal);
+
     return (
         <>
 
-            <section className="section-checkout-one">
+           {!decodedToken ? (
+            <Preloader/>
+           ) : (
+            <>
+             <section className="section-checkout-one">
                 <div className="container">
                     <div className="d-flex justify-content-between align-items-center pt-5">
                         <div>
@@ -49,27 +59,27 @@ const Checkout = () => {
                                 <div className="row g-3">
                                     <div className="col-12 col-sm-6 col-md-6 col-lg-6">
                                         <div className="input-group mb-3">
-                                            <input type="text" className="form-control" ref={nameRef} required placeholder="Your first name" aria-label="Your first name" aria-describedby="basic-addon2" />
+                                            <input type="text" className="form-control" ref={nameRef} required placeholder="Your first name" aria-label="Your first name" aria-describedby="basic-addon2" value={decodedToken.name}/>
                                         </div>
                                     </div>
                                     <div className="col-12 col-sm-6 col-md-6 col-lg-6">
                                         <div className="input-group mb-3">
-                                            <input type="text" className="form-control" ref={surnameRef} required placeholder="Your last name" aria-label="Your last name" aria-describedby="basic-addon2" />
+                                            <input type="text" className="form-control" ref={surnameRef} required placeholder="Your last name" aria-label="Your last name" aria-describedby="basic-addon2" value={decodedToken.surname}/>
                                         </div>
                                     </div>
                                     <div className="col-12 col-sm-6 col-md-6 col-lg-6">
                                         <div className="input-group mb-3">
-                                            <input type="text" className="form-control" ref={phoneRef} required placeholder="Phone number" aria-label="Phone number" aria-describedby="basic-addon2" />
+                                            <input type="text" className="form-control" ref={phoneRef} required placeholder="Phone number" aria-label="Phone number" aria-describedby="basic-addon2" value={decodedToken.phone}/>
                                         </div>
                                     </div>
                                     <div className="col-12 col-sm-6 col-md-6 col-lg-6">
                                         <div className="input-group mb-3">
-                                            <input type="text" className="form-control" ref={emailRef} required  placeholder="ZIP code" aria-label="ZIP code" aria-describedby="basic-addon2" />
+                                            <input type="text" className="form-control" ref={emailRef} required  placeholder="ZIP code" aria-label="ZIP code" aria-describedby="basic-addon2"/>
                                         </div>
                                     </div>
                                     <div className="col-12 col-sm-12 col-md-12 col-lg-12">
                                         <div className="input-group mb-3">
-                                            <input type="text" className="form-control" ref={addressRef} required placeholder="Address Details" aria-label="Address Details" aria-describedby="basic-addon2" />
+                                            <input type="text" className="form-control" ref={addressRef} required placeholder="Address Details" aria-label="Address Details" aria-describedby="basic-addon2"/>
                                         </div>
                                     </div>
                                 </div>
@@ -124,6 +134,8 @@ const Checkout = () => {
                     </div>
                 </div>
             </section>
+            </>
+           )}
         </>
     )
 }

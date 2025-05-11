@@ -19,11 +19,6 @@ const About = () => {
   }, []);
 
 
-
- 
-
-
-
   const [about, setAbout] = useState([])
   const [team, setTeam] = useState([])
   const [howWeCanHelp, setHowWeCanHelp] = useState([])
@@ -85,7 +80,7 @@ const About = () => {
               <>
                 <div className="col-12 col-sm-6 col-lg-6">
                   <div className="about-image">
-                    <img src={`https://petpal-backend-en2xs.kinsta.app/${item.images[0].replace(/\\/g, "/")}`} className="about-image-one" data-aos="fade-right" />
+                    <img src={`https://petpal-backend-en2xs.kinsta.app/${item.images[0].replace(/\\/g, "/")}`} className="about-image-one" data-aos="fade-right" data-aos-duration="1500"/>
                     <img src={`https://petpal-backend-en2xs.kinsta.app/${item.images[1].replace(/\\/g, "/")}`} className="about-image-two" />
                   </div>
                 </div>

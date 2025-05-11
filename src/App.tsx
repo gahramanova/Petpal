@@ -37,7 +37,9 @@ const App = () => {
     "/myaccount"
   ];
 
-  const showOnlySecondHeader = routerWithSecondHeader.includes(location.pathname)
+  const showOnlySecondHeader = routerWithSecondHeader.some(path =>
+  location.pathname.startsWith(path)
+);
   return (
     <div>
 
