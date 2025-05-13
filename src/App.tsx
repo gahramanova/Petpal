@@ -17,7 +17,6 @@ import ProductDetails from './pages/ProductDetails'
 import NotFound from './pages/NotFound'
 import Checkout from './pages/Checkout'
 import MyAccount from './pages/MyAccount'
-import PrivateRoute from './utils/PrivateRoute'
 
 const App = () => {
   const location = useLocation();
@@ -59,7 +58,6 @@ const App = () => {
         <Route path='/forgotpassword' element={<ForgotPassword />}></Route>
         <Route path="/checkout" element={<Checkout />}></Route>
         <Route path="/myaccount" element={<MyAccount />}></Route>
-
         <Route path='*' element={<NotFound />}></Route>
 
       </Routes>

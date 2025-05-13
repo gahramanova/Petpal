@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react"
-import petpalLogo from "../assets/img/petpalLogo-footer.png"
-import { FaFacebookF, FaInstagram, FaTwitter, FaWhatsapp } from 'react-icons/fa'
+import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { ApiEndPointContext } from "../context/ApiEndPointContext"
 import axios from "axios"

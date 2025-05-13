@@ -19,6 +19,7 @@ import slugify from "react-slugify";
 
 const Header = () => {
 
+
   const { totalItems } = useCart()
 
   const [open, setOpen] = useState(false); // Drawer'ın açık/kapalı durumunu kontrol etmek için
@@ -53,6 +54,9 @@ const Header = () => {
         .catch(error => console.log(error))
 
   }, [])
+
+
+
   return (
     <>
       <header className="px-1 py-3 header-top">
