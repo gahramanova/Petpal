@@ -7,7 +7,6 @@ import { RiLogoutCircleLine } from "react-icons/ri";
 import { useCookies } from "react-cookie";
 import { useJwt } from "react-jwt";
 import Preloader from "../assets/components/Preloader";
-import { useEffect } from "react";
 
 
 const MyAccount = () => {

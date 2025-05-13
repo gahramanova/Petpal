@@ -148,11 +148,7 @@ const Header = () => {
                                       to={`/shop/${slugify(item.name)}`}
                                       key={index}
                                       onClick={() => {
-                                        // const modal =
-                                        //   document.getElementById("searchModal");
-                                        // const bootstrapModal =
-                                        //   window.bootstrap.Modal.getInstance(modal!);
-                                        // bootstrapModal?.hide();
+                                    
                                       }}
                                     >
                                       <li className="list-group-item d-flex align-items-center">

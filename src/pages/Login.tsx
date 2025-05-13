@@ -12,7 +12,7 @@ const Login = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [setCookie] = useCookies(["petpal"]);
+  const [_cookies, setCookie] = useCookies(["petpal"]);
   const navigate = useNavigate();
 
 
