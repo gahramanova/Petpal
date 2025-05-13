@@ -4,7 +4,6 @@ import { IoIosArrowForward } from "react-icons/io";
 import { useContext, useState } from "react";
 import { Box, TextField, Button } from '@mui/material';
 import axios from "axios";
-import { password } from "bun";
 import { ApiEndPointContext } from "../context/ApiEndPointContext";
 
 const Register = () => {
@@ -38,12 +37,12 @@ const Register = () => {
       },
       withCredentials: true // bunu əlavə et!
     })
-      .then((res: any) => {
+      .then((_res: any) => {
         swal({
           title: "Resgistiration completed succesfully.",
           icon: "success",
 
-        }).then((result) => {
+        }).then((_result) => {
           window.location.assign('/login') // Yönləndiriləcək URL
         });
 

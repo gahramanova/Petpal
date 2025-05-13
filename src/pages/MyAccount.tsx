@@ -11,9 +11,20 @@ import { useEffect } from "react";
 
 
 const MyAccount = () => {
+
+   type DecodedToken = {
+    _id: string;
+        name: string;
+        surname: string;
+        phone: string;
+        email: string
+    };
+
   const [cookies, removeCookie] = useCookies(["petpal"]);
-  const { decodedToken } = useJwt(cookies.petpal);
+  const { decodedToken } = useJwt<DecodedToken>(cookies.petpal);
   const navigate = useNavigate()
+
+  
 
 
   return (
@@ -66,7 +77,7 @@ const MyAccount = () => {
                       
                         style={{ cursor: "pointer" }}
                         onClick={() => {
-                          removeCookie("petpal");
+                          removeCookie("petpal", { path: "/" });
                           localStorage.removeItem("userid");
                           navigate("/login")
                         }}
