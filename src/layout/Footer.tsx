@@ -47,11 +47,10 @@ const Footer = () => {
                   <h4 className='text-light fw-bold title'>Quick Links</h4>
                   <div className='empty'></div>
                   <ul className="nav flex-column">
-                    <li className="nav-item mb-2"><Link to="/allpets" className="nav-link p-0 footerColor">Animal Rescue</Link></li>
+                    <li className="nav-item mb-2"><Link to="/ourteams" className="nav-link p-0 footerColor">Animal Rescue</Link></li>
                     <li className="nav-item mb-2"><Link to="/contact" className="nav-link p-0 footerColor">Humane Education</Link></li>
-                    <li className="nav-item mb-2"><Link to="/allpets" className="nav-link p-0 footerColor">Animal Hospital</Link></li>
+                    <li className="nav-item mb-2"><Link to="/contact" className="nav-link p-0 footerColor">Animal Hospital</Link></li>
                     <li className="nav-item mb-2"><Link to="/contact" className="nav-link p-0 footerColor">Caregivers</Link></li>
-                    <li className="nav-item mb-2"><Link to="/blog" className="nav-link p-0 footerColor">New & Blog</Link></li>
                   </ul>
                 </div>
                 <div className="col-12 col-sm-6 col-md-3 mb-3">
@@ -61,7 +60,6 @@ const Footer = () => {
                     <li className="nav-item mb-2"><Link to='/about' className="nav-link p-0 footerColor">About Us</Link></li>
                     <li className="nav-item mb-2"><Link to='/contact' className="nav-link p-0 footerColor">Contact Us</Link></li>
                     <li className="nav-item mb-2"><Link to='/shop' className="nav-link p-0 footerColor">Shop</Link></li>
-                    <li className="nav-item mb-2"><Link to='/blog' className="nav-link p-0 footerColor">Blogs</Link></li>
                     <li className="nav-item mb-2"><Link to='/about' className="nav-link p-0 footerColor">Our teams</Link></li>
 
 
