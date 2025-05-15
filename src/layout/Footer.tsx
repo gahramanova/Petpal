@@ -17,7 +17,6 @@ const Footer = () => {
     })
       .then(res => {
         setGeneralInfo(res.data)
-        console.log(res.data)
       })
 
   }, [])

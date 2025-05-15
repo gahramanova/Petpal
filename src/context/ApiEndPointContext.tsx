@@ -12,8 +12,6 @@ export const ApiEndPointProvider = ({ children }:any) => {
         "petpal-auth-token": cookies.petpal    
     }
 
-     console.log("Petpal-cookies:", cookies.petpal)
-
     return <ApiEndPointContext.Provider value={{apiEndPoint, passValue}}>{children}</ApiEndPointContext.Provider>
 
 }

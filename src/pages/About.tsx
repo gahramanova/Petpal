@@ -31,7 +31,6 @@ const About = () => {
     })
     .then(res => {
       setAbout(res.data)
-      console.log(res.data)
     })
 
     axios.get(`${apiEndPoint}/team`, {

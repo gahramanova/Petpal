@@ -56,7 +56,6 @@ const HeaderSecond = () => {
     })
       .then(res => {
         setGeneralInfo(res.data)
-        console.log(res.data)
       })
 
     axios.get(`${apiEndPoint}/product`, {
