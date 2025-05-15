@@ -86,7 +86,7 @@ const Home = () => {
       <section className='home-section-two'>
         <div className="container px-4 py-5">
           <div className="row align-items-center g-5 py-5">
-            <div className="col-12 col-sm-6 col-lg-5" data-aos="fade-right" data-aos-duration="2000">
+            <div className="col-12 col-sm-6 col-lg-5" data-aos="fade-right" data-aos-duration="1500">
               <img src={homeAboutImg} className="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width={700} height={500} loading="lazy" />
             </div>
             <div className="col-12 col-sm-6 col-lg-7">

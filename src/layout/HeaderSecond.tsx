@@ -1,9 +1,9 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import darkLogo from "../assets/img/darkLogo.png"
 import { IoLockClosedOutline } from "react-icons/io5";
 import { CiShoppingBasket } from "react-icons/ci";
 import { IoIosSearch } from "react-icons/io";
-import { Drawer, List, ListItem, ListItemText } from "@mui/material";
+import { Drawer, List, ListItem, ListItemText, Modal, Box, Typography, TextField, ListItemAvatar, Avatar, IconButton } from "@mui/material";
 import { TbMenuDeep } from "react-icons/tb";
 import { useContext, useEffect, useState } from "react";
 import { GoHeart } from "react-icons/go";
@@ -13,6 +13,23 @@ import { useCookies } from "react-cookie";
 import { ApiEndPointContext } from "../context/ApiEndPointContext";
 import axios from "axios";
 import slugify from "react-slugify";
+import CloseIcon from "@mui/icons-material/Close";
+
+
+
+const modalStyle = {
+  position: "absolute" as const,
+  top: "22%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 500,
+  bgcolor: "background.paper",
+  borderRadius: 2,
+  boxShadow: 24,
+  p: 4,
+  maxHeight: "80vh",
+  overflowY: "auto"
+};
 
 
 
@@ -29,9 +46,9 @@ const HeaderSecond = () => {
 
   const [generalInfo, setGeneralInfo] = useState([])
   const { apiEndPoint, passValue } = useContext(ApiEndPointContext)
-   const [product, setProduct] = useState([])
+  const [product, setProduct] = useState([])
   const [query, setQuery] = useState("");
-
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get(`${apiEndPoint}/generalInfo`, {
@@ -42,15 +59,33 @@ const HeaderSecond = () => {
         console.log(res.data)
       })
 
-      axios.get(`${apiEndPoint}/product`, {
-        headers: passValue
+    axios.get(`${apiEndPoint}/product`, {
+      headers: passValue
+    })
+      .then(res => {
+        setProduct(res.data)
       })
-        .then(res => {
-          setProduct(res.data)
-        })
-        .catch(error => console.log(error))
+      .catch(error => console.log(error))
 
   }, [])
+
+  const [searchOpen, setSearchOpen] = useState(false);
+
+  const toggleSearch = () => {
+    setSearchOpen(!searchOpen);
+  };
+
+  const handleItemClick = (item: any) => {
+    navigate(`/shop/${slugify(item.name)}`);
+    setOpen(false); // Modalı bağla
+  };
+
+  const filteredProducts = query
+    ? product.filter((p: any) =>
+      p.name?.toLowerCase().includes(query.toLowerCase())
+    )
+    : [];
+
   return (
     <>
       <header className="header-version-one">
@@ -81,65 +116,45 @@ const HeaderSecond = () => {
 
             <div className="d-flex col-12 col-md-4 justify-content-end text-end">
               <div className="d-flex align-items-center justify-content-between">
-                <button type="button" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><IoIosSearch style={{ width: "35px", height: "35px", color: "#BFCDEB" }} /></button>
-                 
+                <button onClick={toggleSearch}><IoIosSearch style={{ width: "35px", height: "35px", color: "#686677" }} /></button>
 
-                    <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div className="modal-dialog">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h1 className="modal-title fs-5" id="exampleModalLabel">Search results</h1>
-                          <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
-                        </div>
-                        <div className="modal-body">
-                          <input
-                            onChange={(e) => setQuery(e.target.value)}
-                            type="text"
-                            className="form-control"
-                            placeholder={"Enter product name"}
-                          />
+                <Modal open={searchOpen} onClose={() => setSearchOpen(false)}>
+                  <Box sx={modalStyle}>
+                    <Box display="flex" justifyContent="space-between" alignItems="center">
+                      <Typography variant="h6">Search results</Typography>
+                      <IconButton onClick={() => setSearchOpen(false)}>
+                        <CloseIcon />
+                      </IconButton>
+                    </Box>
 
-                          <div>
-                            <ul className="list-group">
-                              {!query
-                                ? ""
-                                : product
-                                  .filter((p:any) => {
-                                    const title = p.name
-                                    return typeof title === "string"
-                                      ? title
-                                        .toLocaleLowerCase()
-                                        .includes(query.toLocaleLowerCase())
-                                      : false;
-                                  })
-                                  .map((item: any, index: number) => (
-                                    <Link 
-                                    style={{textDecoration:"none"}}
-                                      to={`/shop/${slugify(item.name)}`}
-                                      key={index}
-                                      onClick={() => {
+                    <TextField
+                      fullWidth
+                      margin="normal"
+                      placeholder="Enter product name"
+                      variant="outlined"
+                      value={query}
+                      onChange={(e) => setQuery(e.target.value)}
+                    />
 
-                                      }}
-                                    >
-                                      <li className="list-group-item d-flex align-items-center my-2">
-                                        <img
-                                          src={`https://petpal-backend-en2xs.kinsta.app/${item.coverImg.replace(/\\/g, "/")}`} 
-                                          className="me-4"
-                                          style={{ width: "70px", height: "70px" }}
-                                        />
-                                        {item.name.slice(0,30)}...
-                                      </li>
-                                    </Link>
-                                  ))}
-                            </ul>
-                          </div>
+                    <List>
+                      {filteredProducts.map((item: any, index: number) => (
+                        <ListItem key={index} onClick={() => handleItemClick(item)} component="li">
+                          <ListItemAvatar>
+                            <Avatar
+                              src={`https://petpal-backend-en2xs.kinsta.app/${item.coverImg.replace(
+                                /\\/g,
+                                "/"
+                              )}`}
+                              sx={{ width: 56, height: 56 }}
+                            />
+                          </ListItemAvatar>
+                          <ListItemText primary={`${item.name.slice(0, 30)}...`} />
+                        </ListItem>
+                      ))}
+                    </List>
+                  </Box>
+                </Modal>
 
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-          
                 <NavLink to={"/wishlist"}>
                   <button className="btn"><GoHeart style={{ width: "30px", height: "30px", color: "#BFCDEB" }} /></button>
                 </NavLink>

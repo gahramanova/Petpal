@@ -2,20 +2,34 @@ import { IoLocationOutline } from "react-icons/io5";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 import { TbClockHour3 } from "react-icons/tb";
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { IoIosSearch } from "react-icons/io";
 import { CiShoppingBasket } from "react-icons/ci";
 import { CgMenuCheese } from "react-icons/cg";
 import { LuCalendar1 } from "react-icons/lu";
-import { Drawer, List, ListItem, ListItemText } from "@mui/material";
+import { Drawer, List, ListItem, ListItemText, Modal, Box, Typography, TextField, ListItemAvatar, Avatar, IconButton } from "@mui/material";
 import { TbMenuDeep } from "react-icons/tb";
 import { useContext, useEffect, useState } from "react";
 import { useCart } from "react-use-cart";
 import axios from "axios";
 import { ApiEndPointContext } from "../context/ApiEndPointContext";
 import slugify from "react-slugify";
+import CloseIcon from "@mui/icons-material/Close";
 
 
+const modalStyle = {
+  position: "absolute" as const,
+  top: "22%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 500,
+  bgcolor: "background.paper",
+  borderRadius: 2,
+  boxShadow: 24,
+  p: 4,
+  maxHeight: "80vh",
+  overflowY: "auto"
+};
 
 const Header = () => {
 
@@ -34,6 +48,8 @@ const Header = () => {
   const { apiEndPoint, passValue } = useContext(ApiEndPointContext)
   const [product, setProduct] = useState([])
   const [query, setQuery] = useState("");
+  const navigate = useNavigate();
+
 
 
   useEffect(() => {
@@ -56,6 +72,22 @@ const Header = () => {
   }, [])
 
 
+  const [searchOpen, setSearchOpen] = useState(false);
+
+  const toggleSearch = () => {
+    setSearchOpen(!searchOpen);
+  };
+
+  const handleItemClick = (item: any) => {
+    navigate(`/shop/${slugify(item.name)}`);
+    setOpen(false); // Modalı bağla
+  };
+
+  const filteredProducts = query
+    ? product.filter((p: any) =>
+      p.name?.toLowerCase().includes(query.toLowerCase())
+    )
+    : [];
 
   return (
     <>
@@ -110,66 +142,45 @@ const Header = () => {
                 </ul>
                 <div className="col-12 col-sm-6 col-md-4 d-flex justify-content-end align-items-center gap-2">
 
-                  <button type="button" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><IoIosSearch style={{ width: "35px", height: "35px", color: "#686677" }} /></button>
+                  <button onClick={toggleSearch}><IoIosSearch style={{ width: "35px", height: "35px", color: "#686677" }} /></button>
 
                   {/* Modal */}
+                  <Modal open={searchOpen} onClose={() => setSearchOpen(false)}>
+                    <Box sx={modalStyle}>
+                      <Box display="flex" justifyContent="space-between" alignItems="center">
+                        <Typography variant="h6">Search results</Typography>
+                        <IconButton onClick={() => setSearchOpen(false)}>
+                          <CloseIcon />
+                        </IconButton>
+                      </Box>
 
-                  <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div className="modal-dialog">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h1 className="modal-title fs-5" id="exampleModalLabel">Search results</h1>
-                          <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
-                        </div>
-                        <div className="modal-body">
-                          <input
-                            onChange={(e) => setQuery(e.target.value)}
-                            type="text"
-                            className="form-control"
-                            placeholder={"Enter product name"}
-                          />
+                      <TextField
+                        fullWidth
+                        margin="normal"
+                        placeholder="Enter product name"
+                        variant="outlined"
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+                      />
 
-                          <div>
-                            <ul className="list-group">
-                              {!query
-                                ? ""
-                                : product
-                                  .filter((p:any) => {
-                                    const title = p.name
-                                    return typeof title === "string"
-                                      ? title
-                                        .toLocaleLowerCase()
-                                        .includes(query.toLocaleLowerCase())
-                                      : false;
-                                  })
-                                  .map((item: any, index: number) => (
-                                    <Link 
-                                    style={{textDecoration:"none"}}
-                                      to={`/shop/${slugify(item.name)}`}
-                                      key={index}
-                                      onClick={() => {
-                                    
-                                      }}
-                                    >
-                                      <li className="list-group-item d-flex align-items-center">
-                                        <img
-                                          src={`https://petpal-backend-en2xs.kinsta.app/${item.coverImg.replace(/\\/g, "/")}`} 
-                                          className="me-4"
-                                          style={{ width: "70px", height: "70px" }}
-                                        />
-                                        {item.name.slice(0,30)}...
-                                      </li>
-                                    </Link>
-                                  ))}
-                            </ul>
-                          </div>
-
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-
+                      <List>
+                        {filteredProducts.map((item: any, index: number) => (
+                          <ListItem key={index} onClick={() => handleItemClick(item)} component="li">
+                            <ListItemAvatar>
+                              <Avatar
+                                src={`https://petpal-backend-en2xs.kinsta.app/${item.coverImg.replace(
+                                  /\\/g,
+                                  "/"
+                                )}`}
+                                sx={{ width: 56, height: 56 }}
+                              />
+                            </ListItemAvatar>
+                            <ListItemText primary={`${item.name.slice(0, 30)}...`} />
+                          </ListItem>
+                        ))}
+                      </List>
+                    </Box>
+                  </Modal>
 
                   <NavLink to="/cart" className="position-relative">
                     <CiShoppingBasket style={{ width: "35px", height: "35px", color: "#686677" }} />
