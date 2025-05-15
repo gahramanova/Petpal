@@ -19,7 +19,7 @@ import CloseIcon from "@mui/icons-material/Close";
 
 const modalStyle = {
   position: "absolute" as const,
-  top: "22%",
+  top: "40%",
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 500,
